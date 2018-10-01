@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Petrol Hub",
+  "short_name": "Petrol Hub",
+  "version": "com.clevelandpetroleum.app",
+  "description": "A blank PhoneGap app.",
+  "author": "PhoneGap Team",
+  "icons": [],
+  "start_url": "index.html"
+}

@@ -1,0 +1,220 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "*-Info.plist": {
+        "parents": {
+          "NSCameraUsageDescription": [
+            {
+              "xml": "<string>For scanning truck barcodes</string>",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml"
+            }
+          ],
+          "NSLocationWhenInUseUsageDescription": [
+            {
+              "xml": "<string>For tracking deliveries</string>",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml"
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Directions\"><param name=\"ios-package\" value=\"Directions\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FCMPlugin\"><param name=\"ios-package\" value=\"FCMPlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"Printer\"><param name=\"ios-package\" value=\"APPPrinter\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*/Entitlements-Debug.plist": {
+        "parents": {
+          "aps-environment": [
+            {
+              "xml": "<string>development</string>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*/Entitlements-Release.plist": {
+        "parents": {
+          "aps-environment": [
+            {
+              "xml": "<string>production</string>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-directions": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-printer": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-barcodescanner.BarcodeScanner",
+      "file": "plugins/cordova-plugin-barcodescanner/www/barcodescanner.js",
+      "pluginId": "cordova-plugin-barcodescanner",
+      "clobbers": [
+        "cordova.plugins.barcodeScanner"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
+      ]
+    },
+    {
+      "id": "cordova-plugin-dialogs.notification",
+      "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+      "pluginId": "cordova-plugin-dialogs",
+      "merges": [
+        "navigator.notification"
+      ]
+    },
+    {
+      "id": "cordova-plugin-directions.Directions",
+      "file": "plugins/cordova-plugin-directions/www/directions.js",
+      "pluginId": "cordova-plugin-directions",
+      "clobbers": [
+        "directions"
+      ]
+    },
+    {
+      "id": "cordova-plugin-fcm.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm",
+      "clobbers": [
+        "FCMPlugin"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.Coordinates",
+      "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "Coordinates"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "PositionError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.Position",
+      "file": "plugins/cordova-plugin-geolocation/www/Position.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "Position"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-printer.Printer",
+      "file": "plugins/cordova-plugin-printer/www/printer.js",
+      "pluginId": "cordova-plugin-printer",
+      "clobbers": [
+        "plugin.printer",
+        "cordova.plugins.printer"
+      ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-compat": "1.2.0",
+    "cordova-plugin-barcodescanner": "0.7.4",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-dialogs": "2.0.1",
+    "cordova-plugin-directions": "0.4.4",
+    "cordova-plugin-fcm": "2.1.2",
+    "cordova-plugin-geolocation": "4.0.1",
+    "cordova-plugin-printer": "0.7.3",
+    "cordova-plugin-splashscreen": "5.0.2"
+  }
+}

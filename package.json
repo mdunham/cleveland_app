@@ -1,0 +1,34 @@
+{
+  "name": "com.clevelandpetroleum.app",
+  "version": "1.0.0",
+  "displayName": "Petrol Hub",
+  "cordova": {
+    "platforms": [
+      "browser",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-directions": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-barcodescanner": {},
+      "cordova-plugin-printer": {},
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-fcm": {}
+    }
+  },
+  "dependencies": {
+    "cordova-browser": "^5.0.4",
+    "cordova-ios": "^4.5.5",
+    "cordova-plugin-barcodescanner": "^0.7.4",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-directions": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+    "cordova-plugin-fcm": "^2.1.2",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-printer": "^0.7.3",
+    "cordova-plugin-splashscreen": "^5.0.2"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "_from": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+  "_id": "cordova-plugin-directions@0.4.4",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-directions",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+    "rawSpec": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+    "saveSpec": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+    "fetchSpec": "https://github.com/leecrossley/cordova-plugin-directions.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/leecrossley/cordova-plugin-directions.git#35b90f289d0e5d2bc2e5eff2b7b65a0cf4e54d78",
+  "_spec": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+  "_where": "/Users/mdunham/Projects/phonegap-apps/Petrol Hub",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/leecrossley/cordova-plugin-directions/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-directions",
+    "platforms": [
+      "ios",
+      "android",
+      "wp8"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Directions Plugin to utilise native maps for satnav style direction purposes (using latitude and longitude or address).",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/leecrossley/cordova-plugin-directions#readme",
+  "keywords": [
+    "cordova",
+    "direction",
+    "directions",
+    "map",
+    "maps",
+    "latitude",
+    "longitude",
+    "satnav",
+    "address",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-wp8"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-directions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leecrossley/cordova-plugin-directions.git"
+  },
+  "version": "0.4.4"
+}
