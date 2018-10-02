@@ -16,9 +16,6 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
-    "cordova-plugin-directions": {
-      "PACKAGE_NAME": "com.clevelandpetroleum.app"
-    },
     "cordova-plugin-fcm": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
@@ -29,6 +26,9 @@
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
     "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-directions": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },

@@ -27,6 +27,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-directions": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
   "dependent_plugins": {

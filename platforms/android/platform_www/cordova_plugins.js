@@ -33,14 +33,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-directions.Directions",
-    "file": "plugins/cordova-plugin-directions/www/directions.js",
-    "pluginId": "cordova-plugin-directions",
-    "clobbers": [
-      "directions"
-    ]
-  },
-  {
     "id": "cordova-plugin-fcm.FCMPlugin",
     "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
     "pluginId": "cordova-plugin-fcm",
@@ -78,6 +70,14 @@ module.exports = [
     "clobbers": [
       "navigator.splashscreen"
     ]
+  },
+  {
+    "id": "cordova-plugin-directions.Directions",
+    "file": "plugins/cordova-plugin-directions/www/directions.js",
+    "pluginId": "cordova-plugin-directions",
+    "clobbers": [
+      "directions"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -86,11 +86,11 @@ module.exports.metadata =
   "cordova-plugin-barcodescanner": "0.7.4",
   "cordova-plugin-device": "2.0.2",
   "cordova-plugin-dialogs": "2.0.1",
-  "cordova-plugin-directions": "0.4.4",
   "cordova-plugin-fcm": "2.1.2",
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-printer": "0.7.3",
-  "cordova-plugin-splashscreen": "5.0.2"
+  "cordova-plugin-splashscreen": "5.0.2",
+  "cordova-plugin-directions": "0.4.4"
 };
 // BOTTOM OF METADATA
 });

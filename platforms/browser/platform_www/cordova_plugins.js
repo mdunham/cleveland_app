@@ -68,6 +68,14 @@ module.exports = [
         "clobbers": [
             "FCMPlugin"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-directions/www/directions.js",
+        "id": "cordova-plugin-directions.Directions",
+        "pluginId": "cordova-plugin-directions",
+        "clobbers": [
+            "directions"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -80,7 +88,8 @@ module.exports.metadata =
     "cordova-plugin-printer": "0.7.3",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-dialogs": "2.0.1",
-    "cordova-plugin-fcm": "2.1.2"
+    "cordova-plugin-fcm": "2.1.2",
+    "cordova-plugin-directions": "0.4.4"
 }
 // BOTTOM OF METADATA
 });

@@ -55,6 +55,10 @@
             {
               "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Directions\"><param name=\"ios-package\" value=\"Directions\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -104,6 +108,9 @@
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
     "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-directions": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
@@ -189,6 +196,14 @@
       "clobbers": [
         "navigator.splashscreen"
       ]
+    },
+    {
+      "id": "cordova-plugin-directions.Directions",
+      "file": "plugins/cordova-plugin-directions/www/directions.js",
+      "pluginId": "cordova-plugin-directions",
+      "clobbers": [
+        "directions"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -199,6 +214,7 @@
     "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-printer": "0.7.3",
-    "cordova-plugin-splashscreen": "5.0.2"
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-directions": "0.4.4"
   }
 }

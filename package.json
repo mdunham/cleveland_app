@@ -15,7 +15,8 @@
       "cordova-plugin-printer": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-fcm": {}
+      "cordova-plugin-fcm": {},
+      "cordova-plugin-directions": {}
     }
   },
   "dependencies": {

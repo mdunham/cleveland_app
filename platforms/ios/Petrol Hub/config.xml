@@ -41,6 +41,9 @@
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Directions">
+        <param name="ios-package" value="Directions" />
+    </feature>
     <name>Petrol Hub</name>
     <description>
         Driver application for Cleveland Drivers

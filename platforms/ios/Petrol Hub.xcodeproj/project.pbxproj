@@ -45,6 +45,7 @@
 		E36CA5DB1EC1404089846C5C /* FCMPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A44BB1E2270742CAA1F43A7E /* FCMPlugin.m */; };
 		E515AC2619674DBF8345B522 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 115FF924353644A8B04C5A8F /* libiconv.dylib */; };
 		EA25DA97583A419C941762F1 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6631F7878F9476AA672216F /* FirebaseAnalytics.framework */; };
+		D2888139E2444E96A6083884 /* Directions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A24E539A384044B44E73AE /* Directions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,8 @@
 		F37865C7F42941D1AA532C19 /* CDVLocation.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; };
 		F6631F7878F9476AA672216F /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = "Petrol Hub/Plugins/cordova-plugin-fcm/FirebaseAnalytics.framework"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Petrol Hub/config.xml"; sourceTree = "<group>"; };
+		A2A24E539A384044B44E73AE /* Directions.m */ = {isa = PBXFileReference; name = "Directions.m"; path = "cordova-plugin-directions/Directions.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5E4457255E2140408DAEDE46 /* Directions.h */ = {isa = PBXFileReference; name = "Directions.h"; path = "cordova-plugin-directions/Directions.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +302,8 @@
 				95428CED42154C429DB4AD3B /* CDVViewController+SplashScreen.m */,
 				1C71931A452C4BE985C2E64C /* CDVSplashScreen.h */,
 				C387FCE9E4EB428590E1A0CB /* CDVViewController+SplashScreen.h */,
+				A2A24E539A384044B44E73AE /* Directions.m */,
+				5E4457255E2140408DAEDE46 /* Directions.h */,
 			);
 			name = Plugins;
 			path = "Petrol Hub/Plugins";
@@ -440,6 +445,7 @@
 				06DFF7E49D8944C198BF1C39 /* APPPrinter.m in Sources */,
 				C36AC31EB4BA488DBA622203 /* CDVSplashScreen.m in Sources */,
 				D86F7E58273C4CD596556541 /* CDVViewController+SplashScreen.m in Sources */,
+				D2888139E2444E96A6083884 /* Directions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -76,4 +76,5 @@
     <engine name="browser" spec="^5.0.4" />
     <engine name="ios" spec="^4.5.5" />
     <engine name="android" spec="~6.3.0" />
+    <plugin name="cordova-plugin-directions" spec="^0.4.4" />
 </widget>
