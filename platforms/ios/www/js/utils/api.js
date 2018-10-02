@@ -116,7 +116,7 @@ var Api = (function(){
 							window.currentUser = response.user;
 							Api.post(App.Settings.apiUrl + '/push-tokens/add.json', {
 								user_id: window.currentUser.id,
-								token: token
+								token: window.pushToken
 							}, function(response){});
 							App.Storage.setItem('auth-saved', 'true');
 							App.Storage.setItem('Auth', JSON.stringify(App.DB['Auth']));

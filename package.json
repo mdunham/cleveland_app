@@ -5,7 +5,8 @@
   "cordova": {
     "platforms": [
       "browser",
-      "ios"
+      "ios",
+      "android"
     ],
     "plugins": {
       "cordova-plugin-splashscreen": {},
@@ -19,6 +20,7 @@
     }
   },
   "dependencies": {
+    "cordova-android": "^6.3.0",
     "cordova-browser": "^5.0.4",
     "cordova-ios": "^4.5.5",
     "cordova-plugin-barcodescanner": "^0.7.4",

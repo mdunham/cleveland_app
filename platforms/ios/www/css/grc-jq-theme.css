@@ -1514,3 +1514,8 @@ canvas#signiture {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+.ui-header a {
+    background: none!important;
+    border: none!important;
+}

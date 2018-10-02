@@ -4,8 +4,8 @@
   "name": "Petrol Hub",
   "short_name": "Petrol Hub",
   "version": "com.clevelandpetroleum.app",
-  "description": "A blank PhoneGap app.",
-  "author": "PhoneGap Team",
+  "description": "Driver application for Cleveland Drivers",
+  "author": "Hot Coffey Design",
   "icons": [],
   "start_url": "index.html"
 }

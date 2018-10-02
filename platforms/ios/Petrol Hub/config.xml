@@ -46,10 +46,10 @@
     </feature>
     <name>Petrol Hub</name>
     <description>
-        A blank PhoneGap app.
+        Driver application for Cleveland Drivers
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="matt@hotcoffeydesign.com" href="http://hotcoffeydesign.com">
+        Hot Coffey Design
     </author>
     <content src="index.html" />
     <access origin="*" />
