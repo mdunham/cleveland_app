@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "961485093657",
+    "firebase_url": "https://cleveland-driver.firebaseio.com",
+    "project_id": "cleveland-driver",
+    "storage_bucket": "cleveland-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961485093657:android:f75516547f761755",
+        "android_client_info": {
+          "package_name": "com.clevelandpetroleum.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961485093657-65tps7fkob8gfej03die71t2dlr2kso4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIGt4ayE97iYC3_x7y3G6zC3qGPdPQIvE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
