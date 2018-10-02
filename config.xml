@@ -67,7 +67,6 @@
     </edit-config>
     <preference name="SplashScreenDelay" value="4000" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
-    <plugin name="cordova-plugin-directions" spec="git+https://github.com/leecrossley/cordova-plugin-directions.git" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-barcodescanner" spec="^0.7.4" />
     <plugin name="cordova-plugin-printer" spec="^0.7.3" />
@@ -76,5 +75,5 @@
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <engine name="browser" spec="^5.0.4" />
     <engine name="ios" spec="^4.5.5" />
-    <engine name="android" spec="^6.3.0" />
+    <engine name="android" spec="~6.3.0" />
 </widget>

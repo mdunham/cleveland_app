@@ -19,7 +19,6 @@
 		36167162A2544851A835D7F7 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D06A21AA67974C968DE2DFFC /* GoogleInterchangeUtilities.framework */; };
 		4D0165A4C64541A7B3C82475 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D17528E8F14FC593C5DA8D /* GoogleUtilities.framework */; };
 		4E92BC836411499EBB566F8B /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 579406E8B7E5416EBDA0FE7D /* CDVNotification.m */; };
-		4F92DCA0E3E24D43A8607999 /* Directions.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56A25482374EC9848CBEF4 /* Directions.m */; };
 		579890FDC8DA4B8E97907307 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588C03ED7B834D04AC09D81F /* CoreLocation.framework */; };
 		5D5D9D64227C41BBB118840B /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF2E812EBD4448B9D210044 /* FirebaseMessaging.framework */; };
 		669FCF36448A45B881E1170F /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B20BC058A03423F8C2F0994 /* CDVDevice.m */; };
@@ -111,7 +110,6 @@
 		7141EBC81D7A43898AD7D6FD /* CDVLocation.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVLocation.m; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; };
 		76E9CDE946454F37BA6B5177 /* GoogleService-Info.plist */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7AE8DE32229B490484EDCE51 /* CoreVideo.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		7CA9F0B3116B4741AF04BED3 /* Directions.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Directions.h; path = "cordova-plugin-directions/Directions.h"; sourceTree = "<group>"; };
 		84D94AF5BA50470088519D90 /* APPPrinter.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = APPPrinter.m; path = "cordova-plugin-printer/APPPrinter.m"; sourceTree = "<group>"; };
 		87876F3F6B9A4BC9AEAB9EC3 /* APPPrinter.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = APPPrinter.h; path = "cordova-plugin-printer/APPPrinter.h"; sourceTree = "<group>"; };
 		8B074B8D9B9D41CC8F8F0959 /* CDVNotification.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		B01A34547E994E3ABCCF296E /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = "Petrol Hub/Plugins/cordova-plugin-fcm/FirebaseInstanceID.framework"; sourceTree = "<group>"; };
 		BA36755B819E4F598F79C441 /* zxing-all-in-one.cpp */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "zxing-all-in-one.cpp"; path = "cordova-plugin-barcodescanner/zxing-all-in-one.cpp"; sourceTree = "<group>"; };
 		BC453E49D4DC455C9B76E523 /* AVFoundation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		BD56A25482374EC9848CBEF4 /* Directions.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = Directions.m; path = "cordova-plugin-directions/Directions.m"; sourceTree = "<group>"; };
 		C387FCE9E4EB428590E1A0CB /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; };
 		C7F33C474EF04D9F88260495 /* scannerOverlay.xib */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = file.xib; path = scannerOverlay.xib; sourceTree = "<group>"; };
 		C92EE376EB58409F957A946E /* zxing-all-in-one.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "zxing-all-in-one.h"; path = "cordova-plugin-barcodescanner/zxing-all-in-one.h"; sourceTree = "<group>"; };
@@ -289,8 +286,6 @@
 				1CACABC0515B46DFB1552C4E /* CDVDevice.h */,
 				579406E8B7E5416EBDA0FE7D /* CDVNotification.m */,
 				8B074B8D9B9D41CC8F8F0959 /* CDVNotification.h */,
-				BD56A25482374EC9848CBEF4 /* Directions.m */,
-				7CA9F0B3116B4741AF04BED3 /* Directions.h */,
 				A44BB1E2270742CAA1F43A7E /* FCMPlugin.m */,
 				01D6DD0082224DF790CB0FB9 /* AppDelegate+FCMPlugin.m */,
 				429DC4F122BA49548997FDF9 /* FCMPlugin.h */,
@@ -439,7 +434,6 @@
 				E0791D4F26EA460C94F6B64A /* zxing-all-in-one.cpp in Sources */,
 				669FCF36448A45B881E1170F /* CDVDevice.m in Sources */,
 				4E92BC836411499EBB566F8B /* CDVNotification.m in Sources */,
-				4F92DCA0E3E24D43A8607999 /* Directions.m in Sources */,
 				E36CA5DB1EC1404089846C5C /* FCMPlugin.m in Sources */,
 				1E229DFADA38471C92D86E89 /* AppDelegate+FCMPlugin.m in Sources */,
 				96BA74C5DE474D8382CC9CA9 /* CDVLocation.m in Sources */,

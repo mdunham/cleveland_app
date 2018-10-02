@@ -41,10 +41,6 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"Directions\"><param name=\"ios-package\" value=\"Directions\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"FCMPlugin\"><param name=\"ios-package\" value=\"FCMPlugin\" /></feature>",
               "count": 1
             },
@@ -98,9 +94,6 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
-    "cordova-plugin-directions": {
-      "PACKAGE_NAME": "com.clevelandpetroleum.app"
-    },
     "cordova-plugin-fcm": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
@@ -138,14 +131,6 @@
       "pluginId": "cordova-plugin-dialogs",
       "merges": [
         "navigator.notification"
-      ]
-    },
-    {
-      "id": "cordova-plugin-directions.Directions",
-      "file": "plugins/cordova-plugin-directions/www/directions.js",
-      "pluginId": "cordova-plugin-directions",
-      "clobbers": [
-        "directions"
       ]
     },
     {
@@ -211,7 +196,6 @@
     "cordova-plugin-barcodescanner": "0.7.4",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-dialogs": "2.0.1",
-    "cordova-plugin-directions": "0.4.4",
     "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-printer": "0.7.3",

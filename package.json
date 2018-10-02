@@ -10,7 +10,6 @@
     ],
     "plugins": {
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-directions": {},
       "cordova-plugin-device": {},
       "cordova-plugin-barcodescanner": {},
       "cordova-plugin-printer": {},
@@ -27,7 +26,7 @@
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-dialogs": "^2.0.1",
-    "cordova-plugin-directions": "git+https://github.com/leecrossley/cordova-plugin-directions.git",
+    "cordova-plugin-directions": "^0.4.4",
     "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-printer": "^0.7.3",

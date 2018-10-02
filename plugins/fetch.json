@@ -7,14 +7,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-directions": {
-    "source": {
-      "type": "registry",
-      "id": "git+https://github.com/leecrossley/cordova-plugin-directions.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-device": {
     "source": {
       "type": "registry",
@@ -67,6 +59,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-fcm"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-directions": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-directions"
     },
     "is_top_level": true,
     "variables": {}

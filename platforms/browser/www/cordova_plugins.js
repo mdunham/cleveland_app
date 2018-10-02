@@ -15,14 +15,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-directions/www/directions.js",
-        "id": "cordova-plugin-directions.Directions",
-        "pluginId": "cordova-plugin-directions",
-        "clobbers": [
-            "directions"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-device/www/device.js",
         "id": "cordova-plugin-device.device",
         "pluginId": "cordova-plugin-device",
@@ -82,7 +74,6 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-splashscreen": "5.0.2",
-    "cordova-plugin-directions": "0.4.4",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-compat": "1.2.0",
     "cordova-plugin-barcodescanner": "0.7.4",
