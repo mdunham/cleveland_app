@@ -9,6 +9,9 @@
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
+    <feature name="Directions">
+        <param name="android-package" value="uk.co.ilee.directions.Directions" />
+    </feature>
     <feature name="FCMPlugin">
         <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
         <param name="onload" value="true" />
@@ -23,8 +26,9 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Directions">
-        <param name="android-package" value="uk.co.ilee.directions.Directions" />
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
     </feature>
     <name>Petrol Hub</name>
     <description>
@@ -41,6 +45,7 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>For tracking deliveries</string>
     </edit-config>
+    <allow-navigation href="*" />
     <icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
     <icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
     <icon qualifier="hdpi" src="res/icons/android/drawable-hdpi-icon.png" />

@@ -43,7 +43,7 @@ var Application = function(){
 		 * @returns {undefined}
 		 */
 		log = function () {
-			console.log.apply(window, arguments);
+			//console.log.apply(window, arguments);
 		},
 
 		/**

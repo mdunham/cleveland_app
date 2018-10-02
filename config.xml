@@ -75,9 +75,10 @@
     <platform name="android">
         <resource-file src="google-services.json" target="/google-services.json" />
     </platform>
+    <allow-navigation href="*" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-directions" spec="^0.4.4" />
     <engine name="browser" spec="^5.0.4" />
     <engine name="ios" spec="^4.5.5" />
-    <engine name="android" spec="^6.3.0" />
+    <engine name="android" spec="~6.3.0" />
 </widget>
