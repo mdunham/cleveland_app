@@ -59,6 +59,7 @@
     <splash qualifier="port-xhdpi" src="res/screens/android/drawable-port-xhdpi-screen.png" />
     <splash qualifier="port-xxhdpi" src="res/screens/android/drawable-port-xxhdpi-screen.png" />
     <splash qualifier="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
+    <resource-file src="google-services.json" target="/google-services.json" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="BackupWebStorage" value="local" />
     <preference name="ShowSplashScreenSpinner" value="false" />

@@ -72,6 +72,9 @@
     <plugin name="cordova-plugin-printer" spec="^0.7.3" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
+    <platform name="android">
+        <resource-file src="google-services.json" target="/google-services.json" />
+    </platform>
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-directions" spec="^0.4.4" />
     <engine name="browser" spec="^5.0.4" />
