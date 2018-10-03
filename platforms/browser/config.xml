@@ -15,6 +15,7 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>For tracking deliveries</string>
     </edit-config>
+    <allow-navigation href="*" />
     <preference name="BackupWebStorage" value="local" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashScreenDelay" value="4000" />

@@ -33,6 +33,7 @@ var Application = function(){
 		 * @returns void
 		 */
 		initialView = function () {
+			console.log('initialView fired');
 			window.location.hash = 'page-index';
 			$.mobile.initializePage();
 		},
@@ -43,7 +44,7 @@ var Application = function(){
 		 * @returns {undefined}
 		 */
 		log = function () {
-			console.log.apply(window, arguments);
+			
 		},
 
 		/**
@@ -131,7 +132,6 @@ var Application = function(){
 						from = typeof ui.prevPage === 'string' ? getPage(ui.prevPage) : typeof ui.prevPage === 'object' ? ui.prevPage : false,
 						to = typeof ui.toPage === 'string' ? getPage(ui.toPage) : typeof ui.toPage === 'object' ? ui.toPage : false;
 							
-					console.log('Authed: ' + (window.authed ? 'Yes': 'No') + ' | Require Auth: ' + (to && to.data('auth') ? 'Yes' : 'No'));
 					if (to && to.data('auth') && ! window.authed) {
 						window.authto = to.attr('id');
 						$.mobile.changePage('#page-login', {
@@ -149,6 +149,9 @@ var Application = function(){
 					}
 					
 					if (from && false !== (fromController = loadController(from.data('controller')))) {
+						if (to && to.data('controller') && to.data('controller') === from.data('controller')) {
+							return true;
+						}
 						console.log('trigger hide on ' + from.data('controller'),fromController);
 						if (typeof fromController['trigger'] === 'function') {
 							fromController.trigger('hide', from);
@@ -205,7 +208,6 @@ var Application = function(){
 	}
 
 	window.GeoUpdateError = function(error) {
-		console.log('Geo error');
 		navigator.geolocation.clearWatch(window.watchID);
 		setTimeout(function(){
 			window.watchID = navigator.geolocation.watchPosition(window.GeoUpdate, window.GeoUpdateError, { timeout: 30000, enableHighAccuracy: true });

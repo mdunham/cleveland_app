@@ -83,12 +83,6 @@
 			// jQuery Mobile Init
 			$(document).one('mobileinit', onLoad);
 			
-			// Make the header return home
-			$(document).on('click', 'h1.ui-title', function(e){
-				e.preventDefault();
-				$.mobile.navigate('#page-index');
-			});
-			
 			// Setup cordova event listeners
 			document.addEventListener('deviceready', onLoad, false);
 			document.addEventListener('pause', EventHandler, false);

@@ -72,6 +72,20 @@ module.exports = [
     ]
   },
   {
+    "id": "es6-promise-plugin.Promise",
+    "file": "plugins/es6-promise-plugin/www/promise.js",
+    "pluginId": "es6-promise-plugin",
+    "runs": true
+  },
+  {
+    "id": "cordova-plugin-screen-orientation.screenorientation",
+    "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+    "pluginId": "cordova-plugin-screen-orientation",
+    "clobbers": [
+      "cordova.plugins.screenorientation"
+    ]
+  },
+  {
     "id": "cordova-plugin-splashscreen.SplashScreen",
     "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
     "pluginId": "cordova-plugin-splashscreen",
@@ -90,6 +104,8 @@ module.exports.metadata =
   "cordova-plugin-fcm": "2.1.2",
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-printer": "0.7.3",
+  "es6-promise-plugin": "4.2.2",
+  "cordova-plugin-screen-orientation": "3.0.1",
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-whitelist": "1.3.3"
 };

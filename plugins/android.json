@@ -28,6 +28,9 @@
     "cordova-plugin-printer": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
@@ -35,5 +38,9 @@
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    }
+  }
 }
