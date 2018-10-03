@@ -158,6 +158,13 @@ var Application = function(){
 						}
 					}
 					break;
+				case 'pagecontainershow':
+					var activeController = loadController(
+						$.mobile.pageContainer.pagecontainer("getActivePage").data('controller')
+					);
+					
+					activeController.trigger('onshow');
+					break;
 				case 'loadcomplete':
 					// Application has fully loaded.
 					setTimeout(function(){

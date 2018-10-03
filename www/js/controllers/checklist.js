@@ -159,33 +159,6 @@ var ChecklistController = function(){
 		},
 		
 		/**
-		 * Attempt to connect to a printer
-		 * 
-		 * @returns {void}
-		 */
-		checkPrinter = function() {
-			cordova.plugins.printer.check(function (available, count) {
-				if (-1 === count) {
-					var printCheck = function() {
-						cordova.plugins.printer.pick(function (uri) {
-							if (uri) {
-								window.printerId = uri;
-							} else {
-								window.printerId = false;
-								navigator.notification.alert('Unable to find a printer. You must connect to the printer now.');
-								setTimeout(printCheck, 3000);
-							}
-						});
-					};
-					
-					printCheck();
-				} else {
-					console.log(available);
-				}
-			});
-		},
-		
-		/**
 		 * Setup the click events
 		 * 
 		 * @param object $page jQuery object
@@ -207,7 +180,7 @@ var ChecklistController = function(){
 			});
 			
 			if ( ! window.printerId) {
-				checkPrinter();
+				App.setupPrinter();
 			}
 			
 			if ($cache.sig) {

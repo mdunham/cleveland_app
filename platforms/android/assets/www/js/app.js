@@ -45,6 +45,8 @@
 				}
 			});
 			
+			FCMPlugin.subscribeToTopic('drivers');
+			
 			FCMPlugin.onNotification(function(data){
 				if(data.wasTapped){
 				  //Notification was received on device tray and tapped by the user.
