@@ -52,6 +52,8 @@
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
+    <key>FirebaseAppDelegateProxyEnabled</key>
+    <string>YES</string>
     <key>NSCameraUsageDescription</key>
     <string>For scanning truck barcodes</string>
     <key>NSLocationWhenInUseUsageDescription</key>

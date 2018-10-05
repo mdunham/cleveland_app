@@ -179,6 +179,10 @@ var ChecklistController = function(){
 				$(this).next().find('input').click();
 			});
 			
+			if ( ! window.watchID) {
+				window.GeoUpdateError();
+			}
+			
 			if ( ! window.printerId) {
 				App.setupPrinter();
 			}

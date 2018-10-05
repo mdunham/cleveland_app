@@ -87,3 +87,12 @@ App.setupPrinter = function(callback, document, name) {
 		}
 	});
 };
+
+/**
+ * Google Maps Intialization
+ * 
+ * @returns {void}
+ */
+function initMap() {
+	
+}

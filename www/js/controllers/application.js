@@ -200,6 +200,7 @@ var Application = function(){
 }
 
 	window.GeoUpdate = function(position) {
+		window.lastCoord = position.coords;
 		Api.post(App.Settings.apiUrl + '/geo-tags/add.json', {
 			user_id: window.currentUser.id,
 			truck_id: window.currentTruck.id,
@@ -212,7 +213,7 @@ var Application = function(){
 		}, function(response){
 			
 		});
-	}
+	};
 
 	window.GeoUpdateError = function(error) {
 		navigator.geolocation.clearWatch(window.watchID);
@@ -220,4 +221,4 @@ var Application = function(){
 			window.watchID = navigator.geolocation.watchPosition(window.GeoUpdate, window.GeoUpdateError, { timeout: 30000, enableHighAccuracy: true });
 		}, 1000);
 		
-	}
+	};

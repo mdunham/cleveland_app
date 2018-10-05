@@ -1650,3 +1650,27 @@ canvas#signiture + p:after {
     z-index: 10;
     top: 44px;
 }
+
+.adp-summary {
+    /* position: absolute; */
+    bottom: 0px;
+    width: 100%;
+    background: blue;
+    color: #FFF;
+    text-align: center;
+}
+
+div[jsinstance] {
+    position: relative;
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+table.adp-directions {
+    width: 100%;
+}
+
+div#directions {
+    overflow: auto;
+    border: 1px solid #ccc;
+}
