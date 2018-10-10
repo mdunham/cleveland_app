@@ -89,8 +89,7 @@ var RouteListController = function () {
 			window.routeIndex = 0;
 			window.routeDirections = response;
 			window.routeOrder = [];
-			
-			//$cache.directionsDisplay.setDirections(response);
+			window.refreshRoute = false;
 
 			var tpl = '<ul class="stop_list" data-role="listview">';
 			routes.map(function (location) {
@@ -158,7 +157,10 @@ var RouteListController = function () {
 				$cache.stopList.find('.stop_list').disableSelection();
 				$cache.stopList.find('.stop_list').on('sortstop', function(event, ui) {
 					$cache.stopList.find('.stop_list').listview('refresh');
-					console.log('sort stop');
+					window.routeOrder = [];
+					$cache.page.find('li[data-id]').each(function(){
+						window.routeOrder.push($(this).data('id'));
+					});
 				});
 			}
 		},
@@ -170,16 +172,15 @@ var RouteListController = function () {
 		 * @returns void
 		 */
 		onBeforeShow = function ($page) {
-			setTimeout(function () {
-				$.mobile.loader().show();
-			}, 30);
-//			$cache.directionsDisplay.setMap($cache.mapObj);
-//			$cache.directionsDisplay.setPanel($cache.directions[0]);
-
-			Api.post(App.Settings.apiUrl + '/routes/driver/' + window.currentUser.id + '/' + window.currentTruck.id + '.json', {
-				latitude: window.lastCoord.latitude,
-				longitude: window.lastCoord.longitude
-			}, setRoute);
+			if (window.refreshRoute) {
+				setTimeout(function () {
+					$.mobile.loader().show();
+				}, 30);
+				Api.post(App.Settings.apiUrl + '/routes/driver/' + window.currentUser.id + '/' + window.currentTruck.id + '.json', {
+					latitude: window.lastCoord.latitude,
+					longitude: window.lastCoord.longitude
+				}, setRoute);
+			}
 
 			$cache.start_route.on('vclick', startRoute);
 			$cache.editBtn.on('vclick', editRoute);

@@ -177,14 +177,7 @@ var Api = (function(){
 		 * @returns void
 		 */
 		loadSettings: function(){
-			_get(App.Settings.apiUrl + '/categories/index.json', '', function(response){
-				if (typeof response['categories'] !== 'undefined') {
-					App.DB['categories'] = response['categories'];
-					App.Storage.setItem('all-cats', JSON.stringify(App.DB['categories']));
-				} else {
-					console.log('unable to pull categories from the API');
-				}
-			});
+			
 		}
 		
 	};

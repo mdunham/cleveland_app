@@ -124,9 +124,6 @@ var OrderController = function () {
 				case 'show':
 					onBeforeShow($page);
 					break;
-				case 'onshow':
-					onShow($page);
-					break;
 				case 'hide':
 					onBeforeHide($page);
 					break;

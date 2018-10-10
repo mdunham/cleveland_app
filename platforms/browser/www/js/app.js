@@ -48,12 +48,15 @@
 			FCMPlugin.subscribeToTopic('drivers');
 			
 			FCMPlugin.onNotification(function(data){
-				if(data.wasTapped){
-				  //Notification was received on device tray and tapped by the user.
-				  alert( JSON.stringify(data) );
-				}else{
-				  //Notification was received in foreground. Maybe the user needs to be notified.
-				  alert( JSON.stringify(data) );
+				window.refreshRoute = true;
+				if (data.wasTapped) {
+					$.mobile.navigate('#page-route-list');
+				} else {
+					navigator.notification.confirm('New order received view it now?', function(e){
+						if (e === 1) {
+							$.mobile.navigate('#page-route-list');
+						}
+					}, 'New Order', ['Goto Route List','Cancel']);
 				}
 			});
 		},

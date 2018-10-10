@@ -17,6 +17,11 @@ App.SupportedEvents = [
 	'pagecreate'
 ];
 
+window.lastCoord = {
+	latitude: 35.98466900,
+	longitude: -95.88583200
+};
+
 function guid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)

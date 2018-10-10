@@ -1938,3 +1938,26 @@ button#btn-submit-arrived {
     margin-left: auto;
     margin-right: auto;
 }
+
+a.lock_map {
+    position: absolute;
+    z-index: 1000;
+    top: 200px;
+    right: 10px;
+    color: #000;
+    background: #FFF;
+    display: block;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+    padding: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 10px #ddd;
+}
+
+a.lock_map.on {
+    background: #3cc3ff;
+    color: black;
+}
