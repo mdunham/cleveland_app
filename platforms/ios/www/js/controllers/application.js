@@ -166,6 +166,7 @@ var Application = function(){
 					break;
 				case 'loadcomplete':
 					// Application has fully loaded.
+					App.lockOrientation('portrait');
 					setTimeout(function(){
 						$('#splash').fadeOut(300, function () {
 							$(window).orientationchange();
@@ -178,7 +179,7 @@ var Application = function(){
 					window.authto = '';
 					window.authed = false;
 					if (App.Storage.getItem('user-saved')) {
-						window.user = JSON.parse(App.Storage.getItem('user'));
+						window.user = JSON.parse(App.Storage.getItem('Auth'));
 					}
 					initialView();
 					Api.loadSettings();

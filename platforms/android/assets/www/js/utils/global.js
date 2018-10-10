@@ -89,6 +89,7 @@ App.setupPrinter = function(callback, document, name) {
 };
 
 window.refreshRoute = true;
+window.routeCompleted = [];
 
 /**
  * Convert meters into miles

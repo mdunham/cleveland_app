@@ -102,6 +102,7 @@
 				</div>
 				<div role="main" class="ui-content">
 					<div class="stop_list_box"></div>
+					<button id="btn-submit-optimize" class="mc-top-margin-1-5 ui-btn ui-btn-b">Optimize Route</button>
 					<div class="summary">
 						<strong class="heading">Summary</strong>
 						<div class="row">
@@ -124,14 +125,14 @@
 			
 			<div data-role="page" id="page-route" data-auth="false" data-controller="RouteController">
 				<div data-role="header" style="overflow:hidden;">
-					<a href="#page-truck" data-rel="back" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
+					<a href="#page-route-list" data-direction="reverse" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
 					<h1>Map</h1>
 					<a href="javascript: void(0);" id="edit-route" class="ui-btn-right">Edit</a>
 				</div>
 				<div role="main" class="ui-content">
-					<a href="javascript:void(0)" class="lock_map on"><i class="fas fa-map-marker-alt"></i></a>
 					<div id="map"></div>
 					<div id="dir-slide">
+						<a href="javascript:void(0)" class="lock_map on"><i class="fas fa-map-marker-alt"></i></a>
 						<a href="#" class="ui-btn toggle-slide"><i class="fas fa-chevron-up"></i></a>
 						<div id="directions"></div>
 						<div class="arrived-btn">
@@ -143,7 +144,7 @@
 			
 			<div data-role="page" id="page-order" data-auth="false" data-controller="OrderController">
 				<div data-role="header" style="overflow:hidden;">
-					<a href="#page-truck" data-rel="back" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
+					<a href="#page-route" data-direction="reverse" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
 					<h1 class="title">Order #</h1>
 					<a href="javascript: void(0);" id="add-item" class="ui-btn-right"><i class="fas fa-plus"></i></a>
 				</div>
@@ -154,25 +155,18 @@
 								Product
 							</div>
 							<div class="col-4">
-								Quantity
+								Qty
 							</div>
 							<div class="col-4">
 								Price
 							</div>
 						</div>
-						<div class="t-values row">
-							<div class="col-2">
-								Propane
-							</div>
-							<div class="col-4">
-								222 gal
-							</div>
-							<div class="col-4">
-								$1,321.23
-							</div>
+						<div class="t-values">
+							
 						</div>
 					</div>
 					<button id="start_fuel_btn" class="start-fuel">Start Fuel</button>
+					<textarea style="display: none;" id="order_note"></textarea>
 					<div class="summary order">
 						<button id="add_note_btn" class="add-note">Add Note</button> <button id="pay_now_btn" class="pay-now">Pay Now</button>
 					</div>

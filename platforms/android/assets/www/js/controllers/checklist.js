@@ -165,8 +165,6 @@ var ChecklistController = function(){
 		 * @returns void
 		 */
 		onBeforeShow = function ($page) {
-			App.lockOrientation('portrait');
-			
 			setTimeout(function(){
 				$.mobile.loader().show();
 			}, 30);
@@ -212,7 +210,6 @@ var ChecklistController = function(){
 			$cache.page.off('change', 'input');
 			$cache.page.off('vclick', 'strong.checkbox-type');
 			$cache.sig.off();
-			App.unlockOrientation();
 			if (window.checkInt) { 
 				clearInterval(window.checkInt);
 			}

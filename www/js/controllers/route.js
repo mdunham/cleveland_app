@@ -85,9 +85,9 @@ var RouteController = function () {
 		toggleSlider = function() {
 			$cache.dirSlide.toggleClass('open');
 			if ($cache.dirSlide.hasClass('open')) {
-				$cache.map.css('height', '65%');
+				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
 			} else {
-				$cache.map.css('height', '91%');
+				$cache.map.css('bottom', '85px');
 			}
 		},
 		
@@ -103,6 +103,7 @@ var RouteController = function () {
 			}, function(res){
 				console.log(res);
 			});
+			
 			$.mobile.navigate('#page-order');
 		},
 				
@@ -156,7 +157,18 @@ var RouteController = function () {
 				return;
 			}
 			
-			$cache.curRoute = curRoute[0];			
+			$cache.curRoute = curRoute[0];
+			if ($cache.curRoute.complete) {
+				window.routeIndex++;
+				if (window.routeIndex >= window.routeStops.length) {
+					navigator.notification.alert('There are no more deliveries.');
+					$.mobile.navigate('#page-route-list');
+					return;
+				} else {
+					onBeforeShow();
+					return;
+				}
+			}
 			
 			$cache.directionsDisplay.setMap($cache.mapObj);
 			$cache.directionsDisplay.setPanel($cache.directions[0]);
@@ -197,9 +209,13 @@ var RouteController = function () {
 			});
 			
 			$cache.timer = setInterval(updateMap, 2500);
-
+			$cache.editBtn.on('vclick', function(){
+				$.mobile.navigate('#page-route-list');
+			});
 			$cache.dirSlideToggle.on('vclick', toggleSlider);
 			$cache.arrviedBtn.on('vclick', setArrived);
+			$cache.dirSlide.removeClass('open');
+			toggleSlider();
 		},
 			
 		onShow = function () {
@@ -218,6 +234,7 @@ var RouteController = function () {
 			clearInterval($cache.timer);
 			$cache.timer = false;
 			$cache.lockBtn.off('vclick');
+			$cache.editBtn.off('vclick');
 		};
 
 

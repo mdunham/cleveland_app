@@ -30,18 +30,8 @@ var RouteListController = function () {
 			$cache.countMiles = $cache.page.find('.count-miles');
 			$cache.countGals = $cache.page.find('.count-gallons');
 			$cache.editBtn = $cache.page.find('#edit-route');
+			$cache.optimizeRoute = $cache.page.find('#btn-submit-optimize');
 			$cache.list = false;
-//			$cache.directionsDisplay = new google.maps.DirectionsRenderer({
-//				markerOptions: {
-//					visible: true
-//				},
-//				polylineOptions: {
-//					strokeColor: '#0088FF',
-//					strokeWeight: 6,
-//					strokeOpacity: 0.6
-//				}
-//			});
-			
 			$cache.start_route = $cache.page.find('#btn-submit-route');
 		},
 		
@@ -53,6 +43,14 @@ var RouteListController = function () {
 		 */
 		setRoute = function (response) {
 			$.mobile.loader().hide();
+			
+			if ( ! response || ! response.routes) {
+				navigator.notification.alert('There are no orders for you to deliver.');
+				$cache.countGals.text('0');
+				$cache.countStops.text('0');
+				$cache.countMiles.text('0');
+				return;
+			}
 			
 			var 
 				routes = response.routes.route,
@@ -124,7 +122,7 @@ var RouteListController = function () {
 		 * 
 		 * @returns {void}
 		 */
-		startRoute = function () {
+		startRoute = function (){
 			if ($cache.stopList.hasClass('editing')) {
 				$cache.editBtn.click();
 				setTimeout(startRoute, 750);
@@ -164,6 +162,21 @@ var RouteListController = function () {
 				});
 			}
 		},
+				
+		/**
+		 * Force refresh from server
+		 * 
+		 * @returns {void}
+		 */
+		refreshRoute = function() {
+			setTimeout(function () {
+				$.mobile.loader().show();
+				Api.post(App.Settings.apiUrl + '/routes/driver/' + window.currentUser.id + '/' + window.currentTruck.id + '.json', {
+					latitude: window.lastCoord.latitude,
+					longitude: window.lastCoord.longitude
+				}, setRoute);
+			}, 30);
+		},
 
 		/**
 		 * Setup the click events
@@ -173,15 +186,13 @@ var RouteListController = function () {
 		 */
 		onBeforeShow = function ($page) {
 			if (window.refreshRoute) {
-				setTimeout(function () {
-					$.mobile.loader().show();
-				}, 30);
-				Api.post(App.Settings.apiUrl + '/routes/driver/' + window.currentUser.id + '/' + window.currentTruck.id + '.json', {
-					latitude: window.lastCoord.latitude,
-					longitude: window.lastCoord.longitude
-				}, setRoute);
+				refreshRoute();
 			}
-
+			
+			$cache.optimizeRoute.on('vclick', function(e){
+				window.refreshRoute = true;
+				refreshRoute();
+			});
 			$cache.start_route.on('vclick', startRoute);
 			$cache.editBtn.on('vclick', editRoute);
 		},
@@ -199,6 +210,7 @@ var RouteListController = function () {
 		onBeforeHide = function ($page) {
 			$cache.start_route.off('vclick');
 			$cache.editBtn.off('vclick');
+			$cache.optimizeRoute.off('vclick');
 		};
 
 
