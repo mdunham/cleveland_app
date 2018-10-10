@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+		
         <title>Petrol Hub</title> 
 
 		<style type="text/css">
@@ -65,8 +65,8 @@
 					<img class="logo" src="img/logo.png" />
 					<form id="login-form" data-api="/login">
 						<div class="err-text err-msg"></div>
-						<input type="text" name="username" id="txt-username" placeholder="User ID" value="">
-						<input style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
+						<input class="needsclick" type="text" name="username" id="txt-username" placeholder="User ID" value="">
+						<input class="needsclick" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
 						<button id="btn-submit-login" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
 					</form>
 				</div>
@@ -166,7 +166,8 @@
 						</div>
 					</div>
 					<button id="start_fuel_btn" class="start-fuel">Start Fuel</button>
-					<textarea style="display: none;" id="order_note"></textarea>
+					<div class="note-box"></div>
+					<textarea class="needsclick" style="display: none;" id="order_note"></textarea>
 					<div class="summary order">
 						<button id="add_note_btn" class="add-note">Add Note</button> <button id="pay_now_btn" class="pay-now">Pay Now</button>
 					</div>

@@ -32,6 +32,7 @@ var OrderController = function () {
 			$cache.dirSlideToggle = $cache.page.find('a.toggle-slide');
 			$cache.startFuel = $cache.page.find('#start_fuel_btn');
 			$cache.addNote = $cache.page.find('#add_note_btn');
+			$cache.orderNotes = $cache.page.find('.note-box');
 			$cache.payNow = $cache.page.find('#pay_now_btn');
 			$cache.addItem = $cache.page.find('#add-item');
 			$cache.curRoute = false;
@@ -72,7 +73,21 @@ var OrderController = function () {
 		 * @returns {void}
 		 */
 		addNote = function() {
-			$cache.orderNote.show();
+			if ($cache.orderNote.is(':visible')) {
+				$cache.addNote.text('Add Note');
+				$cache.orderNote.hide();
+				if ($cache.orderNotes.text().trim()) {
+					$cache.orderNotes.append("\n\n" + $cache.orderNote.val());
+				} else {
+					$cache.orderNotes.append("<strong>Notes:</strong><br>" + $cache.orderNote.val());
+				}
+				$cache.orderNotes.show();
+				$cache.curRoute.record.order.notes = $cache.curRoute.record.order.notes + "\n\n" + $cache.orderNote.val();
+				$cache.orderNote.val('');
+			} else {
+				$cache.addNote.text('Save Note');
+				$cache.orderNote.show();
+			}
 		},
 		
 		/**
@@ -131,9 +146,12 @@ var OrderController = function () {
 					$cache.addNote.show();
 					$cache.addItem.show();
 					$cache.payNow.text('Pay Now');
-					$cache.orderNote.val(order.notes);
+					$cache.orderNote.val('');
 					if (order.notes) {
-						$cache.orderNote.show();
+						$cache.orderNotes.html('<strong>Notes:</strong><br>' + order.notes + '<br><br>').show();
+						$cache.orderNote.hide();
+					} else {
+						$cache.orderNotes.html('').hide();
 					}
 				} else {
 					$cache.orderTableHeaders.find('.col-4 + .col-4').hide();
@@ -145,6 +163,7 @@ var OrderController = function () {
 						<div class="col-4">Refill Truck</div>
 					</div>`);
 					$cache.orderNote.val('');
+					$cache.orderNotes.html('').hide();
 					$cache.payNow.text('Refill Complete');
 				}
 			}
@@ -157,6 +176,8 @@ var OrderController = function () {
 					}
 				});
 			});
+			
+			$cache.addNote.text('Add Note');
 			
 			$cache.payNow.on('vclick', payNow);
 			$cache.addNote.on('vclick', addNote);

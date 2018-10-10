@@ -79,6 +79,9 @@
 						$(document).on('pagecontainerbeforechange', EventHandler);
 						$(document).delegate('div[data-rel="page"]', 'pagebeforeshow', EventHandler);
 						$(window).on('orientationchange', EventHandler);
+						window.addEventListener('load', function () {
+							FastClick.attach(document.body);
+						}, false);
 					} else if (event.type === 'mobileinit') {
 						jqmReadyDeferred.resolve();
 					}

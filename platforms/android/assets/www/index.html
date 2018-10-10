@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+		
         <title>Petrol Hub</title> 
 
 		<style type="text/css">
@@ -16,6 +16,7 @@
 			
 			body {
 				margin: 0;
+				 -webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-user-select: none; -webkit-highlight: none; -webkit-tap-highlight-color: rgba(0,0,0,0);
 			}
 
 			div#container {
@@ -166,6 +167,7 @@
 						</div>
 					</div>
 					<button id="start_fuel_btn" class="start-fuel">Start Fuel</button>
+					<div class="note-box"></div>
 					<textarea style="display: none;" id="order_note"></textarea>
 					<div class="summary order">
 						<button id="add_note_btn" class="add-note">Add Note</button> <button id="pay_now_btn" class="pay-now">Pay Now</button>

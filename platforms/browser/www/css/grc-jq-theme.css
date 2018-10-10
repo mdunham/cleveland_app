@@ -1986,7 +1986,7 @@ a.lock_map.on {
 .t-headers.row {
     background-color: #394365;
     color: #FFF;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400!important;
 }
 
@@ -1994,6 +1994,10 @@ a.lock_map.on {
     flex: 2;
     padding: 15px;
     text-align: left;
+}
+
+.o-table .t-values .col-2, .o-table .t-values .col-4 {
+    font-size: 15px;
 }
 
 .o-table .col-4 {
@@ -2033,7 +2037,7 @@ button#pay_now_btn {
 }
 
 div#page-order {
-    background-color: #e6e6e6;
+    background-color: #f3f3f3;
 }
 
 .t-values {
@@ -2062,4 +2066,31 @@ a.remove-item {
 
 .stop_list .complete {
     background: #dfffcb!important;
+}
+
+.note-box {
+    background: #FFF;
+    padding: 10px;
+    white-space: pre;
+    font-size: 14px;
+}
+
+.note-box hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.summary.order {
+    background: #FFF;
+    box-shadow: 0 0 10px -1px rgba(0,0,0,0.3);
+}
+
+#page-order .ui-content {
+    padding-bottom: 100px;
+    overflow: visible!important;
+    overflow-x: hidden!important;
 }

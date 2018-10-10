@@ -46,7 +46,7 @@ var RouteController = function () {
 			});
 			$cache.dirService = new google.maps.DirectionsService;
 			$cache.mapObj = new google.maps.Map($cache.map[0], {
-				zoom: 15,
+				zoom: 18,
 				center: {
 					lat: window.lastCoord.latitude,
 					lng: window.lastCoord.longitude
@@ -133,7 +133,7 @@ var RouteController = function () {
 			setTimeout(function(){
 				$cache.mapObj.panTo(curPos);
 				$cache.marker.setPosition(curPos);
-				$cache.mapObj.setZoom(16);
+				$cache.mapObj.setZoom(18);
 			}, 100);
 		},
 		
@@ -150,6 +150,10 @@ var RouteController = function () {
 				curRoute = window.routeStops.filter(function(route){
 					return route.id === routeId;
 				});
+			
+			setTimeout(function(){
+				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
+			}, 400);
 				
 			if ( ! curRoute.length) {
 				navigator.notification.alert('Invalid Route!');
@@ -208,6 +212,7 @@ var RouteController = function () {
 				}
 			});
 			
+			$cache.lockBtn.addClass('on');
 			$cache.timer = setInterval(updateMap, 2500);
 			$cache.editBtn.on('vclick', function(){
 				$.mobile.navigate('#page-route-list');
@@ -217,9 +222,16 @@ var RouteController = function () {
 			$cache.dirSlide.removeClass('open');
 			toggleSlider();
 		},
-			
+		
+		/**
+		 * Called when the page is rendered and visible
+		 * 
+		 * @returns {void}
+		 */
 		onShow = function () {
-
+			setTimeout(function(){
+				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
+			}, 400);
 		},
 		
 		/**

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		06DFF7E49D8944C198BF1C39 /* APPPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D94AF5BA50470088519D90 /* APPPrinter.m */; };
@@ -39,13 +40,13 @@
 		BAB0F46DA8644DD195DC4FA8 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E9AC5AE94FF44429F05CD19 /* libsqlite3.0.tbd */; };
 		C36AC31EB4BA488DBA622203 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB57C8DE369496EB22745B0 /* CDVSplashScreen.m */; };
 		C909D00E5153466C8BD6541D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 652FA1C28FCC47C49CF47027 /* libz.tbd */; };
+		D2888139E2444E96A6083884 /* Directions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A24E539A384044B44E73AE /* Directions.m */; };
 		D43B142EFC03448B91888276 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DB61C2B0BED4D6BB64A1CC9 /* CDVNotification.bundle */; };
 		D86F7E58273C4CD596556541 /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 95428CED42154C429DB4AD3B /* CDVViewController+SplashScreen.m */; };
 		E0791D4F26EA460C94F6B64A /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA36755B819E4F598F79C441 /* zxing-all-in-one.cpp */; };
 		E36CA5DB1EC1404089846C5C /* FCMPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A44BB1E2270742CAA1F43A7E /* FCMPlugin.m */; };
 		E515AC2619674DBF8345B522 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 115FF924353644A8B04C5A8F /* libiconv.dylib */; };
 		EA25DA97583A419C941762F1 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6631F7878F9476AA672216F /* FirebaseAnalytics.framework */; };
-		D2888139E2444E96A6083884 /* Directions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A24E539A384044B44E73AE /* Directions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		588C03ED7B834D04AC09D81F /* CoreLocation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B20BC058A03423F8C2F0994 /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
 		5DB61C2B0BED4D6BB64A1CC9 /* CDVNotification.bundle */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
+		5E4457255E2140408DAEDE46 /* Directions.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Directions.h; path = "cordova-plugin-directions/Directions.h"; sourceTree = "<group>"; };
 		62B49B6A5A3A4C3D9412D4B0 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		62D17528E8F14FC593C5DA8D /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "Petrol Hub/Plugins/cordova-plugin-fcm/GoogleUtilities.framework"; sourceTree = "<group>"; };
 		652FA1C28FCC47C49CF47027 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -118,6 +120,7 @@
 		8D1107310486CEB800E47090 /* Petrol Hub-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Petrol Hub-Info.plist"; path = "Petrol Hub/Petrol Hub-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
 		95428CED42154C429DB4AD3B /* CDVViewController+SplashScreen.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = "CDVViewController+SplashScreen.m"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.m"; sourceTree = "<group>"; };
 		9BA5FCE4DFA64EC58B58200D /* QuartzCore.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A2A24E539A384044B44E73AE /* Directions.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = Directions.m; path = "cordova-plugin-directions/Directions.m"; sourceTree = "<group>"; };
 		A44BB1E2270742CAA1F43A7E /* FCMPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = FCMPlugin.m; path = "cordova-plugin-fcm/FCMPlugin.m"; sourceTree = "<group>"; };
 		B01A34547E994E3ABCCF296E /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = "Petrol Hub/Plugins/cordova-plugin-fcm/FirebaseInstanceID.framework"; sourceTree = "<group>"; };
 		BA36755B819E4F598F79C441 /* zxing-all-in-one.cpp */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "zxing-all-in-one.cpp"; path = "cordova-plugin-barcodescanner/zxing-all-in-one.cpp"; sourceTree = "<group>"; };
@@ -135,8 +138,6 @@
 		F37865C7F42941D1AA532C19 /* CDVLocation.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; };
 		F6631F7878F9476AA672216F /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = "Petrol Hub/Plugins/cordova-plugin-fcm/FirebaseAnalytics.framework"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Petrol Hub/config.xml"; sourceTree = "<group>"; };
-		A2A24E539A384044B44E73AE /* Directions.m */ = {isa = PBXFileReference; name = "Directions.m"; path = "cordova-plugin-directions/Directions.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		5E4457255E2140408DAEDE46 /* Directions.h */ = {isa = PBXFileReference; name = "Directions.h"; path = "cordova-plugin-directions/Directions.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
