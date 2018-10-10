@@ -9,46 +9,14 @@
 
 var RouteListController = function () {
 	var
+	
 		/**
 		 * Object cache for the index page
 		 * 
 		 * @type type
 		 */
 		$cache = {},
-		decodeLine = function (encoded) {
-			var len = encoded.length;
-			var index = 0;
-			var array = [];
-			var lat = 0;
-			var lng = 0;
-
-			while (index < len) {
-				var b;
-				var shift = 0;
-				var result = 0;
-				do {
-					b = encoded.charCodeAt(index++) - 63;
-					result |= (b & 0x1f) << shift;
-					shift += 5;
-				} while (b >= 0x20);
-				var dlat = ((result & 1) ? ~(result >> 1) : (result >> 1));
-				lat += dlat;
-
-				shift = 0;
-				result = 0;
-				do {
-					b = encoded.charCodeAt(index++) - 63;
-					result |= (b & 0x1f) << shift;
-					shift += 5;
-				} while (b >= 0x20);
-				var dlng = ((result & 1) ? ~(result >> 1) : (result >> 1));
-				lng += dlng;
-
-				array.push(new google.maps.LatLng(lat * 1e-5, lng * 1e-5));
-			}
-
-			return array;
-		},
+			
 		/**
 		 * This is called when the controller is first used
 		 * 
@@ -57,35 +25,41 @@ var RouteListController = function () {
 		 */
 		initialize = function () {
 			$cache.page = jQuery('#page-route-list');
-			$cache.directions = $cache.page.find('#directions');
-			$cache.map = $cache.page.find('#map');
+			$cache.stopList = $cache.page.find('div.stop_list_box');
+			$cache.countStops = $cache.page.find('.count-stops');
+			$cache.countMiles = $cache.page.find('.count-miles');
+			$cache.countGals = $cache.page.find('.count-gallons');
+			$cache.editBtn = $cache.page.find('#edit-route');
 			$cache.list = false;
-			$cache.directionsDisplay = new google.maps.DirectionsRenderer({
-				markerOptions: {
-					visible: true
-				},
-				polylineOptions: {
-					strokeColor: '#0088FF',
-					strokeWeight: 6,
-					strokeOpacity: 0.6
-				}
-			});
-			$cache.mapObj = new google.maps.Map($cache.map[0], {
-				zoom: 7,
-				center: {
-					lat: window.lastCoord.latitude,
-					lng: window.lastCoord.longitude
-				}
-			});
+//			$cache.directionsDisplay = new google.maps.DirectionsRenderer({
+//				markerOptions: {
+//					visible: true
+//				},
+//				polylineOptions: {
+//					strokeColor: '#0088FF',
+//					strokeWeight: 6,
+//					strokeOpacity: 0.6
+//				}
+//			});
+			
 			$cache.start_route = $cache.page.find('#btn-submit-route');
 		},
+		
+		/**
+		 * Handle the resposne from the API
+		 * 
+		 * @param {object} response
+		 * @returns {void}
+		 */
 		setRoute = function (response) {
 			$.mobile.loader().hide();
-			console.log(response);
+			
 			var 
 				routes = response.routes.route,
 				response = response.routes.directions,
-				bounds = new google.maps.LatLngBounds(response.routes[0].bounds.southwest, response.routes[0].bounds.northeast);
+				bounds = new google.maps.LatLngBounds(response.routes[0].bounds.southwest, response.routes[0].bounds.northeast),
+				distance = 0, duration = 0, noStops = 0, totalFuel = 0;
+			
 			response.routes[0].bounds = bounds;
 
 			response.routes[0].overview_path = google.maps.geometry.encoding.decodePath(response.routes[0].overview_polyline.points);
@@ -102,59 +76,93 @@ var RouteListController = function () {
 				return leg;
 			});
 			
+			response.routes[0].legs.map(function(leg){
+				distance = distance + leg.distance.value;
+				duration = duration + leg.duration.value;
+			});
+			
+			noStops = response.routes[0].legs.length;
+			
 			response.request = { travelMode: google.maps.TravelMode.DRIVING };
+			
+			window.routeStops = routes;
+			window.routeIndex = 0;
+			window.routeDirections = response;
+			window.routeOrder = [];
+			
+			//$cache.directionsDisplay.setDirections(response);
 
-			$cache.directionsDisplay.setDirections(response);
-
-			if ($cache.list) {
-				$cache.list.remove();
-			}
-			var tpl = '<ul data-role="listview">';
+			var tpl = '<ul class="stop_list" data-role="listview">';
 			routes.map(function (location) {
-				tpl = tpl + '<li>Stop Type: ' + location.type + '</li>';
+				if (location.type === 'delivery') {
+					totalFuel = totalFuel + location.record.order.amount_deliver;
+					var 
+						customerName = location.record.order.customer.name,
+						orderDeliver = location.record.order.amount_deliver,
+						orderNumber  = location.record.order.id,
+						orderTotal   = location.record.order.grand_total;
+					orderDeliver = numberFormat(orderDeliver);
+					orderTotal = '$' + numberFormat(orderTotal);
+					tpl = tpl + `<li data-id="${location.id}"><span class="move_hand"><i class="fas fa-bars"></i></span><strong class="customer-name">${customerName}</strong><span class="order_no">#${orderNumber}</span><span class="deliver_amount">${orderDeliver} gals.</span><span class="order_total">${orderTotal}</span></li>`;
+				} else {
+					tpl = tpl + `<li data-id="${location.id}"><span class="move_hand"><i class="fas fa-bars"></i></span><strong class="customer-name">Truck Refueling Stop</strong><span class="tank_name">${location.tank.name}</span><span class="deliver_amount">${location.refill} gals.</span></li>`;
+				}
+				window.routeOrder.push(location.id);
 			});
 			tpl = tpl + '</ul>';
-
-			$cache.directions.after(tpl);
-		},
-		startRoute = function () {
 			
+			$cache.countGals.text(numberFormat(totalFuel));
+			$cache.countStops.text(numberFormat(noStops));
+			$cache.countMiles.text(numberFormat(Math.ceil(toMiles(distance))));
+			
+			$cache.stopList.html('').removeClass('editing');
+			$cache.stopList.html(tpl);
+			$cache.page.find('ul.stop_list').listview();
 		},
-//		calculateAndDisplayRoute = function(directionsService, directionsDisplay) {
-//		 if (document.getElementById('start').value === 'current') {
-//				navigator.geolocation.getCurrentPosition(function (position) {
-//					var end = document.getElementById('end').value.split(',');
-//					directionsService.route({
-//						origin: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-//						destination: new google.maps.LatLng(end[1], end[0]),
-//						travelMode: 'DRIVING'
-//					}, function (response, status) {
-//						if (status === 'OK') {
-//							
-//						} else {
-//							window.alert('Directions request failed due to ' + status);
-//						}
-//					});
-//				}, function () {
-//					alert('error')
-//				});
-//			} else {
-//				var start = document.getElementById('start').value.split(',');
-//				var end = document.getElementById('end').value.split(',');
-//				directionsService.route({
-//					origin: new google.maps.LatLng(start[1], start[0]),
-//					destination: new google.maps.LatLng(end[1], end[0]),
-//					travelMode: 'DRIVING'
-//				}, function (response, status) {
-//					if (status === 'OK') {
-//						directionsDisplay.setDirections(response);
-//					} else {
-//						window.alert('Directions request failed due to ' + status);
-//					}
-//				});
-//			}
-//		},
-//		
+		
+		/**
+		 * Save and start the route
+		 * 
+		 * @returns {void}
+		 */
+		startRoute = function () {
+			if ($cache.stopList.hasClass('editing')) {
+				$cache.editBtn.click();
+				setTimeout(startRoute, 750);
+				return false;
+			} else {
+				$.mobile.navigate('#page-route');
+			}
+		},
+		
+		/**
+		 * Edit the route
+		 * 
+		 * @returns {void}
+		 */
+		editRoute = function() {
+			if ($cache.stopList.hasClass('editing')) {
+				$cache.editBtn.text('Edit');
+				$cache.stopList.removeClass('editing');
+				$cache.stopList.find('.stop_list').sortable('destroy');
+				window.routeOrder = [];
+				$cache.stopList.find('.stop_list li').each(function(){
+					window.routeOrder.push($(this).data('id'));
+				});
+			} else {
+				$cache.editBtn.text('Save Route');
+				$cache.stopList.addClass('editing');
+				$cache.stopList.find('.stop_list').sortable({
+					handle: ".move_hand"
+				});
+				$cache.stopList.find('.stop_list').disableSelection();
+				$cache.stopList.find('.stop_list').on('sortstop', function(event, ui) {
+					$cache.stopList.find('.stop_list').listview('refresh');
+					console.log('sort stop');
+				});
+			}
+		},
+
 		/**
 		 * Setup the click events
 		 * 
@@ -165,10 +173,8 @@ var RouteListController = function () {
 			setTimeout(function () {
 				$.mobile.loader().show();
 			}, 30);
-
-
-			$cache.directionsDisplay.setMap($cache.mapObj);
-			$cache.directionsDisplay.setPanel($cache.directions[0]);
+//			$cache.directionsDisplay.setMap($cache.mapObj);
+//			$cache.directionsDisplay.setPanel($cache.directions[0]);
 
 			Api.post(App.Settings.apiUrl + '/routes/driver/' + window.currentUser.id + '/' + window.currentTruck.id + '.json', {
 				latitude: window.lastCoord.latitude,
@@ -176,10 +182,13 @@ var RouteListController = function () {
 			}, setRoute);
 
 			$cache.start_route.on('vclick', startRoute);
+			$cache.editBtn.on('vclick', editRoute);
 		},
+			
 		onShow = function () {
 
 		},
+		
 		/**
 		 * Turn off the click events
 		 * 
@@ -188,6 +197,7 @@ var RouteListController = function () {
 		 */
 		onBeforeHide = function ($page) {
 			$cache.start_route.off('vclick');
+			$cache.editBtn.off('vclick');
 		};
 
 

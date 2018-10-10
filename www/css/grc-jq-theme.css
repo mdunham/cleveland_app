@@ -694,7 +694,7 @@ h1.ui-title[data-title]:after {
 }
 
 h1.ui-title:before {
-    content: "";
+    /*content: "";
     width: 50%;
     height: 25px;
     margin-top: 0px;
@@ -713,7 +713,7 @@ h1.ui-title:before {
     image-rendering: -moz-crisp-edges;
     image-rendering: -o-crisp-edges;
     image-rendering: -o-pixelated;
-    image-rendering: pixelated;
+    image-rendering: pixelated;*/
 }
 
 #page-index .ui-header + .ui-panel-wrapper .ui-content {
@@ -1538,6 +1538,7 @@ div#page-truck {
 
 [data-role="header"].ui-header {/* Rectangle 6: */
     background: #FFFFFF;
+    z-index: 10;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
 }
 
@@ -1658,12 +1659,13 @@ canvas#signiture + p:after {
     background: blue;
     color: #FFF;
     text-align: center;
+    display: none;
 }
 
 div[jsinstance] {
     position: relative;
     width: 100%;
-    margin: 20px 0 0 0;
+    margin: 0;
 }
 
 table.adp-directions {
@@ -1672,5 +1674,267 @@ table.adp-directions {
 
 div#directions {
     overflow: auto;
-    border: 1px solid #ccc;
+    border-top: 7px solid #272e48;
+    background: #FFF;
+    padding-top: 0px;
+}
+
+
+.stop_list, .stop_list * {
+    letter-spacing: normal!important;
+}
+
+.stop_list {
+    margin-bottom: 80px!important;
+}
+
+.stop_list li {
+    height: 45px;
+    position: relative;
+    background: #FFF;
+}
+
+.stop_list li + li {
+    border-top: 1px solid #DDD!important;
+}
+
+.stop_list .ui-sortable-helper {
+    border-bottom: 1px solid #DDD!important;
+}
+
+.stop_list li.ui-last-child {
+    border-bottom: 1px solid #DDD!important;
+}
+
+.stop_list .customer-name {
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    right: 30%;
+    height: auto;
+    width: auto;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.stop_list .order_no {
+    position: absolute;
+    left: 16px;
+    top: 35px;
+    right: 30%;
+    height: auto;
+    width: auto;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #959FAE;
+}
+
+.stop_list .deliver_amount {
+    position: absolute;
+    right: 16px;
+    top: 13px;
+    left: 70%;
+    height: auto;
+    width: auto;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.stop_list .order_total {
+    position: absolute;
+    right: 16px;
+    top: 35px;
+    left: 70%;
+    height: auto;
+    width: auto;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: right;
+    white-space: nowrap;
+    color: #959FAE;
+}
+
+.stop_list .tank_name {
+    position: absolute;
+    left: 16px;
+    top: 38px;
+    right: 16px;
+    height: auto;
+    width: auto;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #2d5da5;
+    text-align: right;
+}
+button#btn-submit-route {
+    font-size: 17px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 93%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#page-route-list .ui-header {
+    height: 120px!important;
+    z-index: 100;
+}
+
+.stop_list_box {
+    margin-top: 74px;
+}
+.summary {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: #394365;
+    color: #FFF;
+    text-align: center;
+    font-weight: 400;
+}
+
+.summary .heading {
+    font-weight: 400;
+    padding: 5px 0;
+    display: block;
+    background: #272e48;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.summary .row {
+    display: flex;
+}
+
+.summary .row .col-4 {
+    font-size: 12px;
+    flex: 33.33%;
+}
+
+.summary strong {
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0px;
+}
+
+
+.summary .row .col-4 span {
+    display: block;
+    font-size: 16px;
+}
+
+.stop_list_box .move_hand {
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
+.stop_list_box.editing .move_hand {
+    left: 17px;
+}
+
+.stop_list .customer-name, .stop_list .order_no, .stop_list_box .move_hand {
+    transition: all 0.1s ease-out;
+}
+
+.editing .stop_list .customer-name, .editing .stop_list .order_no {
+    left: 40px;
+}
+
+div#map {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    right: 0px;
+    bottom: -10px;
+    width: 100vw;
+    height: 100%;
+}
+
+div#dir-slide {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: auto;
+    bottom: 0px;
+    top: auto;
+    box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.30);
+    background: #272E48;
+    border: none!important;
+    /* margin-bottom: 100px; */
+}
+
+a.toggle-slide {
+    background: #272E48;
+    background-color: #272E48!important;
+    border: none!important;
+    border-radius: 4px!important;
+    width: 30px;
+    top: -38px;
+    position: absolute;
+    padding: 2px 4px 3px 4px;
+    left: 12px;
+    box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.30);
+}
+
+div[data-leg-index] {
+    display: none;
+}
+
+table.adp-directions {
+    font-size: 15px;
+}
+
+.adp-legal {
+    position: fixed;
+    font-size: 0px;
+}
+
+.toggle-slide svg {
+    transition: 0.1s linear;
+    transform: rotate(0);
+}
+
+div#directions {
+    overflow: hidden;
+    max-height: 0px;
+}
+
+.open .toggle-slide svg {
+    transition: 0.1s linear;
+    transform: rotate(180deg);
+}
+
+.open div#directions {
+    overflow: auto;
+    max-height: 40vh;
+}
+
+button#btn-submit-arrived {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -116,6 +116,9 @@ var Application = function(){
 			ui = typeof ui === 'undefined' ? {} : ui;
 			// Handle the event
 			console.log('event type: ' + event.type.toLowerCase());
+			var activeController = loadController(
+						$.mobile.pageContainer.pagecontainer("getActivePage").data('controller')
+					);
 			switch (event.type.toLowerCase()) {
 				case 'mobileinit':
 					//$.mobile.defaultPageTransition = 'pop';
@@ -159,10 +162,6 @@ var Application = function(){
 					}
 					break;
 				case 'pagecontainershow':
-					var activeController = loadController(
-						$.mobile.pageContainer.pagecontainer("getActivePage").data('controller')
-					);
-					
 					activeController.trigger('onshow');
 					break;
 				case 'loadcomplete':
@@ -192,12 +191,13 @@ var Application = function(){
 				case 'pause':
 				case 'resume':
 				default:
-					activeController().trigger(event.type.toLowerCase(), ui);
+					var ac = activeController;
+					if (ac) ac.trigger(event.type.toLowerCase(), ui);
 					baseController().trigger(event.type.toLowerCase(), ui);
 			}
 		}
-	}
-}
+	};
+};
 
 	window.GeoUpdate = function(position) {
 		window.lastCoord = position.coords;

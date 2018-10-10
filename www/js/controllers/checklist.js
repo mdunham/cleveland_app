@@ -179,6 +179,12 @@ var ChecklistController = function(){
 				$(this).next().find('input').click();
 			});
 			
+			if (window.checkInt) { 
+				clearInterval(window.checkInt);
+			}
+			
+			window.checkInt = setInterval(checkComplete, 500);
+			
 			if ( ! window.watchID) {
 				window.GeoUpdateError();
 			}
@@ -207,6 +213,9 @@ var ChecklistController = function(){
 			$cache.page.off('vclick', 'strong.checkbox-type');
 			$cache.sig.off();
 			App.unlockOrientation();
+			if (window.checkInt) { 
+				clearInterval(window.checkInt);
+			}
 		};
 		
 

@@ -89,10 +89,40 @@ App.setupPrinter = function(callback, document, name) {
 };
 
 /**
+ * Convert meters into miles
+ * 
+ * @param {float} meters
+ * @returns {float}
+ */
+function toMiles(meters) {
+   return meters*0.000621371192;
+};
+
+/**
+ * Convert seconds to hours
+ * 
+ * @param {int} seconds
+ * @returns {float}
+ */
+function toHours(seconds) {
+   return seconds/60/60;
+};
+
+/**
+ * Format a number with thousdands commas
+ * 
+ * @param {string} x
+ * @returns {string}
+ */
+function numberFormat(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+/**
  * Google Maps Intialization
  * 
  * @returns {void}
  */
 function initMap() {
-	
+	console.log('Init map triggered');
 }
