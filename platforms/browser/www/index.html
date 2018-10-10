@@ -16,7 +16,6 @@
 			
 			body {
 				margin: 0;
-				 -webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-user-select: none; -webkit-highlight: none; -webkit-tap-highlight-color: rgba(0,0,0,0);
 			}
 
 			div#container {
@@ -66,8 +65,8 @@
 					<img class="logo" src="img/logo.png" />
 					<form id="login-form" data-api="/login">
 						<div class="err-text err-msg"></div>
-						<input type="text" name="username" id="txt-username" placeholder="User ID" value="">
-						<input style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
+						<input class="needsclick" type="text" name="username" id="txt-username" placeholder="User ID" value="">
+						<input class="needsclick" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
 						<button id="btn-submit-login" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
 					</form>
 				</div>
@@ -151,15 +150,17 @@
 				</div>
 				<div role="main" class="ui-content">
 					<div class="o-table">
-						<div class="t-headers row">
-							<div class="col-2">
-								Product
-							</div>
-							<div class="col-4">
-								Qty
-							</div>
-							<div class="col-4">
-								Price
+						<div class="t-headers">
+							<div class="row">
+								<div class="col-2">
+									Product
+								</div>
+								<div class="col-4">
+									Qty
+								</div>
+								<div class="col-4">
+									Price
+								</div>
 							</div>
 						</div>
 						<div class="t-values">
@@ -168,7 +169,7 @@
 					</div>
 					<button id="start_fuel_btn" class="start-fuel">Start Fuel</button>
 					<div class="note-box"></div>
-					<textarea style="display: none;" id="order_note"></textarea>
+					<textarea class="needsclick" style="display: none;" id="order_note"></textarea>
 					<div class="summary order">
 						<button id="add_note_btn" class="add-note">Add Note</button> <button id="pay_now_btn" class="pay-now">Pay Now</button>
 					</div>

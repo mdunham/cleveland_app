@@ -16,6 +16,8 @@ var OrderController = function () {
 		 * @type type
 		 */
 		$cache = {},
+		
+		printStyles = `<style>button, a, div.summary {display: none;}.o-table:before {content: "";background: url('http://162.214.2.64/~cleveland/customer-portal/img/logo_small.png') no-repeat bottom center;width: 200px;height: 20px;display: block;margin: 0px auto 10px;background-size: contain;padding-top: 20px;padding-bottom: 0px;}body {font-family: Arial, Helvetica Neue, Helvetica;font-size: 80%;}.o-table {position: relative;margin-left: -15px;margin-right: -15px;padding: 0;margin-top: -9px;background: #FFF;box-shadow: 0 0 10px -2px rgba(0,0,0,0.6);}.t-headers{background-color: #394365;color: #FFF;font-size: 14px;font-weight: 400!important;display:block;}.o-table .col-2 {flex: 2;padding: 15px;text-align: left;}.o-table .t-values .col-2, .o-table .t-values .col-4 {font-size: 15px;}.o-table .col-4 {flex: 1;padding: 14px;}.t-headers .col-2, .t-headers .col-4 {padding-bottom: 5px;}.o-table .row {display: flex;}.t-values {background: #FFF;font-size: 16px;display:block;}.t-values {max-height: 40vh;overflow: auto;}.t-values .row + .row {border-top: 1px solid #e0e0e0;}.note-box {padding: 20px;}.dates {border-top: 1px solid #c1c1c1;padding-top: 20px;}</style>`,
 			
 		/**
 		 * This is called when the controller is first used
@@ -64,6 +66,15 @@ var OrderController = function () {
 				$.mobile.navigate('#page-route-list');
 				return;
 			}
+			
+			var date = new Date().toLocaleString(), html = printStyles + $cache.page.find('.ui-content').html() + `<div class="dates">Date of Delivery: ${date}<br>Delivered By: ${window.currentUser.full_name}<br><br><hr>To get more information about your order or to request another delivery call Cleveland Petroleum <strong>1-800-345-5533</strong></div>`;
+			
+			if ($cache.curRoute.type === 'delivery') {
+				App.print(html, 'receipt-' + $cache.curRoute.record.order.id + '-' + $cache.curRoute.record.order.customer.name.replace(',', '').replace(' ', ''));
+			} else {
+				App.print(html, 'receipt-' + $cache.curRoute.tank.id + '-' + $cache.curRoute.tank.name);
+			}
+			
 			$.mobile.navigate('#page-route');
 		},
 		
@@ -76,13 +87,18 @@ var OrderController = function () {
 			if ($cache.orderNote.is(':visible')) {
 				$cache.addNote.text('Add Note');
 				$cache.orderNote.hide();
-				$cache.orderNotes.append($cache.orderNote.val());
+				if ($cache.orderNotes.text().trim()) {
+					$cache.orderNotes.append("\n\n" + $cache.orderNote.val());
+				} else {
+					$cache.orderNotes.append("<strong>Notes:</strong><br>" + $cache.orderNote.val());
+				}
 				$cache.orderNotes.show();
 				$cache.curRoute.record.order.notes = $cache.curRoute.record.order.notes + "\n\n" + $cache.orderNote.val();
 				$cache.orderNote.val('');
 			} else {
 				$cache.addNote.text('Save Note');
 				$cache.orderNote.show();
+				$cache.orderNote.focus();
 			}
 		},
 		

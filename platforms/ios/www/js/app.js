@@ -88,9 +88,9 @@
 			// jQuery Mobile Init
 			$(document).one('mobileinit', onLoad);
  
-//            window.addEventListener('load', function () {
-//                         FastClick.attach(document.body);
-//            }, false);
+            window.addEventListener('load', function () {
+				FastClick.attach(document.body);
+            }, false);
  
 			// Setup cordova event listeners
 			document.addEventListener('deviceready', onLoad, false);

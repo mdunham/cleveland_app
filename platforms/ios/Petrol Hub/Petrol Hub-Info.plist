@@ -27,7 +27,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0.1</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
-	<string>YES</string>
+	<string>NO</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -37,6 +37,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>For scanning truck barcodes</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>For tracking drivers</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>For tracking deliveries</string>
 	<key>NSMainNibFile</key>
@@ -48,15 +50,11 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

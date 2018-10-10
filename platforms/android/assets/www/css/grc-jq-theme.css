@@ -97,6 +97,7 @@
 -----------------------------------------------------------------------------------------------------------*/
 html {
     font-size: 100%;
+	touch-action: manipulation;
 }
 
 body, input, select, textarea, button, .ui-btn {
@@ -1589,7 +1590,7 @@ canvas#signiture {
     z-index: 100;
 }
 
-*:not(input) {
+*:not(input):not(textarea) {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -1598,6 +1599,8 @@ canvas#signiture {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+
 
 .ui-header a {
     background: none!important;
@@ -1983,7 +1986,7 @@ a.lock_map.on {
     box-shadow: 0 0 10px -2px rgba(0,0,0,0.6);
 }
 
-.t-headers.row {
+.t-headers {
     background-color: #394365;
     color: #FFF;
     font-size: 14px;
@@ -2006,7 +2009,7 @@ a.lock_map.on {
     /* text-align: center; */
 }
 
-.t-headers.row .col-2, .t-headers.row .col-4 {
+.t-headers .col-2, .t-headers .col-4 {
     padding-bottom: 5px;
 }
 

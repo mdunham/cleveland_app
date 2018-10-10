@@ -42,7 +42,7 @@ var ChecklistController = function(){
 				if (response.checklistItems.length) {
 					response.checklistItems.map(function(listItem){
 						var 
-							input = listItem.type === 'radio' ? `<label style="float:left; width: 45%;" class="ui-alt-icon">Yes <input type="radio" name="item${listItem.id}" data-id="${listItem.id}" /></label> <label class="ui-alt-icon" style="width:45%; float: left">No <input name="item${listItem.id}" type="radio" data-id="${listItem.id}" /></label>` : (listItem.type === 'checkbox' ? `<label style="float:left; width: 45%;" class="ui-alt-icon"><input type="checkbox" name="item${listItem.id}" data-id="${listItem.id}" />&nbsp;</label>` :  `<input type="text" style="width: 30%" data-id="${listItem.id}" />`) ,
+							input = listItem.type === 'radio' ? `<label style="float:left; width: 45%;" class="ui-alt-icon">Yes <input type="radio" name="item${listItem.id}" data-id="${listItem.id}" /></label> <label class="ui-alt-icon" style="width:45%; float: left">No <input name="item${listItem.id}" type="radio" data-id="${listItem.id}" /></label>` : (listItem.type === 'checkbox' ? `<label style="float:left; width: 45%;" class="ui-alt-icon"><input type="checkbox" name="item${listItem.id}" data-id="${listItem.id}" />&nbsp;</label>` :  `<input class="needsclick" type="text" style="width: 30%" data-id="${listItem.id}" />`) ,
 							inputTpl = `<li data-item-id="${listItem.id}"><strong class="${listItem.type}-type" style="display: block; margin-top: 10px;">${listItem.title}</strong>${input}</li>`,
 							tpl = `<div data-id="${listItem.id}" data-role="collapsible" data-collapsed-icon="carat-d" data-iconpos="right" data-expanded-icon="carat-u">
 									<h4>${listItem.group_title}</h4>

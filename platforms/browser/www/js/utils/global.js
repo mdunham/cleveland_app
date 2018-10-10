@@ -72,7 +72,8 @@ App.setupPrinter = function(callback, document, name) {
 				cordova.plugins.printer.pick(function (uri) {
 					if (uri) {
 						window.printerId = uri;
-						callback(document, name);
+						if ('function' === typeof callback && document && name)
+							callback(document, name);
 					} else {
 						window.printerId = false;
 						navigator.notification.alert('Unable to find a printer. You must connect to the printer to continue.');
@@ -81,7 +82,7 @@ App.setupPrinter = function(callback, document, name) {
 				});
 			};
 
-			App.setupPrinter();
+			printCheck();
 		} else {
 			navigator.notification.alert('This device does not support printing. You will not be able to print receipts.');
 		}

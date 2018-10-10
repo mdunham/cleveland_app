@@ -45,12 +45,20 @@ var RouteListController = function () {
 			$.mobile.loader().hide();
 			
 			if ( ! response || ! response.routes) {
-				navigator.notification.alert('There are no orders for you to deliver.');
+				swal({
+					'icon': 'success',
+					'title': 'There are no more orders to deliver.',
+					'timer': 2000,
+					'buttons': false
+				});
 				$cache.countGals.text('0');
 				$cache.countStops.text('0');
 				$cache.countMiles.text('0');
+				$cache.optimizeRoute.text('Refresh Route List');
 				return;
 			}
+			
+			$cache.optimizeRoute.text('Optimize Route');
 			
 			var 
 				routes = response.routes.route,
@@ -185,14 +193,26 @@ var RouteListController = function () {
 		 * @returns void
 		 */
 		onBeforeShow = function ($page) {
+			$cache.optimizeRoute.text('Optimize Route');
 			if (window.refreshRoute) {
 				refreshRoute();
+			} else {
+				var complete = true;
+				$cache.page.find('.stop_list li').each(function(){
+					if ( ! $(this).hasClass('complete')){
+						complete = false;
+					}
+				});
+				if (complete) {
+					$cache.optimizeRoute.text('Refresh Route List');
+				}
 			}
 			
 			$cache.optimizeRoute.on('vclick', function(e){
 				window.refreshRoute = true;
 				refreshRoute();
 			});
+			
 			$cache.start_route.on('vclick', startRoute);
 			$cache.editBtn.on('vclick', editRoute);
 		},

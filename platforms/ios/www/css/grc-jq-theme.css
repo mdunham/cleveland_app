@@ -1986,7 +1986,7 @@ a.lock_map.on {
     box-shadow: 0 0 10px -2px rgba(0,0,0,0.6);
 }
 
-.t-headers.row {
+.t-headers {
     background-color: #394365;
     color: #FFF;
     font-size: 14px;
@@ -2009,7 +2009,7 @@ a.lock_map.on {
     /* text-align: center; */
 }
 
-.t-headers.row .col-2, .t-headers.row .col-4 {
+.t-headers .col-2, .t-headers .col-4 {
     padding-bottom: 5px;
 }
 
