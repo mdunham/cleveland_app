@@ -152,17 +152,28 @@ var RouteController = function () {
 					return route.id === routeId;
 				});
 			
+			$cache.curRoute = false;
+			
 			setTimeout(function(){
 				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
 			}, 400);
 				
 			if ( ! curRoute.length) {
-				navigator.notification.alert('Invalid Route!');
+				for (window.routeIndex = 0; window.routeIndex < window.routeStops.length; window.routeIndex++) {
+					var route = window.routeStops.filter(function(route){
+						return route.id === window.routeOrder[window.routeIndex];
+					});
+					if (route.length && route[0] && ! route[0].complete) {
+						$cache.curRoute = route[0];
+						break;
+					}
+				}
 				$.mobile.navigate('#page-route-list');
 				return;
+			} else {	
+				$cache.curRoute = curRoute[0];
 			}
 			
-			$cache.curRoute = curRoute[0];
 			if ($cache.curRoute.complete) {
 				window.routeIndex++;
 				if (window.routeIndex >= window.routeStops.length) {

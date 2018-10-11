@@ -152,6 +152,7 @@ var RouteListController = function () {
 				$cache.stopList.removeClass('editing');
 				$cache.stopList.find('.stop_list').sortable('destroy');
 				window.routeOrder = [];
+				window.routeIndex = 0;
 				$cache.stopList.find('.stop_list li').each(function(){
 					window.routeOrder.push($(this).data('id'));
 				});

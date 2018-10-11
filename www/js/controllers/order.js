@@ -94,7 +94,7 @@ var OrderController = function () {
 				if ($cache.orderNotes.text().trim()) {
 					$cache.orderNotes.append("\n\n" + $cache.orderNote.val());
 				} else {
-					$cache.orderNotes.append("<strong>Notes:</strong><br>" + $cache.orderNote.val());
+					$cache.orderNotes.append("<strong>Order Notes:</strong><br>" + $cache.orderNote.val());
 				}
 				$cache.orderNotes.show();
 				$cache.curRoute.record.order.notes = $cache.curRoute.record.order.notes + "\n\n" + $cache.orderNote.val();
