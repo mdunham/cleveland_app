@@ -49,6 +49,7 @@
 			
 			FCMPlugin.onNotification(function(data){
 				window.refreshRoute = true;
+				console.log(data);
 				if (data.wasTapped) {
 					$.mobile.navigate('#page-route-list');
 				} else {
