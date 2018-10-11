@@ -103,8 +103,9 @@ var RouteController = function () {
 			}, function(res){
 				console.log(res);
 			});
-			
-			$.mobile.navigate('#page-order');
+			window.dialogOrder = false;
+			$('div#page-order').attr('data-role', 'page').removeClass('ui-dialog');
+			$.mobile.changePage('#page-order', {role: 'page'});
 		},
 				
 		/**

@@ -144,7 +144,7 @@
 			
 			<div data-role="page" id="page-order" data-auth="false" data-controller="OrderController">
 				<div data-role="header" style="overflow:hidden;">
-					<a href="#page-route" data-direction="reverse" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
+					<a href="#page-route" data-rel="back" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
 					<h1 class="title">Order #</h1>
 					<a href="javascript: void(0);" id="add-item" class="ui-btn-right"><i class="fas fa-plus"></i></a>
 				</div>
@@ -168,7 +168,8 @@
 						</div>
 					</div>
 					<button id="start_fuel_btn" class="start-fuel">Start Fuel</button>
-					<div class="note-box"></div>
+					<div class="note-box notes"></div>
+					<div class="note-box info"></div>
 					<textarea class="needsclick" style="display: none;" id="order_note"></textarea>
 					<div class="summary order">
 						<button id="add_note_btn" class="add-note">Add Note</button> <button id="pay_now_btn" class="pay-now">Pay Now</button>

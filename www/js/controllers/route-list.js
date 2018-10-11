@@ -131,12 +131,13 @@ var RouteListController = function () {
 		 * @returns {void}
 		 */
 		startRoute = function (){
+			window.dialogOrder = false;
 			if ($cache.stopList.hasClass('editing')) {
 				$cache.editBtn.click();
 				setTimeout(startRoute, 750);
 				return false;
 			} else {
-				$.mobile.navigate('#page-route');
+				$.mobile.changePage('#page-route', {role: 'page'});
 			}
 		},
 		
@@ -215,8 +216,21 @@ var RouteListController = function () {
 			
 			$cache.start_route.on('vclick', startRoute);
 			$cache.editBtn.on('vclick', editRoute);
+			$cache.page.on('vclick', 'li[data-id]', showOrder);
 		},
-			
+		
+		/**
+		 * Load an order for viewing
+		 * 
+		 * @returns {void} 
+		 */
+		showOrder = function(e) {
+			e.preventDefault();
+			var lid = $(this).data('id');
+			window.dialogOrder = lid;
+			$.mobile.changePage('#page-order', {role: 'dialog', transition: 'slidedown'});
+		},
+		
 		onShow = function () {
 
 		},
@@ -231,6 +245,7 @@ var RouteListController = function () {
 			$cache.start_route.off('vclick');
 			$cache.editBtn.off('vclick');
 			$cache.optimizeRoute.off('vclick');
+			$cache.page.off('vclick', 'li[data-id]');
 		};
 
 

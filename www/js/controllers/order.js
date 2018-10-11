@@ -27,6 +27,9 @@ var OrderController = function () {
 		 */
 		initialize = function () {
 			$cache.page = jQuery('#page-order');
+			if (window.dialogOrder) {
+				$cache.page = jQuery('#page-order[data-role="dialog"]');
+			}
 			$cache.title = $cache.page.find('h1.title');
 			$cache.orderTable = $cache.page.find('.o-table');
 			$cache.orderTableHeaders = $cache.page.find('.t-headers');
@@ -34,7 +37,8 @@ var OrderController = function () {
 			$cache.dirSlideToggle = $cache.page.find('a.toggle-slide');
 			$cache.startFuel = $cache.page.find('#start_fuel_btn');
 			$cache.addNote = $cache.page.find('#add_note_btn');
-			$cache.orderNotes = $cache.page.find('.note-box');
+			$cache.orderNotes = $cache.page.find('.note-box.notes');
+			$cache.moreInfo = $cache.page.find('.note-box.info');
 			$cache.payNow = $cache.page.find('#pay_now_btn');
 			$cache.addItem = $cache.page.find('#add-item');
 			$cache.curRoute = false;
@@ -133,7 +137,7 @@ var OrderController = function () {
 		onBeforeShow = function ($page) {
 			var 
 				order, total,
-				routeId = window.routeOrder[window.routeIndex],
+				routeId = ( ! window.dialogOrder) ? window.routeOrder[window.routeIndex] : window.dialogOrder,
 				curRoute = window.routeStops.filter(function(route){
 					return route.id === routeId;
 				});
@@ -159,12 +163,55 @@ var OrderController = function () {
 					$cache.addItem.show();
 					$cache.payNow.text('Pay Now');
 					$cache.orderNote.val('');
+					
 					if (order.notes) {
-						$cache.orderNotes.html('<strong>Notes:</strong><br>' + order.notes + '<br><br>').show();
+						$cache.orderNotes.html('<strong>Order Notes:</strong><br>' + order.notes).show();
 						$cache.orderNote.hide();
 					} else {
 						$cache.orderNotes.html('').hide();
 					}
+					var cont = order.customer.company;
+					if ( ! cont.trim()) {
+						cont = order.customer.first_name + ' ' + order.customer.last_name + '<br>';
+					} else {
+						cont = cont + '<br>' + order.customer.first_name + ' ' + order.customer.last_name + '<br>';
+					}
+					
+					cont = cont + order.customer.address;
+					
+					if (order.customer.address2) {
+						cont = cont + ', ' + order.customer.address2;
+					}
+					
+					cont = cont + '<br>' + order.customer.city + ', ' + order.customer.state + ' ' + order.customer.zip + '<br>'; 
+					
+					if (order.customer.home_phone) {
+						cont = cont + '<a class="t-link" href="tel:' + order.customer.home_phone + '">Home <i class="fas fa-phone"></i> ' + order.customer.home_phone + '</a><br>';
+					}
+					
+					if (order.customer.business_phone) {
+						cont = cont + '<a class="t-link" href="tel:' + order.customer.business_phone + '">Work <i class="fas fa-phone"></i> ' + order.customer.business_phone + '</a><br>';
+					}
+					
+					var form4 = ! order.tank.last_form4 ? 'Never' : order.tank.last_form4.replace('T00:00:00', '').split('-');
+					if (form4.length === 3) {
+						form4 = form4[2] + '/' + form4[1] + '/' + form4[0];
+					}
+					cont = cont + '<hr style="height: 0px; padding: 0px; border: 1px solid #e0e0e0; margin: 20px -10px;" /><strong>Tank Info</strong><br>' 
+						+ `Tank: ${order.tank.name}<br>Capacity: ${order.tank.size}g<br>`
+						+ `Brand: ${order.tank.brand}<br>`
+						+ `Last Form4: ${form4} | Rental: ` + (order.tank.rental ? 'Yes' : 'No');
+					
+					if (order.tank.needs_form4) {
+						cont = cont + '<strong style="background: #cc5050; color: #FFF; padding: 15px; display: block; border-radius: 5px; margin-top: 10px; margin-bottom: 10px;">Form4 Test Required!</strong>';
+					}
+					
+					$cache.moreInfo.css('white-space', 'normal').html(`
+						<hr style="height: 0px;padding: 0px;border: 1px solid #e0e0e0;margin: 0px -10px 20px -10px;" />
+						<strong>Customer Info</strong> - Account #${order.customer.account_no}<br>
+						${cont}
+					`);
+					
 				} else {
 					$cache.orderTableHeaders.find('.col-4 + .col-4').hide();
 					$cache.addNote.hide();
@@ -174,7 +221,10 @@ var OrderController = function () {
 						<div class="col-2">${window.currentTruck.product.name}</div>
 						<div class="col-4">Refill Truck</div>
 					</div>`);
+					var tank = $cache.curRoute.tank;
+					
 					$cache.orderNote.val('');
+					$cache.moreInfo.html(`<strong>Bulk Storage Tank</strong><br>${tank.name}<br>${tank.address}<br><br><strong>Estimated Refill:</strong> ${$cache.curRoute.refill} gals<br>`);
 					$cache.orderNotes.html('').hide();
 					$cache.payNow.text('Refill Complete');
 				}
@@ -190,11 +240,18 @@ var OrderController = function () {
 			});
 			
 			$cache.addNote.text('Add Note');
-			
 			$cache.payNow.on('vclick', payNow);
 			$cache.addNote.on('vclick', addNote);
 			$cache.startFuel.on('vclick', startFuel);
-			$cache.addItem.on('vclick', addItem);
+			if (window.dialogOrder) {
+				$cache.addItem.css('transform', 'rotate(45deg)');
+				$cache.addItem.on('vclick', function(e){
+					$cache.page.dialog('close');
+				});
+			} else {
+				$cache.addItem.css('transform', 'rotate(0deg)');
+				$cache.addItem.on('vclick', addItem);
+			}
 			if ($cache.curRoute && $cache.curRoute.type === 'delivery') {
 				$cache.title.text('Order #' + $cache.curRoute.record.order.id);
 			} else {
@@ -212,6 +269,7 @@ var OrderController = function () {
 			$cache.payNow.off('vclick');
 			$cache.addNote.off('vclick');
 			$cache.startFuel.off('vclick');
+			window.dialogOrder = false;
 			$cache.addItem.off('vclick');
 			$cache.page.off('vclick', 'a.remove-item');
 		};

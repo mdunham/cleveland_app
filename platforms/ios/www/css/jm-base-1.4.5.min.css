@@ -52,6 +52,11 @@ body.ui-mobile-viewport, div.ui-mobile-viewport {
     overflow-y: hidden;
 }
 
+.ui-page.ui-dialog.ui-page-active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .ui-page {
     outline: 0
 }
@@ -2081,12 +2086,15 @@ li.ui-block-a, li.ui-block-b, li.ui-block-c, li.ui-block-d, li.ui-block-e {
 }
 
 .ui-dialog-contain {
-    width: 92.5%;
+    width: 100%;
     max-width: 500px;
-    margin: 10% auto 1em;
+    margin: 0px;
     padding: 0;
     position: relative;
-    top: -1em
+    top: 0px;
+    z-index: 1000;
+    box-shadow: none;
+    bottom: 0px;
 }
 
 .ui-dialog-contain > .ui-header, .ui-dialog-contain > .ui-content,
