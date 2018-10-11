@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.clevelandpetroleum.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.clevelandpetroleum.app" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Petrol Hub</name>
     <description>
         Driver application for Cleveland Drivers
@@ -57,6 +57,7 @@
     </platform>
     <preference name="BackupWebStorage" value="local" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
     <content src="index.html" />
     <access origin="*" />
     <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
