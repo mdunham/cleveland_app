@@ -1,21 +1,21 @@
 /**
- * Api Utility 
- * 
+ * Api Utility
+ *
  * This allows you to query the CoachingU.com's online RESTful API
- * 
+ *
  * @author Matthew Dunham <matt@hotcoffeydesign.com>
  * @type   object
  */
 var Api = (function(){
-	
-	var 
-	
+
+	var
+
 		/**
 		 * Prep data for ajax submission
-		 * 
+		 *
 		 * @param string type POST | GET | HEAD | PUT
 		 * @param object data
-		 * @returns object 
+		 * @returns object
 		 */
 		_prep = function(type, data) {
 			data['_method'] = type;
@@ -33,7 +33,7 @@ var Api = (function(){
 
 		/**
 		 * Ajax Post Wrapper
-		 * 
+		 *
 		 * @argument string url
 		 * @argument mixed data
 		 * @argument string callback
@@ -56,10 +56,10 @@ var Api = (function(){
 				}
 			});
 		},
-		
+
 		/**
 		 * Ajax Get Wrapper
-		 * 
+		 *
 		 * @argument string url
 		 * @argument mixed data
 		 * @argument string callback
@@ -82,15 +82,15 @@ var Api = (function(){
 				}
 			});
 		};
-	
+
 	return {
-		
+
 		get: _get,
 		post: _post,
-		
+
 		/**
 		 * Attempt to authenticate a user
-		 * 
+		 *
 		 * @argument string user
 		 * @argument string password
 		 * @argument function onSuccess Returns the user details
@@ -98,7 +98,7 @@ var Api = (function(){
 		 * @return object | false If the login fails
 		 */
 		login: function(user, password, onSuccess, onFail){
-			var 
+			var
 				data = {
 					username: user,
 					password: password
@@ -128,18 +128,18 @@ var Api = (function(){
 						console.log('Error: No response object');
 					}
 				};
-			
+
 			onSuccess = typeof onSuccess === 'function' ? onSuccess : function(){};
 			onFail = typeof onFail === 'function' ? onFail : function(){};
-						
+
 			_post(App.Settings.loginUrl, data, onComplete);
 		},
-		
-		
-		
+
+
+
 		/**
 		 * Validate a user token
-		 * 
+		 *
 		 * @returns void
 		 */
 		validateToken: function(token, callback) {
@@ -153,10 +153,10 @@ var Api = (function(){
 				}
 			});
 		},
-		
+
 		/**
 		 * Reset Password
-		 * 
+		 *
 		 * @returns void
 		 */
 		resetPassword: function(email, callback) {
@@ -170,15 +170,15 @@ var Api = (function(){
 				}
 			});
 		},
-		
+
 		/**
 		 * Load key settings from the API
-		 * 
+		 *
 		 * @returns void
 		 */
 		loadSettings: function(){
-			
+
 		}
-		
+
 	};
 })();
