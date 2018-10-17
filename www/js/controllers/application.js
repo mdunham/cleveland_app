@@ -24,7 +24,9 @@ var Application = function(){
 		 */
 		conStub = {
 			controller: '',
-			trigger: function(){log('stubbed for '  + conStub.controller)}
+			trigger: function () {
+				log('stubbed for '  + conStub.controller);
+			}
 		},
 		
 		/**
@@ -101,6 +103,12 @@ var Application = function(){
 
 	return {
 		
+		/**
+		 * Get a controller object by name instantiate or return the instance from cache
+		 * 
+		 * @param {string} controller
+		 * @returns {Controllers|Application.Controllers|Application.conStub|Boolean}
+		 */
 		getController: function(controller) {
 			return loadController(controller);
 		},
@@ -117,8 +125,8 @@ var Application = function(){
 			// Handle the event
 			console.log('event type: ' + event.type.toLowerCase());
 			var activeController = loadController(
-						$.mobile.pageContainer.pagecontainer("getActivePage").data('controller')
-					);
+				$.mobile.pageContainer.pagecontainer("getActivePage").data('controller')
+			);
 			switch (event.type.toLowerCase()) {
 				case 'mobileinit':
 					//$.mobile.defaultPageTransition = 'pop';
