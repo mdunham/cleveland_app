@@ -76,8 +76,6 @@ App.setupPrinter = function(callback, document, name) {
 							callback(document, name);
 					} else {
 						window.printerId = false;
-						navigator.notification.alert('Unable to find a printer. You must connect to the printer to continue.');
-						setTimeout(printCheck, 3000);
 					}
 				});
 			};

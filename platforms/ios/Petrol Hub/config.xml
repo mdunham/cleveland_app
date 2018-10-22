@@ -28,6 +28,9 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
+    <feature name="Directions">
+        <param name="ios-package" value="Directions" />
+    </feature>
     <feature name="FCMPlugin">
         <param name="ios-package" value="FCMPlugin" />
     </feature>
@@ -37,12 +40,12 @@
     <feature name="Printer">
         <param name="ios-package" value="APPPrinter" />
     </feature>
+    <feature name="CDVOrientation">
+        <param name="ios-package" value="CDVOrientation" />
+    </feature>
     <feature name="SplashScreen">
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
-    </feature>
-    <feature name="Directions">
-        <param name="ios-package" value="Directions" />
     </feature>
     <name>Petrol Hub</name>
     <description>

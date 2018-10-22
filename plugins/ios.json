@@ -16,6 +16,9 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
+    "cordova-plugin-directions": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
     "cordova-plugin-fcm": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
@@ -25,15 +28,21 @@
     "cordova-plugin-printer": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
-    "cordova-plugin-directions": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
   "dependent_plugins": {
     "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "es6-promise-plugin": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   }

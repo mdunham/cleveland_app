@@ -5,8 +5,8 @@
   "cordova": {
     "platforms": [
       "browser",
-      "ios",
-      "android"
+      "android",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-splashscreen": {},

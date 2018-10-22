@@ -61,15 +61,13 @@
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon-60@3x.png",
+      "size" : "60x60",
       "scale" : "3x"
     },
     {
-      "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "icon-20.png",
+      "size" : "20x20",
       "scale" : "1x"
     },
     {
@@ -103,15 +101,13 @@
       "scale" : "2x"
     },
     {
-      "size" : "50x50",
       "idiom" : "ipad",
-      "filename" : "icon-50.png",
+      "size" : "50x50",
       "scale" : "1x"
     },
     {
-      "size" : "50x50",
       "idiom" : "ipad",
-      "filename" : "icon-50@2x.png",
+      "size" : "50x50",
       "scale" : "2x"
     },
     {
@@ -139,21 +135,19 @@
       "scale" : "2x"
     },
     {
-      "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "icon-83.5@2x.png",
+      "size" : "83.5x83.5",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "icon-1.png",
+      "filename" : "app-icon.png",
       "scale" : "1x"
     },
     {
       "size" : "24x24",
       "idiom" : "watch",
-      "filename" : "AppIcon24x24@2x.png",
       "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "38mm"
@@ -161,7 +155,6 @@
     {
       "size" : "27.5x27.5",
       "idiom" : "watch",
-      "filename" : "AppIcon27.5x27.5@2x.png",
       "scale" : "2x",
       "role" : "notificationCenter",
       "subtype" : "42mm"
@@ -205,7 +198,6 @@
     {
       "size" : "86x86",
       "idiom" : "watch",
-      "filename" : "AppIcon86x86@2x.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "38mm"
@@ -213,7 +205,6 @@
     {
       "size" : "98x98",
       "idiom" : "watch",
-      "filename" : "AppIcon98x98@2x.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
@@ -226,18 +217,9 @@
       "subtype" : "44mm"
     },
     {
-      "size" : "1024x1024",
       "idiom" : "watch-marketing",
-      "filename" : "icon-1024.png",
+      "size" : "1024x1024",
       "scale" : "1x"
-    },
-    {
-      "size" : "44x44",
-      "idiom" : "watch",
-      "filename" : "AppIcon44x44@2x.png",
-      "scale" : "2x",
-      "role" : "longLook",
-      "subtype" : "42mm"
     }
   ],
   "info" : {
