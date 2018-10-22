@@ -153,7 +153,12 @@ var RouteController = function () {
 				});
 			
 			$cache.curRoute = false;
-			
+			$cache.dirSlideToggle.off('vclick');
+			$cache.arrviedBtn.off('vclick');
+			clearInterval($cache.timer);
+			$cache.timer = false;
+			$cache.lockBtn.off('vclick');
+			$cache.editBtn.off('vclick');
 			setTimeout(function(){
 				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
 			}, 400);
