@@ -43,7 +43,8 @@ var RouteListController = function () {
 		 */
 		setRoute = function (response) {
 			$.mobile.loader().hide();
-			
+			$cache.start_route.prop('disabled', false);
+			$cache.start_route.removeClass('disabled');
 			if ( ! response || ! response.routes) {
 				swal({
 					'icon': 'success',
@@ -51,6 +52,8 @@ var RouteListController = function () {
 					'timer': 2000,
 					'buttons': false
 				});
+				$cache.start_route.prop('disabled', true);
+				$cache.start_route.addClass('disabled');
 				$cache.countGals.text('0');
 				$cache.countStops.text('0');
 				$cache.countMiles.text('0');

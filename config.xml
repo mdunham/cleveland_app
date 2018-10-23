@@ -71,6 +71,9 @@
         <resource-file src="google-services.json" target="/google-services.json" />
     </platform>
     <allow-navigation href="*" />
+    <engine name="browser" spec="^5.0.4" />
+    <engine name="android" spec="^6.3.0" />
+    <engine name="ios" spec="^4.5.5" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-barcodescanner" spec="^0.7.4" />
@@ -79,7 +82,4 @@
     <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-directions" spec="^0.4.4" />
-    <engine name="browser" spec="^5.0.4" />
-    <engine name="android" spec="^6.3.0" />
-    <engine name="ios" spec="^4.5.5" />
 </widget>

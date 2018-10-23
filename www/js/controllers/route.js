@@ -85,9 +85,9 @@ var RouteController = function () {
 		toggleSlider = function() {
 			$cache.dirSlide.toggleClass('open');
 			if ($cache.dirSlide.hasClass('open')) {
-				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
+				$cache.map.css('bottom', ($cache.dirSlide.height() - 30) + 'px');
 			} else {
-				$cache.map.css('bottom', '85px');
+				$cache.map.css('bottom', '65px');
 			}
 		},
 		
@@ -153,9 +153,14 @@ var RouteController = function () {
 				});
 			
 			$cache.curRoute = false;
-			
+			$cache.dirSlideToggle.off('vclick');
+			$cache.arrviedBtn.off('vclick');
+			clearInterval($cache.timer);
+			$cache.timer = false;
+			$cache.lockBtn.off('vclick');
+			$cache.editBtn.off('vclick');
 			setTimeout(function(){
-				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
+				$cache.map.css('bottom', ($cache.dirSlide.height() - 30) + 'px');
 			}, 400);
 				
 			if ( ! curRoute.length) {
@@ -242,7 +247,7 @@ var RouteController = function () {
 		 */
 		onShow = function () {
 			setTimeout(function(){
-				$cache.map.css('bottom', $cache.dirSlide.height() + 'px');
+				$cache.map.css('bottom', ($cache.dirSlide.height() - 30) + 'px');
 			}, 400);
 		},
 		
