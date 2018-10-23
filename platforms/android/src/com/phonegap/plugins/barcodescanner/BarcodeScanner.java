@@ -81,7 +81,7 @@ public class BarcodeScanner extends CordovaPlugin {
      *     cordova.getActivity().runOnUiThread(runnable);
      *
      * @param action          The action to execute.
-     * @param args            The exec() arguments.
+     * @param rawArgs         The exec() arguments.
      * @param callbackContext The callback context used when calling back into JavaScript.
      * @return                Whether the action was valid.
      *

@@ -38,10 +38,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
+            <state relative-caret-position="1425">
               <caret line="95" column="110" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
             </state>
           </provider>
@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BarcodeScanner.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BarcodeScanner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/phonegap/plugins/barcodescanner/BarcodeScanner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+            <state relative-caret-position="-1450">
+              <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
               <folding>
                 <element signature="e#0#294#0" expanded="true" />
               </folding>
@@ -2110,12 +2110,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/phonegap/plugins/barcodescanner/BarcodeScanner.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="312" />
-    <option name="y" value="217" />
+    <option name="x" value="442" />
+    <option name="y" value="236" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -2296,8 +2297,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="312" y="217" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="442" y="236" width="1400" height="1000" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2305,7 +2305,7 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" sideWeight="0.5024793" side_tool="true" visible="true" weight="0.2496318" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5014728" side_tool="true" weight="0.33001107" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5022091" side_tool="true" visible="true" weight="0.33001107" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -2314,7 +2314,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49752066" visible="true" weight="0.2496318" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.49852726" visible="true" weight="0.33001107" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49779087" visible="true" weight="0.33001107" />
       <window_info anchor="right" id="Gradle" order="3" visible="true" weight="0.3298969" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
@@ -2428,20 +2428,20 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phonegap/plugins/barcodescanner/BarcodeScanner.java">
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#294#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1425">
+          <caret line="95" column="110" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/phonegap/plugins/barcodescanner/BarcodeScanner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="95" column="110" selection-start-line="95" selection-start-column="110" selection-end-line="95" selection-end-column="110" />
+        <state relative-caret-position="-1450">
+          <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#294#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
