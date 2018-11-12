@@ -102,6 +102,14 @@ module.exports = [
     "file": "plugins/es6-promise-plugin/www/promise.js",
     "pluginId": "es6-promise-plugin",
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-ble-central.ble",
+    "file": "plugins/cordova-plugin-ble-central/www/ble.js",
+    "pluginId": "cordova-plugin-ble-central",
+    "clobbers": [
+      "ble"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -118,7 +126,8 @@ module.exports.metadata =
   "cordova-plugin-screen-orientation": "3.0.1",
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-whitelist": "1.3.3",
-  "es6-promise-plugin": "4.2.2"
+  "es6-promise-plugin": "4.2.2",
+  "cordova-plugin-ble-central": "1.2.2"
 };
 // BOTTOM OF METADATA
 });

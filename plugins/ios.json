@@ -36,6 +36,10 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-ble-central": {
+      "BLUETOOTH_USAGE_DESCRIPTION": "For communication with LCR Meters",
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
   "dependent_plugins": {

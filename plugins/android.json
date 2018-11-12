@@ -10,6 +10,9 @@
     "cordova-plugin-barcodescanner": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
+    "cordova-plugin-ble-central": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
@@ -20,9 +23,6 @@
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
     "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "com.clevelandpetroleum.app"
-    },
-    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     },
     "cordova-plugin-printer": {
@@ -39,6 +39,9 @@
     }
   },
   "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
     "es6-promise-plugin": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }

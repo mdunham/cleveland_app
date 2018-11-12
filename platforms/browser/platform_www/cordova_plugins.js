@@ -76,6 +76,22 @@ module.exports = [
         "clobbers": [
             "directions"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-ble-central/www/ble.js",
+        "id": "cordova-plugin-ble-central.ble",
+        "pluginId": "cordova-plugin-ble-central",
+        "clobbers": [
+            "ble"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-ble-central/src/browser/BLECentralPlugin.js",
+        "id": "cordova-plugin-ble-central.BLECentralPlugin",
+        "pluginId": "cordova-plugin-ble-central",
+        "merges": [
+            "ble"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -89,7 +105,8 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "4.0.1",
     "cordova-plugin-dialogs": "2.0.1",
     "cordova-plugin-fcm": "2.1.2",
-    "cordova-plugin-directions": "0.4.4"
+    "cordova-plugin-directions": "0.4.4",
+    "cordova-plugin-ble-central": "1.2.2"
 }
 // BOTTOM OF METADATA
 });
