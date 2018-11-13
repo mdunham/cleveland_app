@@ -1,0 +1,95 @@
+/**
+ * Cleveland Bluetooth Utility
+ * 
+ * This file provides global utility functions that make communicating with the Cleveland LCR Pi
+ * via the cl-lcr-daemon.
+ * 
+ * @see https://github.com/mdunham/cl-lcr-daemon
+ * @author Matthew Dunham <matt@hotocoffeydesign.com>
+ */
+
+// Silencing netbeans annoying not defined error
+if (false) var ble;
+
+/**
+ * Enable Bluetooth on the device
+ * 
+ * @param {function} callback
+ * @returns {void}
+ */
+function enableBluetooth(callback) {
+	ble.isEnabled(
+		function(){
+			callback(true);
+		},
+		function(){
+			// Bluetooth not yet enabled so we try to enable it
+			ble.enable(
+				function(){
+					// bluetooth now enabled
+					callback(true);
+				},
+				function(err){
+					navigator.notification.alert('Unable to enable Bluetooth: ' + err.message);
+					callback(false);
+				}
+			);
+		}
+	);
+}
+
+/**
+ * Scan for Bluetooth devices that identify as Cl-LCR-Daemon
+ * 
+ * @param {function} callback
+ * @returns {void}
+ */
+function findDaemon(callback) {
+	var devices = [], foundDaemon;
+	ble.isEnabled((status) => {
+		ble.startScanWithOptions([],{ reportDuplicates: false }, function(device) {
+			if (device.name === 'Cleveland LCR Daemon') {
+				foundDaemon = true;
+				devices.push(device);
+			}
+		}, function(err){
+			navigator.notification.alert('Unable to enable Bluetooth: ' + err.message);
+			callback(false);
+		});
+		
+		setTimeout(() => { 
+			ble.stopScan(); 
+			if (foundDaemon) callback(devices); 
+			else setTimeout(() => { findDaemon(callback); }, 1000);
+		}, 2500);
+	});
+}
+
+function connectTo(device_id, success, fail) {
+	window.ble_device = device_id;
+	ble.autoConnect(device_id, (info) => { console.log('success ble connect ---->', info); success(info); bleNotify(bleResponse); }, fail);
+}
+
+function disconnect(device_id, success, fail) {
+	ble.disconnect(device_id, success, fail);
+}
+
+function bleLCRStatus(callback) {
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToBytes('status'), 
+		(data) => { console.log('BLE Write Success', data); return bytesToString(data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
+
+function bleNotify(callback, fail) {
+	if ( ! fail) fail = console.log;
+	ble.startNotification(window.ble_device, App.bleServUUID, App.bleCharUUID, callback, fail);
+}
+
+function bleResponse(data) {
+	console.log('BLE Response: ' + bytesToString(data));
+}

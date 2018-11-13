@@ -25,6 +25,7 @@ var TruckController = function(){
 		 */
 		initialize = function () {
 			$cache.page = jQuery('#page-truck');
+			$cache.scanning = false;
 			$cache.scanbtn = $cache.page.find('#btn-submit-scan');
 		},
 		
@@ -70,18 +71,27 @@ var TruckController = function(){
 		 */
 		onBeforeShow = function ($page) {
 			$cache.scanbtn.on('vclick', function(e){
-				cordova.plugins.barcodeScanner.scan(
-					function (result) {
-						if ( ! result.cancelled) {
-							$.mobile.loader().show();
-							var id = result.text;
-							Api.get(App.Settings.apiUrl + '/trucks/view/' + id + '.json', {}, processApi);
+				if ( ! $cache.scanning) {
+					$cache.scanning = true;
+					$.mobile.loader().show();
+					cordova.plugins.barcodeScanner.scan(
+						function (result) {
+							$.mobile.loader().hide();
+							$cache.scanning = false;
+							if ( ! result.cancelled) {
+								$.mobile.loader().show();
+								var id = result.text;
+								Api.get(App.Settings.apiUrl + '/trucks/view/' + id + '.json', {}, processApi);
+							}
+						},
+						function (error) {
+							$.mobile.loader().hide();
+							$cache.scanning = false;
+							error = error.message || error;
+							navigator.notification.alert('Scan Failed: ' + error);
 						}
-					},
-					function (error) {
-						alert("Scanning failed: " + error);
-					}
-				);
+					);
+			}
 			});
 		},
 
