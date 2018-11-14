@@ -67,7 +67,7 @@ function findDaemon(callback) {
 
 function connectTo(device_id, success, fail) {
 	window.ble_device = device_id;
-	ble.autoConnect(device_id, (info) => { console.log('success ble connect ---->', info); success(info); bleNotify(bleResponse); }, fail);
+	ble.connect(device_id, (info) => { console.log('success ble connect ---->', info); success(info); bleNotify(bleResponse, fail); }, fail);
 }
 
 function disconnect(device_id, success, fail) {
@@ -80,8 +80,19 @@ function bleLCRStatus(callback) {
 		App.bleServUUID, 
 		App.bleCharUUID, 
 		stringToByteBuffer('status'), 
-		(data) => { console.log('BLE Write Success', data); return bytesToString(data); }, 
+		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
+	);
+	
+	ble.read(window.ble_device, App.bleServUUID, App.bleCharUUID,
+		function(data){
+			console.log("Hooray we have data"+JSON.stringify(data));
+			console.log('ASCII: ' + data.toString());
+			callback(data.toString());
+		},
+		function(failure){
+			alert("Failed to read characteristic from device.");
+		}
 	);
 }
 
