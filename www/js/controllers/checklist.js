@@ -199,7 +199,13 @@ var ChecklistController = function(){
 							if (device.name === 'Cleveland LCR Daemon') {
 								connectTo(device.id, (info) => {
 									console.log('Checklist Success BLE Connected to Device!!!', info);
-									bleLCRStatus((data) => { navigator.notification.alert("Successfully connected to the CL-LCR-Daemon\nLC Device ver: " + data); });
+									setTimeout(()=> bleLCRStatus((status, message) => {
+										if (status === 'ok') {
+											navigator.notification.alert("Successfully connected to the CL-LCR-Daemon\nLC Device ver: " + message);
+										} else {
+											navigator.notification.alert("Error Connecting to LCR: " + message);
+										}
+									}), 1000);
 								});
 							}
 						});

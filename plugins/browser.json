@@ -33,6 +33,9 @@
     },
     "cordova-plugin-ble-central": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
   "dependent_plugins": {

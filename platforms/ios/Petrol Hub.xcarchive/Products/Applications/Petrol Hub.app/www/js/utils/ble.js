@@ -10,6 +10,7 @@
 
 // Silencing netbeans annoying not defined error
 if (false) var ble;
+var bleCallbacks = [];
 
 /**
  * Enable Bluetooth on the device
@@ -67,7 +68,7 @@ function findDaemon(callback) {
 
 function connectTo(device_id, success, fail) {
 	window.ble_device = device_id;
-	ble.autoConnect(device_id, (info) => { console.log('success ble connect ---->', info); success(info); bleNotify(bleResponse); }, fail);
+	ble.connect(device_id, (info) => { console.log('success ble connect ---->', info); success(info); bleNotify(bleResponse); }, fail);
 }
 
 function disconnect(device_id, success, fail) {
@@ -75,21 +76,49 @@ function disconnect(device_id, success, fail) {
 }
 
 function bleLCRStatus(callback) {
+    bleCallbacks.push(callback);
 	ble.write(
 		window.ble_device, 
 		App.bleServUUID, 
 		App.bleCharUUID, 
-		stringToBytes('status'), 
-		(data) => { console.log('BLE Write Success', data); return bytesToString(data); }, 
+		stringToByteBuffer('status'), 
+		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);
 }
 
 function bleNotify(callback, fail) {
 	if ( ! fail) fail = console.log;
-	ble.startNotification(window.ble_device, App.bleServUUID, App.bleCharUUID, callback, fail);
+	ble.startNotification(window.ble_device, App.bleServUUID, App.bleCharUUID, (data) => {
+		var ascii = String.fromCharCode.apply(null, new Uint8Array(data));
+		console.log('ASCII: ' + ascii);
+		callback(ascii);
+	}, fail);
 }
 
 function bleResponse(data) {
-	console.log('BLE Response: ' + bytesToString(data));
+    var
+        dataParts = data.split('|'),
+        status = dataParts.shift(),
+        message = dataParts.join('|'),
+        callback = bleCallbacks.length ? bleCallbacks.shift() : () => false;
+	console.log('BLE Response(' + status + '): ' + message);
+	callback(status, message);
+    
+}
+
+ function stringToByteBuffer(string) {
+   var array = new Uint8Array(string.length);
+   for (var i = 0, l = string.length; i < l; i++) {
+       array[i] = string.charCodeAt(i);
+    }
+    return array.buffer;
+}
+
+function bytesToString(byteArray) {
+	if ('object' !== typeof byteArray) return '';
+	let output = '';
+	for (var i = 0; i < byteArray.length; i += 2)
+		output += String.fromCharCode(byteArray[i]);
+	return output;
 }

@@ -188,8 +188,26 @@ var ChecklistController = function(){
 			}
 			
 			if ( ! window.printerId) {
-				App.setupPrinter();
+				//App.setupPrinter();
 			}
+			
+			enableBluetooth((status) => {
+				if (status) {
+					findDaemon((devices) => {
+						devices.map((device) => {
+							console.log('Device From Scan - ' + device.name, device);
+							if (device.name === 'Cleveland LCR Daemon') {
+								connectTo(device.id, (info) => {
+									console.log('Checklist Success BLE Connected to Device!!!', info);
+									bleLCRStatus((data) => { navigator.notification.alert("Successfully connected to the CL-LCR-Daemon\nLC Device ver: " + data); });
+								});
+							}
+						});
+					});
+				} else {
+					console.log('Checklist Error: Bluetooth not enabled');
+				}
+			});
 			
 			if ($cache.sig) {
 				$cache.sig.on();

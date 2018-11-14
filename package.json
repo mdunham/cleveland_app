@@ -19,7 +19,8 @@
       "cordova-plugin-directions": {},
       "cordova-plugin-ble-central": {
         "BLUETOOTH_USAGE_DESCRIPTION": "For communication with LCR Meters"
-      }
+      },
+      "cordova-plugin-whitelist": {}
     }
   },
   "dependencies": {

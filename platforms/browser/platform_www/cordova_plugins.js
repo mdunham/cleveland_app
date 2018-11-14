@@ -106,7 +106,8 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "2.0.1",
     "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-directions": "0.4.4",
-    "cordova-plugin-ble-central": "1.2.2"
+    "cordova-plugin-ble-central": "1.2.2",
+    "cordova-plugin-whitelist": "1.3.3"
 }
 // BOTTOM OF METADATA
 });
