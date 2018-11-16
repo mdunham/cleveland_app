@@ -105,7 +105,7 @@ function bleLCRNewOrder(amount, callback) {
 		window.ble_device, 
 		App.bleServUUID, 
 		App.bleCharUUID, 
-		stringToByteBuffer('new_delivery|' + amount), 
+		stringToByteBuffer('new_delivery||' + amount), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);

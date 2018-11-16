@@ -80,6 +80,10 @@
 						$(document).on('pagecontainerbeforechange', EventHandler);
 						$(document).delegate('div[data-rel="page"]', 'pagebeforeshow', EventHandler);
 						$(window).on('orientationchange', EventHandler);
+						cordova.plugins.backgroundMode.enable();
+						cordova.plugins.backgroundMode.on('activate', function() {
+							cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+						});
 					} else if (event.type === 'mobileinit') {
 						jqmReadyDeferred.resolve();
 					}
@@ -90,9 +94,12 @@
 			$(document).one('mobileinit', onLoad);
  
             window.addEventListener('load', function () {
-				FastClick.attach(document.body);
+				setTimeout(function(){
+					FastClick.attach(document.body);
+					//$(document).on('click', 'input, textarea',function(){ var $this = $(this); setTimeout(function(){if ( ! $this.is(":focus")) $this.focus(); }, 100); });
+				}, 100);
             }, false);
- 
+			
 			// Setup cordova event listeners
 			document.addEventListener('deviceready', onLoad, false);
 			document.addEventListener('pause', EventHandler, false);

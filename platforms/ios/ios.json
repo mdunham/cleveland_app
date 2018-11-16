@@ -28,6 +28,12 @@
               "xml": "<string>For communication with LCR Meters</string>",
               "count": 1
             }
+          ],
+          "UIBackgroundModes": [
+            {
+              "xml": "<array><string>audio</string></array>",
+              "count": 1
+            }
           ]
         }
       },
@@ -68,6 +74,22 @@
             },
             {
               "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"BackgroundMode\"><param name=\"ios-package\" value=\"APPBackgroundMode\" /></feature>",
               "count": 1
             }
           ],
@@ -140,6 +162,12 @@
     },
     "cordova-plugin-ble-central": {
       "BLUETOOTH_USAGE_DESCRIPTION": "For communication with LCR Meters",
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-background-mode": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
@@ -255,6 +283,23 @@
       "clobbers": [
         "ble"
       ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
+      ]
+    },
+    {
+      "id": "cordova-plugin-background-mode.BackgroundMode",
+      "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+      "pluginId": "cordova-plugin-background-mode",
+      "clobbers": [
+        "cordova.plugins.backgroundMode",
+        "plugin.backgroundMode"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -270,6 +315,8 @@
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-whitelist": "1.3.3",
     "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-ble-central": "1.2.2"
+    "cordova-plugin-ble-central": "1.2.2",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-background-mode": "0.7.2"
   }
 }

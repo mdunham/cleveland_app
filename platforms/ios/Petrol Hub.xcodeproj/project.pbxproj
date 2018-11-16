@@ -52,6 +52,10 @@
 		F033FD848B4147C088796F30 /* scannerOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F633F98568A4F8FB5F43B7B /* scannerOverlay.xib */; };
 		F54544061C4849D1B5BC7B28 /* BLECentralPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 432ADC2F878D43A29DBB0362 /* BLECentralPlugin.m */; };
 		FAB73F2193484FB399AEFA65 /* CBPeripheral+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA3A7EC43E466493214C08 /* CBPeripheral+Extensions.m */; };
+		57E36B56A2284721BE8B04B0 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2A05F91AD4423F936AA590 /* CDVStatusBar.m */; };
+		C29701971FEA4CF8B9C7471A /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = F81F7DAFC5C64DDD89D0E9B2 /* APPBackgroundMode.m */; };
+		55E7C6A446B7443F9CF6A34D /* APPMethodMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BB7FC2FA854A20A9889B7F /* APPMethodMagic.m */; };
+		BDAF8CE36EEE47C282F224A3 /* appbeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A06AA001F8A42768344ED80 /* appbeep.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +157,13 @@
 		EFFFD709F9DB4B189C8FBC77 /* CDVOrientation.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVOrientation.m; path = "cordova-plugin-screen-orientation/CDVOrientation.m"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Petrol Hub/config.xml"; sourceTree = "<group>"; };
 		F9EF0066973F4E1BBB080D08 /* FCMPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = FCMPlugin.m; path = "cordova-plugin-fcm/FCMPlugin.m"; sourceTree = "<group>"; };
+		4C2A05F91AD4423F936AA590 /* CDVStatusBar.m */ = {isa = PBXFileReference; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		999C3A78B2A44CF5B0A6A850 /* CDVStatusBar.h */ = {isa = PBXFileReference; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		F81F7DAFC5C64DDD89D0E9B2 /* APPBackgroundMode.m */ = {isa = PBXFileReference; name = "APPBackgroundMode.m"; path = "cordova-plugin-background-mode/APPBackgroundMode.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		13BB7FC2FA854A20A9889B7F /* APPMethodMagic.m */ = {isa = PBXFileReference; name = "APPMethodMagic.m"; path = "cordova-plugin-background-mode/APPMethodMagic.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		34EBA49DA1CF4FDAB13C5977 /* APPBackgroundMode.h */ = {isa = PBXFileReference; name = "APPBackgroundMode.h"; path = "cordova-plugin-background-mode/APPBackgroundMode.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C6B822E1356B4DD799CA9644 /* APPMethodMagic.h */ = {isa = PBXFileReference; name = "APPMethodMagic.h"; path = "cordova-plugin-background-mode/APPMethodMagic.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0A06AA001F8A42768344ED80 /* appbeep.wav */ = {isa = PBXFileReference; name = "appbeep.wav"; path = "appbeep.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +258,7 @@
 				1F633F98568A4F8FB5F43B7B /* scannerOverlay.xib */,
 				5D59E53A3E1340BEA4676AB7 /* CDVNotification.bundle */,
 				68B0FE139AE0493581D3D862 /* GoogleService-Info.plist */,
+				0A06AA001F8A42768344ED80 /* appbeep.wav */,
 			);
 			name = Resources;
 			path = "Petrol Hub/Resources";
@@ -332,6 +344,12 @@
 				410B7DF87069424FB944EC68 /* BLECentralPlugin.h */,
 				31F3B93E496E40AAA67C0118 /* CBPeripheral+Extensions.h */,
 				09583597E7F04E429C224194 /* BLECommandContext.h */,
+				4C2A05F91AD4423F936AA590 /* CDVStatusBar.m */,
+				999C3A78B2A44CF5B0A6A850 /* CDVStatusBar.h */,
+				F81F7DAFC5C64DDD89D0E9B2 /* APPBackgroundMode.m */,
+				13BB7FC2FA854A20A9889B7F /* APPMethodMagic.m */,
+				34EBA49DA1CF4FDAB13C5977 /* APPBackgroundMode.h */,
+				C6B822E1356B4DD799CA9644 /* APPMethodMagic.h */,
 			);
 			name = Plugins;
 			path = "Petrol Hub/Plugins";
@@ -443,6 +461,7 @@
 				F033FD848B4147C088796F30 /* scannerOverlay.xib in Resources */,
 				0A74967B98414A778FAC57A1 /* CDVNotification.bundle in Resources */,
 				0811FA21EA53470A813C791E /* GoogleService-Info.plist in Resources */,
+				BDAF8CE36EEE47C282F224A3 /* appbeep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +508,9 @@
 				F54544061C4849D1B5BC7B28 /* BLECentralPlugin.m in Sources */,
 				FAB73F2193484FB399AEFA65 /* CBPeripheral+Extensions.m in Sources */,
 				BB6CD42281F64C13B2FC2BCF /* BLECommandContext.m in Sources */,
+				57E36B56A2284721BE8B04B0 /* CDVStatusBar.m in Sources */,
+				C29701971FEA4CF8B9C7471A /* APPBackgroundMode.m in Sources */,
+				55E7C6A446B7443F9CF6A34D /* APPMethodMagic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

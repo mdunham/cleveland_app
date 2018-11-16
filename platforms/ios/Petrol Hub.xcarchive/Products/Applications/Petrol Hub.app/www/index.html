@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi, viewport-fit=cover" />
 		
         <title>Petrol Hub</title> 
 
@@ -63,10 +63,10 @@
 			<div data-role="page" id="page-index" data-auth="false" data-controller="IndexController">
 				<div role="main" class="ui-content">
 					<img class="logo" src="img/logo.png" />
-					<form id="login-form" data-api="/login">
+					<form id="login-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-api="/login">
 						<div class="err-text err-msg"></div>
-						<input class="needsclick" type="text" name="username" id="txt-username" placeholder="User ID" value="">
-						<input class="needsclick" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
+						<input class="needsclick" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="">
+						<input class="needsclick" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
 						<button id="btn-submit-login" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
 					</form>
 				</div>

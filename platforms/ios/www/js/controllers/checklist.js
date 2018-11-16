@@ -42,7 +42,7 @@ var ChecklistController = function(){
 				if (response.checklistItems.length) {
 					response.checklistItems.map(function(listItem){
 						var 
-							input = listItem.type === 'radio' ? `<label style="float:left; width: 45%;" class="ui-alt-icon">Yes <input type="radio" name="item${listItem.id}" data-id="${listItem.id}" /></label> <label class="ui-alt-icon" style="width:45%; float: left">No <input name="item${listItem.id}" type="radio" data-id="${listItem.id}" /></label>` : (listItem.type === 'checkbox' ? `<label style="float:left; width: 45%;" class="ui-alt-icon"><input type="checkbox" name="item${listItem.id}" data-id="${listItem.id}" />&nbsp;</label>` :  `<input class="needsclick" type="text" style="width: 30%" data-id="${listItem.id}" />`) ,
+							input = listItem.type === 'radio' ? `<label style="float:left; width: 45%;" class="ui-alt-icon">Yes <input type="radio" name="item${listItem.id}" data-id="${listItem.id}" /></label> <label class="ui-alt-icon" style="width:45%; float: left">No <input name="item${listItem.id}" type="radio" data-id="${listItem.id}" /></label>` : (listItem.type === 'checkbox' ? `<label style="float:left; width: 45%;" class="ui-alt-icon"><input type="checkbox" name="item${listItem.id}" data-id="${listItem.id}" />&nbsp;</label>` :  `<input class="needsclick" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width: 30%" data-id="${listItem.id}" />`) ,
 							inputTpl = `<li data-item-id="${listItem.id}"><strong class="${listItem.type}-type" style="display: block; margin-top: 10px;">${listItem.title}</strong>${input}</li>`,
 							tpl = `<div data-id="${listItem.id}" data-role="collapsible" data-collapsed-icon="carat-d" data-iconpos="right" data-expanded-icon="carat-u">
 									<h4>${listItem.group_title}</h4>
@@ -201,7 +201,14 @@ var ChecklistController = function(){
 									console.log('Checklist Success BLE Connected to Device!!!', info);
 									setTimeout(()=> bleLCRStatus((status, message) => {
 										if (status === 'ok') {
-											navigator.notification.alert("Successfully connected to the CL-LCR-Daemon\nLC Device ver: " + message);
+											let version, product_id;
+											[version, product_id] = message.split('|');
+											navigator.notification.alert("Successfully Connected to the LCR: " + version);
+											bleLCRTotalizer((status, totalizer) => {
+												if (status === 'ok') {
+													alert("Current Totalizer: " + totalizer);
+												}
+											});
 										} else {
 											navigator.notification.alert("Error Connecting to LCR: " + message);
 										}

@@ -7,5 +7,6 @@
   "description": "Driver application for Cleveland Drivers",
   "author": "Hot Coffey Design",
   "icons": [],
-  "start_url": "index.html"
+  "start_url": "index.html",
+  "theme_color": "#000000"
 }

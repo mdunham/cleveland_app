@@ -2236,6 +2236,18 @@ div.ui-content .ui-listview li.article .news-excerpt-left .bottom .time {
     bottom: 0px;
 }
 
+* {
+	-webkit-user-select: none;
+	user-select: none;
+}
+input, textarea {
+	-webkit-user-select: text;
+	user-select: text;
+}
+
+form, input {autocomplete:off;}
+label > * { pointer-events: none; }
+
 div[id^="page-how-"] > .ui-content {
     padding:  0px;
     position:  fixed;

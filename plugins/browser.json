@@ -36,6 +36,12 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.clevelandpetroleum.app"
     }
   },
   "dependent_plugins": {
