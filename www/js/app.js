@@ -90,7 +90,10 @@
 			$(document).one('mobileinit', onLoad);
  
             window.addEventListener('load', function () {
-				FastClick.attach(document.body);
+				setTimeout(function(){
+					FastClick.attach(document.body);
+					$(document).on('click touchstart vclick', 'input, textarea',function(){ $(this).focus(); });
+				}, 100);
             }, false);
  
 			// Setup cordova event listeners

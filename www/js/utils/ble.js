@@ -87,6 +87,33 @@ function bleLCRStatus(callback) {
 	);
 }
 
+function bleLCRTotalizer(callback) {
+    bleCallbacks.push(callback);
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToByteBuffer('get_totalizer'), 
+		(data) => { console.log('BLE Write Success', data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
+
+function bleLCRNewOrder(amount, callback) {
+    bleCallbacks.push(callback);
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToByteBuffer('new_delivery|' + amount), 
+		(data) => { console.log('BLE Write Success', data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
+
+
+
+
 function bleNotify(callback, fail) {
 	if ( ! fail) fail = console.log;
 	ble.startNotification(window.ble_device, App.bleServUUID, App.bleCharUUID, (data) => {
