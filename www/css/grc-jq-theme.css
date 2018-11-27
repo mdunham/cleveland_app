@@ -2138,3 +2138,6 @@ a.t-link {
 	font-family: monospace;
 }
 
+#page-truck .ui-input-text {
+    border: 0!important;
+}

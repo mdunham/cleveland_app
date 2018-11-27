@@ -10,7 +10,7 @@
 
 // Silencing netbeans annoying not defined error
 if (false) var ble;
-var bleCallbacks = [];
+var bleCallbacks = [], bleSync;
 
 /**
  * Enable Bluetooth on the device
@@ -31,7 +31,7 @@ function enableBluetooth(callback) {
 					callback(true);
 				},
 				function(err){
-					navigator.notification.alert('Unable to enable Bluetooth: ' + err.message);
+					navigator.notification.alert('Unable to enable Bluetooth');
 					callback(false);
 				}
 			);
@@ -87,6 +87,18 @@ function bleLCRStatus(callback) {
 	);
 }
 
+function bleLCRSync(callback) {
+    bleSync = callback;
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToByteBuffer('sync'), 
+		(data) => { console.log('BLE Write Success', data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
+
 function bleLCRTotalizer(callback) {
     bleCallbacks.push(callback);
 	ble.write(
@@ -129,9 +141,12 @@ function bleResponse(data) {
         status = dataParts.shift(),
         message = dataParts.join('|'),
         callback = bleCallbacks.length ? bleCallbacks.shift() : () => false;
-	console.log('BLE Response(' + status + '): ' + message);
-	callback(status, message);
-    
+	if (message.substring(0, 4) === 'sync') {
+		bleSync(message);
+	} else {
+		console.log('BLE Response(' + status + '): ' + message);
+		callback(status, message);
+    }
 }
 
  function stringToByteBuffer(string) {

@@ -27,6 +27,8 @@ var TruckController = function(){
 			$cache.page = jQuery('#page-truck');
 			$cache.scanning = false;
 			$cache.scanbtn = $cache.page.find('#btn-submit-scan');
+			$cache.trcuktxt = $cache.page.find('#txt-truck-num');
+			$cache.subbtn = $cache.page.find('#btn-submit-txt');
 		},
 		
 		/**
@@ -70,6 +72,11 @@ var TruckController = function(){
 		 * @returns void
 		 */
 		onBeforeShow = function ($page) {
+			$cache.subbtn.on('vclick', function(e){
+				$.mobile.loader().show();
+				var id = $cache.trcuktxt.val();
+				Api.get(App.Settings.apiUrl + '/trucks/view/truck' + id + '|0.json', {}, processApi);
+			});
 			$cache.scanbtn.on('vclick', function(e){
 				if ( ! $cache.scanning) {
 					$cache.scanning = true;
@@ -91,7 +98,7 @@ var TruckController = function(){
 							navigator.notification.alert('Scan Failed: ' + error);
 						}
 					);
-			}
+				}
 			});
 		},
 
@@ -103,6 +110,7 @@ var TruckController = function(){
 		 */
 		onBeforeHide = function ($page) {
 			$cache.scanbtn.off('vclick');
+			$cache.subbtn.off('vclick');
 		};
 		
 	return {
