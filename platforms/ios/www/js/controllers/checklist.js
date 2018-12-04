@@ -203,7 +203,7 @@ var ChecklistController = function(){
 										if (status === 'ok') {
 											let version, product_id;
 											[version, product_id] = message.split('|');
-											navigator.notification.alert("Successfully Connected to the LCR: " + version);
+											alert("Successfully Connected to the LCR: " + version);
 											bleLCRSync((data) => {
 												console.log(data, JSON.parse(data.substring(5)));
 											});
