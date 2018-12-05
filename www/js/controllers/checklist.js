@@ -38,37 +38,41 @@ var ChecklistController = function(){
 		 * @returns {void}
 		 */
 		processApi = function(response) {
-			if (response && response.checklistItems) {
-				if (response.checklistItems.length) {
-					response.checklistItems.map(function(listItem){
-						var 
-							input = listItem.type === 'radio' ? `<label style="float:left; width: 45%;" class="ui-alt-icon">Yes <input type="radio" name="item${listItem.id}" data-id="${listItem.id}" /></label> <label class="ui-alt-icon" style="width:45%; float: left">No <input name="item${listItem.id}" type="radio" data-id="${listItem.id}" /></label>` : (listItem.type === 'checkbox' ? `<label style="float:left; width: 45%;" class="ui-alt-icon"><input type="checkbox" name="item${listItem.id}" data-id="${listItem.id}" />&nbsp;</label>` :  `<input class="needsclick" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width: 30%" data-id="${listItem.id}" />`) ,
-							inputTpl = `<li data-item-id="${listItem.id}"><strong class="${listItem.type}-type" style="display: block; margin-top: 10px;">${listItem.title}</strong>${input}</li>`,
-							tpl = `<div data-id="${listItem.id}" data-role="collapsible" data-collapsed-icon="carat-d" data-iconpos="right" data-expanded-icon="carat-u">
-									<h4>${listItem.group_title}</h4>
-									<ul data-role="listview" data-group-title="${listItem.group_title}" data-inset="false">
-										${inputTpl}
-									</ul>
-								</div>`;
-						if ( ! $cache.page.find('div[data-id="' + listItem.id + '"]').length) {
-							if ($cache.page.find('ul[data-group-title="' + listItem.group_title + '"]').length) {
-								if ( ! $cache.page.find('li[data-item-id="' + listItem.id + '"]').length)
-									$cache.page.find('ul[data-group-title="' + listItem.group_title + '"]').append(inputTpl);
-							} else {
-								$cache.canvas.before(tpl);
+			try {
+				if (response && response.checklistItems) {
+					if (response.checklistItems.length) {
+						response.checklistItems.map(function(listItem){
+							var 
+								input = listItem.type === 'radio' ? `<label style="float:left; width: 45%;" class="ui-alt-icon">Yes <input type="radio" name="item${listItem.id}" data-id="${listItem.id}" /></label> <label class="ui-alt-icon" style="width:45%; float: left">No <input name="item${listItem.id}" type="radio" data-id="${listItem.id}" /></label>` : (listItem.type === 'checkbox' ? `<label style="float:left; width: 45%;" class="ui-alt-icon"><input type="checkbox" name="item${listItem.id}" data-id="${listItem.id}" />&nbsp;</label>` :  `<input class="needsclick" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width: 30%" data-id="${listItem.id}" />`) ,
+								inputTpl = `<li data-item-id="${listItem.id}"><strong class="${listItem.type}-type" style="display: block; margin-top: 10px;">${listItem.title}</strong>${input}</li>`,
+								tpl = `<div data-id="${listItem.id}" data-role="collapsible" data-collapsed-icon="carat-d" data-iconpos="right" data-expanded-icon="carat-u">
+										<h4>${listItem.group_title}</h4>
+										<ul data-role="listview" data-group-title="${listItem.group_title}" data-inset="false">
+											${inputTpl}
+										</ul>
+									</div>`;
+							if ( ! $cache.page.find('div[data-id="' + listItem.id + '"]').length) {
+								if ($cache.page.find('ul[data-group-title="' + listItem.group_title + '"]').length) {
+									if ( ! $cache.page.find('li[data-item-id="' + listItem.id + '"]').length)
+										$cache.page.find('ul[data-group-title="' + listItem.group_title + '"]').append(inputTpl);
+								} else {
+									$cache.canvas.before(tpl);
+								}
+								$cache.page.find('div[data-id="' + listItem.id + '"]').collapsible();
+								$cache.page.find('div[data-id="' + listItem.id + '"] [data-role="listview"]').listview();
+								$cache.page.find('div[data-id="' + listItem.id + '"] input[type="checkbox"]').checkboxradio();
 							}
-							$cache.page.find('div[data-id="' + listItem.id + '"]').collapsible();
-							$cache.page.find('div[data-id="' + listItem.id + '"] [data-role="listview"]').listview();
-							$cache.page.find('div[data-id="' + listItem.id + '"] input[type="checkbox"]').checkboxradio();
-						}
-					});
-					$('ul[data-group-title]').listview();
-					$('ul[data-group-title]').listview('refresh');
-					$('input[type="radio"]').checkboxradio();
-					$('input[type="checkbox"]').checkboxradio();
+						});
+						$('ul[data-group-title]').listview();
+						$('ul[data-group-title]').listview('refresh');
+						$('input[type="radio"]').checkboxradio();
+						$('input[type="checkbox"]').checkboxradio();
+						FastClick.attach(document.body);
+					}
 				}
-			}
-			$.mobile.loader().hide();
+			} catch (e) {}
+			
+			setTimeout(() => $.mobile.loader().hide(), 500);
 		},
 
 		/**
@@ -78,25 +82,27 @@ var ChecklistController = function(){
 		 */
 		checkComplete = function() {
 			$cache.page.find('ul[data-group-title]').each(function(){
-				var done = true;
+				var done = true, $group = $(this).closest('div[data-id]');
 				$(this).find('li.ui-li-static').each(function(){
-					var complete = false, $input = $(this).find('input');
+					var $this = $(this), complete = false, $input = $(this).find('input');
 					if ($input.attr('type') === 'radio' || $input.attr('type') === 'checkbox') {
 						complete = $input.is(':checked');
 					} else if ($input.attr('type') === 'text') {
 						complete = $input.val().length !== 0;
 					}
 					if (complete) {
-						$(this).addClass('complete');
+						if ( ! $this.hasClass('complete'))  $this.addClass('complete');
 					} else {
-						$(this).removeClass('complete');
+						if ($this.hasClass('complete')) $(this).removeClass('complete');
 						done = false;
 					}
 				});
 				if (done) {
-					$(this).closest('div[data-id]').addClass('complete');
+					if ( ! $group.hasClass('complete'))
+						$group.addClass('complete');
 				} else {
-					$(this).closest('div[data-id]').removeClass('complete');
+					if ($group.hasClass('complete')) 
+						$group.removeClass('complete');
 				}
 			});
 		},
@@ -167,9 +173,8 @@ var ChecklistController = function(){
 		onBeforeShow = function ($page) {
 			setTimeout(function(){
 				$.mobile.loader().show();
+				Api.get(App.Settings.apiUrl + '/checklist-items/index.json', {}, processApi);
 			}, 30);
-			
-			Api.get(App.Settings.apiUrl + '/checklist-items/index.json', {}, processApi);
 			
 			$cache.start.on('vclick', startShift);
 			$cache.page.on('change', 'input', checkComplete);
@@ -181,7 +186,7 @@ var ChecklistController = function(){
 				clearInterval(window.checkInt);
 			}
 			
-			window.checkInt = setInterval(checkComplete, 500);
+			window.checkInt = setInterval(checkComplete, 1000);
 			
 			if ( ! window.watchID) {
 				window.GeoUpdateError();

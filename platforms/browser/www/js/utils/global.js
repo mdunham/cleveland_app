@@ -129,26 +129,41 @@ function initMap() {
 	console.log('Init map triggered');
 }
 
-window.GeoUpdate = function(position) {
-	window.lastCoord = position.coords;
-	Api.post(App.Settings.apiUrl + '/geo-tags/add.json', {
-		user_id: window.currentUser.id,
-		truck_id: window.currentTruck.id,
-		longitude: position.coords.longitude,
-		latitude: position.coords.latitude,
-		accuracy: position.coords.accuracy,
-		heading: position.coords.heading,
-		speed: position.coords.speed,
-		altitude: position.coords.altitude
-	}, function(response){
+/**
+ * GeoTracking Helper Method
+ * 
+ * @todo 
+ */
+window.lastGeoPush = new Date().getTime();
 
-	});
+window.GeoUpdate = function(position) {
+	if ( ! window.currentUser || ! window.currentTruck) return false;
+	let elapsed = new Date().getTime() - window.lastGeoPush;
+	if ((window.lastCoord !== position.coords && elapsed > 60) || elapsed > 300) {
+		window.lastGeoPush = new Date().getTime();
+		window.lastCoord = position.coords;
+		Api.post(App.Settings.apiUrl + '/geo-tags/add.json', {
+			user_id: window.currentUser.id || '',
+			truck_id: window.currentTruck.id || '',
+			longitude: position.coords.longitude,
+			latitude: position.coords.latitude,
+			accuracy: position.coords.accuracy,
+			heading: position.coords.heading,
+			speed: position.coords.speed,
+			altitude: position.coords.altitude
+		}, function(response){
+			
+		});
+	}
 };
 
 window.GeoUpdateError = function(error) {
-	navigator.geolocation.clearWatch(window.watchID);
-	setTimeout(function(){
-		window.watchID = navigator.geolocation.watchPosition(window.GeoUpdate, window.GeoUpdateError, { timeout: 30000, enableHighAccuracy: true });
+	try {
+		navigator.geolocation.clearWatch(window.watchID);
+	} catch (e) {}
+	setTimeout(() => {
+		try {
+			window.watchID = navigator.geolocation.watchPosition(window.GeoUpdate, window.GeoUpdateError, { timeout: 30000, enableHighAccuracy: true });
+		} catch (e) {}
 	}, 1000);
-
 };

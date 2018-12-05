@@ -2141,3 +2141,8 @@ a.t-link {
 #page-truck .ui-input-text {
     border: 0!important;
 }
+
+#page-truck .ui-content {
+    padding-left: 20px;
+    padding-right: 20px;
+}

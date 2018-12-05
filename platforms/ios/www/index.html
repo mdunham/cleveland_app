@@ -63,9 +63,9 @@
 			<div data-role="page" id="page-index" data-auth="false" data-controller="IndexController">
 				<div role="main" class="ui-content">
 					<img class="logo" src="img/logo.png" />
-					<form id="login-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-api="/login">
+					<form id="login-form" autocomplete="off" spellcheck="false" data-api="/login">
 						<div class="err-text err-msg"></div>
-						<input class="needsclick" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="">
+						<input class="needsclick" type="text" autocomplete="off" autofocus autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="">
 						<input class="needsclick" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
 						<button id="btn-submit-login" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
 					</form>
@@ -77,9 +77,11 @@
 					<h1>Capture Truck</h1>
 				</div>
 				<div role="main" class="ui-content">
-					<button id="btn-submit-scan" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;position: absolute;width: 90%;left: 50%;top: 30%;transform: translateX(-50%) translateY(-50%);">Scan Truck Barcode</button>       
-					<input type="text" id="txt-truck-num" class="mc-top-margin-1-5" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;position: absolute;width: 90%;left: 50%;top: 50%;transform: translateX(-50%) translateY(-50%);background: #FEFEFE;border: 1px solid #CCC;"/>         
-					<button id="btn-submit-txt" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;position: absolute;width: 90%;left: 50%;top: 61%;transform: translateX(-50%) translateY(-50%);">Enter Truck Number</button>          
+					<p style="background: #ffffff;border-radius: 4px;box-shadow: 0 2px 15px -1px rgba(0, 0, 0, 0.42);margin: 5% 0 10px 0px;padding: 14px;font-size: 12px;overflow: hidden;"><img src="img/qr.png" alt="" style="width: 56px;margin-left: 13px;float: right;"><strong style="font-size: 14px;font-weight: 400;display: block;margin-bottom: 5px;margin-top: -2px;">Scan Truck Barcode</strong>Press "Scan Truck Barcode", then point the phone at the barcode located on the trucks door jamb.</p>
+					<button id="btn-submit-scan" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="padding-top: 15px;padding-bottom: 15px;/* margin: 10px; */width: 100%;">Scan Truck Barcode</button>
+					<hr style="border: none;margin: 40px -20px 30px -20px;border-top: 1px solid #3a3a3a;border-bottom: 1px solid #dadada;box-shadow: 0px 0px 25px 0px rgb(25, 25, 25);"><p style="background: #ffffff;border-radius: 4px;box-shadow: 0 2px 15px -1px rgba(0, 0, 0, 0.42);margin: 5% 0 10px 0px;padding: 14px;font-size: 12px;overflow: hidden;"><strong style="font-size: 14px;font-weight: 400;display: block;margin-bottom: 5px;margin-top: -2px;">Scan not working?</strong>Manually enter a truck number below.</p>
+					<input type="tel" placeholder="Manual Truck Number" autocomplete="off" id="txt-truck-num" class="needsclick mc-top-margin-1-5" style="font-size: 14px;text-align: center;font-weight: normal;letter-spacing: 1px;padding-top: 15px;padding-bottom: 15px;background: #FEFEFE;border: 1px solid #CCC;">
+					<button id="btn-submit-txt" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="padding-top: 15px;padding-bottom: 15px;">Enter Truck Number</button>
 				</div>
 			</div>
 			
