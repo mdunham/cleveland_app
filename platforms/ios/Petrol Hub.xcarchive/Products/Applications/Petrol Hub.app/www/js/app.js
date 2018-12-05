@@ -80,9 +80,21 @@
 						$(document).on('pagecontainerbeforechange', EventHandler);
 						$(document).delegate('div[data-rel="page"]', 'pagebeforeshow', EventHandler);
 						$(window).on('orientationchange', EventHandler);
+						cordova.plugins.backgroundMode.setDefaults({
+							title: 'Petrol Hub',
+							text: 'Connected to the office',
+							icon: 'icon',
+							color: 'F14F4D',
+							resume: true,
+							hidden: false,
+							bigText: true
+						});
 						cordova.plugins.backgroundMode.enable();
 						cordova.plugins.backgroundMode.on('activate', function() {
-							cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+							try {
+								cordova.plugins.backgroundMode.disableWebViewOptimizations();
+								window.GeoUpdateError();
+							} catch (e) {}
 						});
 					} else if (event.type === 'mobileinit') {
 						jqmReadyDeferred.resolve();
@@ -95,7 +107,8 @@
  
             window.addEventListener('load', function () {
 				setTimeout(function(){
-					FastClick.attach(document.body);
+					$.vmouse.resetTimerDuration = 50;
+					//FastClick.attach(document.body);
 					//$(document).on('click', 'input, textarea',function(){ var $this = $(this); setTimeout(function(){if ( ! $this.is(":focus")) $this.focus(); }, 100); });
 				}, 100);
             }, false);

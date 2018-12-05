@@ -63,9 +63,9 @@
 			<div data-role="page" id="page-index" data-auth="false" data-controller="IndexController">
 				<div role="main" class="ui-content">
 					<img class="logo" src="img/logo.png" />
-					<form id="login-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-api="/login">
+					<form id="login-form" autocomplete="off" spellcheck="false" data-api="/login">
 						<div class="err-text err-msg"></div>
-						<input class="needsclick" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="">
+						<input class="needsclick" type="text" autocomplete="off" autofocus autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="">
 						<input class="needsclick" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
 						<button id="btn-submit-login" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
 					</form>
@@ -75,12 +75,25 @@
 			<div data-role="page" id="page-truck" data-auth="false" data-controller="TruckController">
 				<div data-role="header" style="overflow:hidden;">
 					<h1>Capture Truck</h1>
-				</div>
+				</div>	
 				<div role="main" class="ui-content">
-					<button id="btn-submit-scan" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;position: absolute;width: 90%;left: 50%;top: 40%;transform: translateX(-50%) translateY(-50%);">Scan Truck Barcode</button>          
+					<p>
+						<img src="img/qr.png" alt="">
+						<strong style="font-size: 14px;font-weight: 400;display: block;margin-bottom: 4px;margin-top: 0px;">Scan Truck Barcode</strong>
+						Press scan button, then point your phone at the barcode located on a truck.
+					</p>
+					<button id="btn-submit-scan" class="mc-top-margin-1-5 ui-btn ui-btn-b">Scan Truck Barcode</button>
+					<div class="sub-panel">				
+						<p>
+							<strong>Alternative to Barcodes</strong>
+							Manually enter a truck number below.
+						</p>
+						<input type="tel" placeholder="Manual Truck Number" autocomplete="off" id="txt-truck-num" class="mc-top-margin-1-5">
+						<button id="btn-submit-txt" class="mc-top-margin-1-5 ui-btn">Submit Truck Number</button>
+					</div>
 				</div>
 			</div>
-			
+
 			<div data-role="page" id="page-checklist" data-auth="false" data-controller="ChecklistController">
 				<div data-role="header" style="overflow:hidden;">
 					<a href="#page-truck" data-rel="back" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>

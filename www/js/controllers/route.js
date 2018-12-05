@@ -153,12 +153,12 @@ var RouteController = function () {
 				});
 			
 			$cache.curRoute = false;
-			$cache.dirSlideToggle.off('vclick');
-			$cache.arrviedBtn.off('vclick');
+			$cache.dirSlideToggle.off('click');
+			$cache.arrviedBtn.off('click');
 			clearInterval($cache.timer);
 			$cache.timer = false;
 			$cache.lockBtn.off('vclick');
-			$cache.editBtn.off('vclick');
+			$cache.editBtn.off('click');
 			setTimeout(function(){
 				$cache.map.css('bottom', ($cache.dirSlide.height() - 30) + 'px');
 			}, 400);
@@ -231,11 +231,11 @@ var RouteController = function () {
 			
 			$cache.lockBtn.addClass('on');
 			$cache.timer = setInterval(updateMap, 2500);
-			$cache.editBtn.on('vclick', function(){
+			$cache.editBtn.on('click', function(){
 				$.mobile.navigate('#page-route-list');
 			});
-			$cache.dirSlideToggle.on('vclick', toggleSlider);
-			$cache.arrviedBtn.on('vclick', setArrived);
+			$cache.dirSlideToggle.on('click', toggleSlider);
+			$cache.arrviedBtn.on('click', setArrived);
 			$cache.dirSlide.removeClass('open');
 			toggleSlider();
 		},
@@ -258,12 +258,12 @@ var RouteController = function () {
 		 * @returns void
 		 */
 		onBeforeHide = function ($page) {
-			$cache.dirSlideToggle.off('vclick');
-			$cache.arrviedBtn.off('vclick');
+			$cache.dirSlideToggle.off('click');
+			$cache.arrviedBtn.off('click');
 			clearInterval($cache.timer);
 			$cache.timer = false;
 			$cache.lockBtn.off('vclick');
-			$cache.editBtn.off('vclick');
+			$cache.editBtn.off('click');
 		};
 
 

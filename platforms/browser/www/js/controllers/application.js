@@ -182,7 +182,7 @@ var Application = function(){
 							$(document.body).removeClass('loading');
 							$.mobile.defaultPageTransition = 'slide';
 						});
-					}, 3000);
+					}, 2000);
 					window.user = {};
 					window.authto = '';
 					window.authed = false;

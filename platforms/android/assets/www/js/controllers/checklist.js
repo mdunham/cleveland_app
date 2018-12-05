@@ -67,8 +67,9 @@ var ChecklistController = function(){
 						$('ul[data-group-title]').listview('refresh');
 						$('input[type="radio"]').checkboxradio();
 						$('input[type="checkbox"]').checkboxradio();
-						FastClick.attach(document.body);
 					}
+				} else {
+					$.mobile.loader().hide();
 				}
 			} catch (e) {}
 			
@@ -176,10 +177,13 @@ var ChecklistController = function(){
 				Api.get(App.Settings.apiUrl + '/checklist-items/index.json', {}, processApi);
 			}, 30);
 			
-			$cache.start.on('vclick', startShift);
+			$cache.start.on('click', startShift);
 			$cache.page.on('change', 'input', checkComplete);
-			$cache.page.on('vclick', 'strong.checkbox-type', function(){
-				$(this).next().find('input').click();
+			$cache.page.on('vclick', 'strong.checkbox-type', function(e){
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				$(this).closest('li').find('label').trigger('click');
+				return true;
 			});
 			
 			if (window.checkInt) { 
@@ -240,7 +244,7 @@ var ChecklistController = function(){
 		 * @returns void
 		 */
 		onBeforeHide = function ($page) {
-			$cache.start.off('vclick');
+			$cache.start.off('click');
 			$cache.page.off('change', 'input');
 			$cache.page.off('vclick', 'strong.checkbox-type');
 			$cache.sig.off();

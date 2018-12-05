@@ -107,6 +107,7 @@
  
             window.addEventListener('load', function () {
 				setTimeout(function(){
+					$.vmouse.resetTimerDuration = 50;
 					FastClick.attach(document.body);
 					//$(document).on('click', 'input, textarea',function(){ var $this = $(this); setTimeout(function(){if ( ! $this.is(":focus")) $this.focus(); }, 100); });
 				}, 100);

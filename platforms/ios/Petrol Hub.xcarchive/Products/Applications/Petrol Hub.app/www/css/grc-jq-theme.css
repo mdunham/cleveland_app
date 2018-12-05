@@ -295,9 +295,11 @@ legend, .ui-input-text input, .ui-input-search input {
     white-space: normal;
     font-size: 14px;
     font-weight: 400;
-    margin-top: 10px!important;
-    margin-bottom: 10px;
+    margin-top: 0px!important;
+    margin-bottom: 0px;
     text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #page-checklist .ui-listview strong.radio-type {
@@ -2138,3 +2140,84 @@ a.t-link {
 	font-family: monospace;
 }
 
+#page-truck .ui-input-text {
+    border: 0!important;
+}
+
+#page-truck .ui-content {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#page-truck .ui-content > p {
+	background: #ffffff;
+	border-radius: 4px;
+	box-shadow: 0 2px 15px -1px rgba(0, 0, 0, 0.42);
+	margin: 5% 0 10px 0px;
+	padding: 10px 15px 10px;
+	font-size: 12px;
+	overflow: hidden;
+}
+#page-truck .ui-content > p + button {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+}
+#page-truck .ui-content > p img {
+	width: 56px;
+	margin-right: 10px;
+	float: left;
+}
+
+#page-truck .sub-panel {
+	position: fixed;
+	bottom: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-top: 1px solid #eee;
+	left: 0;
+	right: 0;
+	background: rgba(60, 195, 255, 0.13);
+	padding-bottom: 10px;
+}
+#page-truck .sub-panel p {
+	border-radius: 4px;
+	margin: 0 0 -10px 0;
+	padding: 14px;
+	font-size: 13px;
+	overflow: hidden;
+	color: #FFF;
+	text-align: center;
+	font-weight: 400;
+	letter-spacing: 0px;
+
+}
+#page-truck .sub-panel p strong {
+	font-size: 16px;
+	display: block;
+	margin-bottom: 2px;
+	margin-top: 0px;
+
+}
+#page-truck .sub-panel input[type="tel"] {
+	font-size: 16px;
+	text-align: center;
+	font-weight: normal;
+	letter-spacing: 1px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	background: #ffffff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	margin: 0 auto;
+	letter-spacing: 3px;
+
+}
+#page-truck .sub-panel button {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	background: #94a5ad;
+	border: none;
+	font-size: 15px!important;
+	margin-top: 0px;
+}

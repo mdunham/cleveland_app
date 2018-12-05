@@ -149,7 +149,9 @@ var RouteListController = function () {
 		 * 
 		 * @returns {void}
 		 */
-		editRoute = function() {
+		editRoute = function(e) {
+			e.preventDefault();
+			e.stopImmediatePropagation();
 			if ($cache.stopList.hasClass('editing')) {
 				$cache.editBtn.text('Edit');
 				$cache.stopList.removeClass('editing');
@@ -174,6 +176,7 @@ var RouteListController = function () {
 					});
 				});
 			}
+			return true;
 		},
 				
 		/**
@@ -218,7 +221,7 @@ var RouteListController = function () {
 				refreshRoute();
 			});
 			
-			$cache.start_route.on('vclick', startRoute);
+			$cache.start_route.on('click', startRoute);
 			$cache.editBtn.on('vclick', editRoute);
 			$cache.page.on('vclick', 'li[data-id]', showOrder);
 		},
@@ -246,7 +249,7 @@ var RouteListController = function () {
 		 * @returns void
 		 */
 		onBeforeHide = function ($page) {
-			$cache.start_route.off('vclick');
+			$cache.start_route.off('click');
 			$cache.editBtn.off('vclick');
 			$cache.optimizeRoute.off('vclick');
 			$cache.page.off('vclick', 'li[data-id]');
