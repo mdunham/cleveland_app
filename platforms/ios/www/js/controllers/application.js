@@ -176,13 +176,16 @@ var Application = function(){
 					// Application has fully loaded.
 					App.lockOrientation('portrait');
 					setTimeout(function(){
+                        StatusBar.show();
+                        StatusBar.styleDefault();
+                        StatusBar.backgroundColorByHexString("#FFFFFF");
 						$('#splash').fadeOut(300, function () {
 							$(window).orientationchange();
 							$(this).remove();
 							$(document.body).removeClass('loading');
 							$.mobile.defaultPageTransition = 'slide';
 						});
-					}, 2000);
+					}, 3000);
 					window.user = {};
 					window.authto = '';
 					window.authed = false;

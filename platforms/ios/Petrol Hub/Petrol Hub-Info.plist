@@ -6,17 +6,6 @@
     <string>English</string>
     <key>CFBundleDisplayName</key>
     <string>Petrol Hub</string>
-    <key>CFBundleDocumentTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleTypeName</key>
-        <string>MKDirectionsRequest</string>
-        <key>LSItemContentTypes</key>
-        <array>
-          <string>com.apple.maps.directionsrequest</string>
-        </array>
-      </dict>
-    </array>
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIcons</key>
@@ -38,16 +27,11 @@
     <key>CFBundleVersion</key>
     <string>1.0.2</string>
     <key>FirebaseAppDelegateProxyEnabled</key>
-    <string>NO</string>
+    <string>YES</string>
     <key>LSApplicationCategoryType</key>
     <string/>
     <key>LSRequiresIPhoneOS</key>
     <true/>
-    <key>MKDirectionsApplicationSupportedModes</key>
-    <array>
-      <string>MKDirectionsModeCar</string>
-      <string>MKDirectionsModeOther</string>
-    </array>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
@@ -69,6 +53,8 @@
     </array>
     <key>UIRequiresFullScreen</key>
     <true/>
+    <key>UIStatusBarHidden</key>
+    <false/>
     <key>UIStatusBarStyle</key>
     <string>UIStatusBarStyleLightContent</string>
     <key>UISupportedInterfaceOrientations</key>

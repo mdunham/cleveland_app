@@ -179,10 +179,13 @@ var Application = function(){
 						$('#splash').fadeOut(300, function () {
 							$(window).orientationchange();
 							$(this).remove();
+							StatusBar.show();
+							StatusBar.styleDefault();
+							StatusBar.backgroundColorByHexString("#FFFFFF");
 							$(document.body).removeClass('loading');
 							$.mobile.defaultPageTransition = 'slide';
 						});
-					}, 2000);
+					}, 3000);
 					window.user = {};
 					window.authto = '';
 					window.authed = false;

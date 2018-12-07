@@ -81,9 +81,9 @@
     <preference name="BackupWebStorage" value="local" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="SplashScreenDelay" value="4000" />
+    <preference name="SplashScreenDelay" value="3000" />
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarBackgroundColor" value="#394365" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="StatusBarDefaultScrollToTop" value="false" />
 </widget>

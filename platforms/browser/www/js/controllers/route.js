@@ -35,8 +35,10 @@ var RouteController = function () {
 			$cache.curRoute = false;
 			$cache.editBtn = $cache.page.find('#edit-route');
 			$cache.directionsDisplay = new google.maps.DirectionsRenderer({
+				preserveViewport: true,
+				draggable: true,
 				markerOptions: {
-					visible: true
+					visible: false
 				},
 				polylineOptions: {
 					strokeColor: '#0088FF',
@@ -134,8 +136,8 @@ var RouteController = function () {
 			setTimeout(function(){
 				$cache.mapObj.panTo(curPos);
 				$cache.marker.setPosition(curPos);
-				$cache.mapObj.setZoom(18);
-			}, 100);
+				//$cache.mapObj.setZoom(18);
+			}, 500);
 		},
 		
 		
@@ -179,6 +181,8 @@ var RouteController = function () {
 				$cache.curRoute = curRoute[0];
 			}
 			
+			window.bgText = 'Enroute to ' + $cache.curRoute.record.order.customer.address || '';
+			
 			if ($cache.curRoute.complete) {
 				window.routeIndex++;
 				if (window.routeIndex >= window.routeStops.length) {
@@ -190,6 +194,7 @@ var RouteController = function () {
 					return;
 				}
 			}
+			
 			
 			$cache.directionsDisplay.setMap($cache.mapObj);
 			$cache.directionsDisplay.setPanel($cache.directions[0]);
@@ -224,13 +229,13 @@ var RouteController = function () {
 					}
 
 					$cache.ticks = 0;
-					$cache.timer = setInterval(updateMap, 2500);
+					$cache.timer = setInterval(updateMap, 3000);
 					updateMap();
 				}
 			});
 			
 			$cache.lockBtn.addClass('on');
-			$cache.timer = setInterval(updateMap, 2500);
+			$cache.timer = setInterval(updateMap, 3000);
 			$cache.editBtn.on('click', function(){
 				$.mobile.navigate('#page-route-list');
 			});
@@ -262,8 +267,11 @@ var RouteController = function () {
 			$cache.arrviedBtn.off('click');
 			clearInterval($cache.timer);
 			$cache.timer = false;
+			$cache.directionsDisplay.setMap(null);
+			$cache.directionsDisplay.setPanel(null);
 			$cache.lockBtn.off('vclick');
 			$cache.editBtn.off('click');
+			
 		};
 
 

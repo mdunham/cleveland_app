@@ -176,12 +176,15 @@ var Application = function(){
 					// Application has fully loaded.
 					App.lockOrientation('portrait');
 					setTimeout(function(){
+						StatusBar.show();
 						$('#splash').fadeOut(300, function () {
 							$(window).orientationchange();
 							$(this).remove();
+							StatusBar.show();
 							$(document.body).removeClass('loading');
 							$.mobile.defaultPageTransition = 'slide';
 						});
+						StatusBar.backgroundColorByHexString("#394365");
 					}, 2000);
 					window.user = {};
 					window.authto = '';

@@ -49,7 +49,6 @@
 			
 			FCMPlugin.onNotification(function(data){
 				window.refreshRoute = true;
-				console.log(data);
 				if (data.wasTapped) {
 					$.mobile.navigate('#page-route-list');
 				} else {
@@ -59,6 +58,46 @@
 						}
 					}, 'New Order', ['Goto Route List','Cancel']);
 				}
+			});
+		},
+		
+		/**
+		 * This setups the background mode plugin that activate when the app is open and not active 
+		 * 
+		 * @returns {void}
+		 */
+		setupBackgroundMode = function() {
+			window.bgText = 'Still running in background';
+			
+			cordova.plugins.backgroundMode.setDefaults({
+				title: 'Petrol Hub',
+				text: window.bgText,
+				color: 'F14F4D'
+			});
+
+			cordova.plugins.backgroundMode.enable();
+
+			cordova.plugins.backgroundMode.on('activate', function() {
+				try { cordova.plugins.backgroundMode.disableWebViewOptimizations(); } catch (e) {}
+				try { navigator.geolocation.clearWatch(window.watchID); clearInterval(window.watchID); } catch (e) {}
+				
+				window.watchID = setInterval(() => {
+					try {
+						 navigator.geolocation.getCurrentPosition(window.GeoUpdate, () => console.log('GPS Background Mode - Failed to get position.'), { timeout: 30000});
+					} catch (e) {}
+					
+					cordova.plugins.backgroundMode.configure({
+						text: window.bgText
+					});
+				}, 120000);
+			});
+
+			cordova.plugins.backgroundMode.on('deactivate', function() {
+				try {
+					clearInterval(window.watchID);
+					window.GeoUpdateError();
+					cordova.plugins.notification.badge.clear();
+				} catch (e) {}
 			});
 		},
 		
@@ -75,27 +114,13 @@
 					if (event.type === 'deviceready') {
 						deviceReadyDeferred.resolve();
 						setupPush();
+						setupBackgroundMode();
+						StatusBar.hide();
 						$(document).on('pagecontainershow', EventHandler);
 						$(document).on('beforeshow', EventHandler);
 						$(document).on('pagecontainerbeforechange', EventHandler);
 						$(document).delegate('div[data-rel="page"]', 'pagebeforeshow', EventHandler);
 						$(window).on('orientationchange', EventHandler);
-						cordova.plugins.backgroundMode.setDefaults({
-							title: 'Petrol Hub',
-							text: 'Connected to the office',
-							icon: 'icon',
-							color: 'F14F4D',
-							resume: true,
-							hidden: false,
-							bigText: true
-						});
-						cordova.plugins.backgroundMode.enable();
-						cordova.plugins.backgroundMode.on('activate', function() {
-							try {
-								cordova.plugins.backgroundMode.disableWebViewOptimizations();
-								window.GeoUpdateError();
-							} catch (e) {}
-						});
 					} else if (event.type === 'mobileinit') {
 						jqmReadyDeferred.resolve();
 					}
@@ -108,7 +133,7 @@
             window.addEventListener('load', function () {
 				setTimeout(function(){
 					$.vmouse.resetTimerDuration = 50;
-					//FastClick.attach(document.body);
+					FastClick.attach(document.body);
 					//$(document).on('click', 'input, textarea',function(){ var $this = $(this); setTimeout(function(){if ( ! $this.is(":focus")) $this.focus(); }, 100); });
 				}, 100);
             }, false);

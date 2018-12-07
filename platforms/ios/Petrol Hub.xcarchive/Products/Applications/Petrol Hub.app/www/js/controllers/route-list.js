@@ -223,7 +223,7 @@ var RouteListController = function () {
 			
 			$cache.start_route.on('click', startRoute);
 			$cache.editBtn.on('vclick', editRoute);
-			$cache.page.on('vclick', 'li[data-id]', showOrder);
+			$cache.page.on('click', 'li[data-id]', showOrder);
 		},
 		
 		/**
@@ -252,7 +252,7 @@ var RouteListController = function () {
 			$cache.start_route.off('click');
 			$cache.editBtn.off('vclick');
 			$cache.optimizeRoute.off('vclick');
-			$cache.page.off('vclick', 'li[data-id]');
+			$cache.page.off('click', 'li[data-id]');
 		};
 
 

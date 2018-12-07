@@ -185,6 +185,18 @@ var ChecklistController = function(){
 				$(this).closest('li').find('label').trigger('click');
 				return true;
 			});
+			$cache.page.on('vclick', 'input', function(e){
+				e.preventDefault();
+				e.stopImmediatePropagation();
+				$(this).focus();
+				return true;
+			});
+//			$cache.page.on('touchend', 'strong.checkbox-type', function(e){
+//				e.preventDefault();
+//				e.stopImmediatePropagation();
+//				$(this).closest('li').find('label').trigger('click');
+//				return true;
+//			});
 			
 			if (window.checkInt) { 
 				clearInterval(window.checkInt);
@@ -246,7 +258,10 @@ var ChecklistController = function(){
 		onBeforeHide = function ($page) {
 			$cache.start.off('click');
 			$cache.page.off('change', 'input');
+//			$cache.page.off('touchend', 'strong.checkbox-type');
+//			$cache.page.off('touchstart', 'strong.checkbox-type');
 			$cache.page.off('vclick', 'strong.checkbox-type');
+			$cache.page.off('vclick', 'input');
 			$cache.sig.off();
 			if (window.checkInt) { 
 				clearInterval(window.checkInt);

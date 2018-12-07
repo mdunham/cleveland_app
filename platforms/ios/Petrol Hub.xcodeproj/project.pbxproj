@@ -44,7 +44,6 @@
 		BEB919CD400F4255819BB3E9 /* APPPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = A29EE83F41094ABBAE807DA3 /* APPPrinter.m */; };
 		C179D3E0BC5E46079CCBAE96 /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAA24DFAD78048C683F9CF69 /* zxing-all-in-one.cpp */; };
 		C29701971FEA4CF8B9C7471A /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = F81F7DAFC5C64DDD89D0E9B2 /* APPBackgroundMode.m */; };
-		C9F32D6D219A485C002B1257 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F32D6C219A485C002B1257 /* MapKit.framework */; };
 		CB6CF3655E774BD388803924 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53CF4E232D14569BF872B9A /* GoogleUtilities.framework */; };
 		DCCD4BB488CD417CA0651BCA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A0DAB295694ACE9D443910 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DDAEEDCBC8D64AA89A2E521C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 082C0B782831427DB25D06BC /* libc++.tbd */; };
@@ -148,7 +147,6 @@
 		C0CF54AC8EE04FBB9E85C397 /* CDVNotification.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; };
 		C5BA41A2E5EB4A75A6D90B22 /* Security.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C6B822E1356B4DD799CA9644 /* APPMethodMagic.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = APPMethodMagic.h; path = "cordova-plugin-background-mode/APPMethodMagic.h"; sourceTree = "<group>"; };
-		C9F32D6C219A485C002B1257 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CAA24DFAD78048C683F9CF69 /* zxing-all-in-one.cpp */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "zxing-all-in-one.cpp"; path = "cordova-plugin-barcodescanner/zxing-all-in-one.cpp"; sourceTree = "<group>"; };
 		CC3A03E3D65343D9AF0EE538 /* BLECommandContext.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = BLECommandContext.m; path = "cordova-plugin-ble-central/BLECentralPlugin/BLECommandContext.m"; sourceTree = "<group>"; };
 		D53CF4E232D14569BF872B9A /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "Petrol Hub/Plugins/cordova-plugin-fcm/GoogleUtilities.framework"; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				EA395F1C9DEC482981E0875A /* libiconv.dylib in Frameworks */,
 				216A956E6D36451A8D46A8C2 /* AVFoundation.framework in Frameworks */,
 				E184651654CF474A861B6251 /* CoreVideo.framework in Frameworks */,
-				C9F32D6D219A485C002B1257 /* MapKit.framework in Frameworks */,
 				EA1A6A0412084FBEB6D9C46F /* QuartzCore.framework in Frameworks */,
 				DCCD4BB488CD417CA0651BCA /* AudioToolbox.framework in Frameworks */,
 				788714F335C445208408FC92 /* FirebaseAnalytics.framework in Frameworks */,
@@ -267,7 +264,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C9F32D6C219A485C002B1257 /* MapKit.framework */,
 				A081E3784E374DFAACAD6B89 /* libiconv.dylib */,
 				968DC7E45C664BB3859C4E47 /* AVFoundation.framework */,
 				6358E3A58CF940ADB944FAF8 /* CoreVideo.framework */,
@@ -402,7 +398,7 @@
 								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
