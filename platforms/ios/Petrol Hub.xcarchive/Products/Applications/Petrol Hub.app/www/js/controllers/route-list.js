@@ -30,6 +30,7 @@ var RouteListController = function () {
 			$cache.countMiles = $cache.page.find('.count-miles');
 			$cache.countGals = $cache.page.find('.count-gallons');
 			$cache.editBtn = $cache.page.find('#edit-route');
+			$cache.backLink = $cache.page.find('#back-link');
 			$cache.optimizeRoute = $cache.page.find('#btn-submit-optimize');
 			$cache.list = false;
 			$cache.start_route = $cache.page.find('#btn-submit-route');
@@ -221,6 +222,7 @@ var RouteListController = function () {
 				refreshRoute();
 			});
 			
+			$cache.backLink.on('vclick', handleBack);
 			$cache.start_route.on('click', startRoute);
 			$cache.editBtn.on('vclick', editRoute);
 			$cache.page.on('click', 'li[data-id]', showOrder);
@@ -238,8 +240,18 @@ var RouteListController = function () {
 			$.mobile.changePage('#page-order', {role: 'dialog', transition: 'slidedown'});
 		},
 		
-		onShow = function () {
-
+		/**
+		 * Handle the back button being pressed to check for end of shift
+		 * confirmation or to return back to the map.
+		 * 
+		 * @param {Event} event
+		 * @returns {void}
+		 */
+		handleBack = function (event) {
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			
+			return false;
 		},
 		
 		/**
@@ -253,6 +265,7 @@ var RouteListController = function () {
 			$cache.editBtn.off('vclick');
 			$cache.optimizeRoute.off('vclick');
 			$cache.page.off('click', 'li[data-id]');
+			$cache.backLink.off('vclick', handleBack);
 		};
 
 
@@ -273,9 +286,9 @@ var RouteListController = function () {
 				case 'show':
 					onBeforeShow($page);
 					break;
-				case 'onshow':
-					onShow($page);
-					break;
+//				case 'onshow':
+//					onShow($page);
+//					break;
 				case 'hide':
 					onBeforeHide($page);
 					break;

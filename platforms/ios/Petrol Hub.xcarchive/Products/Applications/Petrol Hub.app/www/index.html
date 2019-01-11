@@ -62,12 +62,12 @@
 			<!-- PRIMARY VIEW -->
 			<div data-role="page" id="page-index" data-auth="false" data-controller="IndexController">
 				<div role="main" class="ui-content">
-					<img class="logo" src="img/logo.png" />
+					<img class="logo" alt="logo" src="img/logo.png" />
 					<form id="login-form" autocomplete="off" spellcheck="false" data-api="/login">
 						<div class="err-text err-msg"></div>
-						<input class="" type="text" autocomplete="off" autofocus autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="">
-						<input class="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="">
-						<button id="btn-submit-login" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
+						<input class="" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="username" id="txt-username" placeholder="User ID" value="" autofocus />
+						<input class="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="margin-top: 10px;" type="password" placeholder="Password" name="txt-password" id="txt-password" value="" />
+						<button id="btn-submit-login" class="ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 50px;padding-top: 15px;padding-bottom: 15px;">Login</button>          
 					</form>
 				</div>
 			</div>
@@ -82,14 +82,14 @@
 						<strong style="font-size: 14px;font-weight: 400;display: block;margin-bottom: 4px;margin-top: 0px;">Scan Truck Barcode</strong>
 						Press scan button, then point your phone at the barcode located on a truck.
 					</p>
-					<button id="btn-submit-scan" class="mc-top-margin-1-5 ui-btn ui-btn-b">Scan Truck Barcode</button>
+					<button id="btn-submit-scan" class="ui-btn ui-btn-b">Scan Truck Barcode</button>
 					<div class="sub-panel">				
 						<p>
 							<strong>Alternative to Barcodes</strong>
 							Manually enter a truck number below.
 						</p>
-						<input type="tel" placeholder="Truck Number" autocomplete="off" id="txt-truck-num" class="mc-top-margin-1-5">
-						<button id="btn-submit-txt" class="mc-top-margin-1-5 ui-btn">Submit Truck Number</button>
+						<input type="tel" placeholder="Truck Number" autocomplete="off" id="txt-truck-num" />
+						<button id="btn-submit-txt" class="ui-btn">Submit Truck Number</button>
 					</div>
 				</div>
 			</div>
@@ -102,20 +102,20 @@
 				<div role="main" class="ui-content">
 					<canvas id="signiture"></canvas>
 					<p style="color: #000; font-size: 12px; font-weight: 300; margin: 0; padding-top: 8px; text-align: center;">Sign Below</p>
-					<button id="btn-submit-shift" class="mc-top-margin-1-5 ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 10px;padding-top: 15px;padding-bottom: 15px;">Start Shift</button>          
+					<button id="btn-submit-shift" class="ui-btn ui-btn-b" style="font-size: 17px;font-weight: normal;letter-spacing: 1px;margin-top: 10px;padding-top: 15px;padding-bottom: 15px;">Start Shift</button>          
 				</div>
 			</div>
 			
 			<div data-role="page" id="page-route-list" data-auth="false" data-controller="RouteListController">
 				<div data-role="header" style="overflow:hidden;">
-					<a href="#page-truck" data-rel="back" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
+					<a href="#page-truck" id="back-link" class="ui-btn-left"><i class="fas fa-chevron-left"></i> Back</a>
 					<h1>Route</h1>
 					<a href="javascript: void(0);" id="edit-route" class="ui-btn-right">Edit</a>
-					<button id="btn-submit-route" class="mc-top-margin-1-5 ui-btn ui-btn-b">Start Shift</button>
+					<button id="btn-submit-route" class="ui-btn ui-btn-b">Start Shift</button>
 				</div>
 				<div role="main" class="ui-content">
 					<div class="stop_list_box"></div>
-					<button id="btn-submit-optimize" class="mc-top-margin-1-5 ui-btn ui-btn-b">Optimize Route</button>
+					<button id="btn-submit-optimize" class="ui-btn ui-btn-b">Optimize Route</button>
 					<div class="summary">
 						<strong class="heading">Summary</strong>
 						<div class="row">
@@ -149,7 +149,7 @@
 						<a href="#" class="ui-btn toggle-slide"><i class="fas fa-chevron-up"></i></a>
 						<div id="directions"></div>
 						<div class="arrived-btn">
-							<button id="btn-submit-arrived" class="mc-top-margin-1-5 ui-btn ui-btn-b">Arrived</button>          
+							<button id="btn-submit-arrived" class="ui-btn ui-btn-b">Arrived</button>          
 						</div>
 					</div>
 				</div>
@@ -181,6 +181,7 @@
 						</div>
 					</div>
 					<button id="start_fuel_btn" class="start-fuel">Start Fuel</button>
+					<button id="end_fuel_btn" style="display: none;" class="start-fuel end-fuel">End Delivery</button>
 					<div class="note-box notes"></div>
 					<div class="note-box info"></div>
 					<textarea class="" style="display: none;" id="order_note"></textarea>

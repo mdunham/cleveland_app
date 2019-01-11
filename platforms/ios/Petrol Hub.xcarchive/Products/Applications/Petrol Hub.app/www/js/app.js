@@ -115,7 +115,6 @@
 						deviceReadyDeferred.resolve();
 						setupPush();
 						setupBackgroundMode();
-						StatusBar.hide();
 						$(document).on('pagecontainershow', EventHandler);
 						$(document).on('beforeshow', EventHandler);
 						$(document).on('pagecontainerbeforechange', EventHandler);
@@ -132,7 +131,7 @@
  
             window.addEventListener('load', function () {
 				setTimeout(function(){
-					$.vmouse.resetTimerDuration = 50;
+					$.vmouse.resetTimerDuration = 75;
 					FastClick.attach(document.body);
 					//$(document).on('click', 'input, textarea',function(){ var $this = $(this); setTimeout(function(){if ( ! $this.is(":focus")) $this.focus(); }, 100); });
 				}, 100);

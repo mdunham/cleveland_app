@@ -30,12 +30,14 @@ var OrderController = function () {
 			if (window.dialogOrder) {
 				$cache.page = jQuery('#page-order[data-role="dialog"]');
 			}
+			$cache.flow = 'off';
 			$cache.title = $cache.page.find('h1.title');
 			$cache.orderTable = $cache.page.find('.o-table');
 			$cache.orderTableHeaders = $cache.page.find('.t-headers');
 			$cache.orderTableValues = $cache.page.find('.t-values');
 			$cache.dirSlideToggle = $cache.page.find('a.toggle-slide');
 			$cache.startFuel = $cache.page.find('#start_fuel_btn');
+			$cache.endFuel = $cache.page.find('#end_fuel_btn');
 			$cache.addNote = $cache.page.find('#add_note_btn');
 			$cache.orderNotes = $cache.page.find('.note-box.notes');
 			$cache.moreInfo = $cache.page.find('.note-box.info');
@@ -112,7 +114,40 @@ var OrderController = function () {
 		 * @returns {void}
 		 */
 		startFuel = function() {
+			if ($cache.flow === 'off') {
+				$cache.flow = 'on';
+				bleLCRNewOrder(50, () => {
+					$cache.startFuel.text('Pause Flow');
+				});
+				setTimeout(bleLCRResume(() => {
+					
+				}), 300);
+				$cache.endFuel.show();
+			} else if ($cache.flow === 'on') {
+				$cache.flow = 'paused';
+				bleLCRPause(() => {
+					$cache.startFuel.text('Resume Flow');
+				});
+			} else if ($cache.flow === 'paused') {
+				$cache.flow = 'on';
+				bleLCRResume(() => {
+					$cache.startFuel.text('Resume Flow');
+				});
+			}
+		},
 			
+		/**
+		 * Tell the meter to being pumping fuel
+		 * 
+		 * @returns {void}
+		 */
+		endFuel = function() {
+			$cache.flow = 'off';
+			bleLCRStop(() => {
+				$cache.startFuel.text('Pause Flow');
+			});
+			$cache.endFuel.hide();
+			$cache.startFuel.text('Start Fuel');
 		},
 		
 		/**
@@ -153,15 +188,15 @@ var OrderController = function () {
 				if ($cache.curRoute.type === 'delivery') {
 					order = $cache.curRoute.record.order;
 					total = numberFormat((order.fuel.price_per_gallon * order.amount_deliver).toFixed(2));
-					setTimeout(function(){
-						navigator.notification.confirm('Begin automatic delivery?', (status) => {
-							if (status) {
-								bleLCRNewOrder(order.amount_deliver, (status) => {
-									console.log(status)
-								})
-							}
-						})
-					}, 2000)
+//					setTimeout(function(){
+//						navigator.notification.confirm('Begin automatic delivery?', (status) => {
+//							if (status) {
+//								bleLCRNewOrder(order.amount_deliver, (status) => {
+//									console.log(status)
+//								})
+//							}
+//						})
+//					}, 2000)
 					$cache.orderTableHeaders.find('.col-4 + .col-4').show();
 					$cache.orderTableValues.html(`<div class="row">
 						<div class="col-2">${order.fuel.name}</div>
@@ -252,6 +287,7 @@ var OrderController = function () {
 			$cache.payNow.on('vclick', payNow);
 			$cache.addNote.on('vclick', addNote);
 			$cache.startFuel.on('vclick', startFuel);
+			$cache.endFuel.on('vclick', endFuel);
 			if (window.dialogOrder) {
 				$cache.addItem.css('transform', 'rotate(45deg)');
 				$cache.addItem.on('vclick', function(e){

@@ -176,15 +176,15 @@ var Application = function(){
 					// Application has fully loaded.
 					App.lockOrientation('portrait');
 					setTimeout(function(){
-						StatusBar.show();
-						$('#splash').fadeOut(300, function () {
-							$(window).orientationchange();
-							$(this).remove();
+						setTimeout(() => {
 							StatusBar.show();
+							StatusBar.styleDefault();
+							StatusBar.backgroundColorByHexString("#FFFFFF");
+							$(window).orientationchange();
 							$(document.body).removeClass('loading');
 							$.mobile.defaultPageTransition = 'slide';
-						});
-						StatusBar.backgroundColorByHexString("#394365");
+						}, 300);
+						$('#splash').fadeOut(300, () => $(this).remove());
 					}, 2000);
 					window.user = {};
 					window.authto = '';

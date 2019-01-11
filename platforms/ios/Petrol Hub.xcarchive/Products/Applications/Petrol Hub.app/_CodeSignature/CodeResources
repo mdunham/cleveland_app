@@ -82,11 +82,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		oGtmHWmxcev6tOXA3LBM5bsHjxk=
+		a2J8Ugm6Zpd8drvnY8m9zKHkgS0=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		M+M+P5HkedIQP83soaEjnUVv6Tg=
+		y2pcMhNPBBTpg0HbYyQy+VpfCwk=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		iC+9E9hLF9+/4oCZWIevdtyLyaE=
+		RYqtFafa3SYFPHPjqbXDW5RSsMk=
 		</data>
 		<key>CDVNotification.bundle/beep.wav</key>
 		<data>
@@ -102,11 +102,11 @@
 		</data>
 		<key>GoogleService-Info.plist</key>
 		<data>
-		G0aV1zFFVF+Qj6IFvhxl2upDWYI=
+		xQCbAZkRvUjJS1Mnf/C1UBzP6GU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RRoZQe0tmqRFw9a7tV3tKD5L0sw=
+		u5XdKzyTHdvyKtSCXidGhGsG6bw=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -174,7 +174,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		rd4w77rLj+2YtAXt3ivXFlcRnsY=
+		vFI2hdzU1IZEupINU2GAxWqGDzc=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -194,7 +194,7 @@
 		</data>
 		<key>scannerOverlay.nib</key>
 		<data>
-		ghAXHHf+I4xiDsABUyAENk47pVo=
+		EoPh5HykYCVJMtUqCyNVtSqUO6g=
 		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
@@ -778,15 +778,15 @@
 		</data>
 		<key>www/index.html</key>
 		<data>
-		Zh3Y4vg4nBm+n+nen4rXQY2poIc=
+		kFjpneHIKhkWGHZ54CGOIUDpkkQ=
 		</data>
 		<key>www/js/app.js</key>
 		<data>
-		c7UYVYRGU/iFioPLSx+rvQdkJPQ=
+		wsp4i6suRxMu/VTPsszeUG9spfM=
 		</data>
 		<key>www/js/controllers/application.js</key>
 		<data>
-		r9N5qrrUYGDTda3V6AFIRTr1djE=
+		T8mSkte9N1zq2a1F162ZHfAavjY=
 		</data>
 		<key>www/js/controllers/base.js</key>
 		<data>
@@ -794,7 +794,7 @@
 		</data>
 		<key>www/js/controllers/checklist.js</key>
 		<data>
-		QiEURNK0oKsm2S4prR3+Q3dKg/0=
+		PmJ5JIMvFPiSxqWmI4XGwJZdbDg=
 		</data>
 		<key>www/js/controllers/index.js</key>
 		<data>
@@ -802,11 +802,11 @@
 		</data>
 		<key>www/js/controllers/order.js</key>
 		<data>
-		Ugvm5ouHNFELkbqi+etLtw1AL8E=
+		+cf6s2y5DYN43rK3mWiTzpxI/TY=
 		</data>
 		<key>www/js/controllers/route-list.js</key>
 		<data>
-		R5fxjOc9WU2ssFpqEcbJ52Dz1tg=
+		pxYi90/JVazy/IoZX+4xYuNZORE=
 		</data>
 		<key>www/js/controllers/route.js</key>
 		<data>
@@ -826,15 +826,11 @@
 		</data>
 		<key>www/js/utils/ble.js</key>
 		<data>
-		Ecx2f7Oq8LxPtyT3hWX0lAZIHLA=
+		K7RWykR7rCOuU4/XTwUry0i6UrY=
 		</data>
 		<key>www/js/utils/global.js</key>
 		<data>
 		mJwX7/D+ifdjCLL6E7her2Wd7HU=
-		</data>
-		<key>www/lib/background-mode-example.js</key>
-		<data>
-		RaVdesEJKETe/leWqLfK5Aqlvh0=
 		</data>
 		<key>www/lib/fastclick/fastclick.min.js</key>
 		<data>
@@ -1160,22 +1156,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oGtmHWmxcev6tOXA3LBM5bsHjxk=
+			a2J8Ugm6Zpd8drvnY8m9zKHkgS0=
 			</data>
 			<key>hash2</key>
 			<data>
-			nxjunUimpo22F/tA3kLEkEBJa2zQLWynwOLWlZUXVUc=
+			KwtyTuGm0iC4MxVb2T63kI4MOMtFGF7p6auIfXeGLIE=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			M+M+P5HkedIQP83soaEjnUVv6Tg=
+			y2pcMhNPBBTpg0HbYyQy+VpfCwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			yJiUEtar6Nd52spO/+Gru+qDWq/0Pgts44ubLKGjnAs=
+			g9zXHUr+94p/9aEdgmP54cSHI0YlshdsMGvqme0WhKs=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -1193,11 +1189,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iC+9E9hLF9+/4oCZWIevdtyLyaE=
+			RYqtFafa3SYFPHPjqbXDW5RSsMk=
 			</data>
 			<key>hash2</key>
 			<data>
-			ho/tIiFUsB6v6mE7yBdfenXZyGGi3iKm75yLAxEvbtk=
+			1q6prNWxriGBuSQTC1twAVZHj/FDoA8OPiEb+5UyDx4=
 			</data>
 		</dict>
 		<key>CDVNotification.bundle/beep.wav</key>
@@ -1215,11 +1211,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			G0aV1zFFVF+Qj6IFvhxl2upDWYI=
+			xQCbAZkRvUjJS1Mnf/C1UBzP6GU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QHxxBAvZbEDxChKMb5ACUYEaFgQqHTUnzPizx0dvZpU=
+			dzMp7qaNmpNc+EXBWY7ADf/obktLuNyTMwNvg3eGlyU=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1402,11 +1398,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rd4w77rLj+2YtAXt3ivXFlcRnsY=
+			vFI2hdzU1IZEupINU2GAxWqGDzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			nWbhy8aNGEPXV2gQuMocF4yKFG07KuRHFn3CjIgDdF8=
+			myizWAnQaHRs/DRnCiR4M4wOYBsxcD0zkpl6BrJMYqs=
 			</data>
 		</dict>
 		<key>appbeep.wav</key>
@@ -1446,11 +1442,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ghAXHHf+I4xiDsABUyAENk47pVo=
+			EoPh5HykYCVJMtUqCyNVtSqUO6g=
 			</data>
 			<key>hash2</key>
 			<data>
-			GgIv9LlWTzp7Fv6ebhRtYBAxm8/ImkBP+5r8ZXNFYr0=
+			xqDaLjTOY8xujg5PbSvLc8z45Ghx/aiLHzt1UOAGU8Q=
 			</data>
 		</dict>
 		<key>www/cordova-js-src/exec.js</key>
@@ -3052,33 +3048,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Zh3Y4vg4nBm+n+nen4rXQY2poIc=
+			kFjpneHIKhkWGHZ54CGOIUDpkkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			abV+hfZWgb5DwYy4g1E/4Hz7DbKLP76+Zgmh5XSrbTI=
+			JuByinLO0Gipt6OE7Nf8rNc5SimBEzo/XdVS509CqK4=
 			</data>
 		</dict>
 		<key>www/js/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			c7UYVYRGU/iFioPLSx+rvQdkJPQ=
+			wsp4i6suRxMu/VTPsszeUG9spfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			E0PEwAm3rACP3NAObLJzC1sXhgGwhzfpDvgPjNnXVhY=
+			rw8bt6SZiAetD9v20fa9mXaNWk6o2M4ehmeI886/Wzc=
 			</data>
 		</dict>
 		<key>www/js/controllers/application.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			r9N5qrrUYGDTda3V6AFIRTr1djE=
+			T8mSkte9N1zq2a1F162ZHfAavjY=
 			</data>
 			<key>hash2</key>
 			<data>
-			ikcCpsM4D81iFSNlKt/OdccS8rdGURPHcWe9cFTEjTM=
+			J85xFlXQIOhqVk8pYgvvt0HQYUAMbYAEZqcOxLIdqH0=
 			</data>
 		</dict>
 		<key>www/js/controllers/base.js</key>
@@ -3096,11 +3092,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QiEURNK0oKsm2S4prR3+Q3dKg/0=
+			PmJ5JIMvFPiSxqWmI4XGwJZdbDg=
 			</data>
 			<key>hash2</key>
 			<data>
-			hYKr7IMfNVZai1VkcIBezA+cNBJcv3a85K7zmchJXhQ=
+			6zb/9D0H65q7EhvUtGwi0biMQzMtgmX3NxcCbjTbiQM=
 			</data>
 		</dict>
 		<key>www/js/controllers/index.js</key>
@@ -3118,22 +3114,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ugvm5ouHNFELkbqi+etLtw1AL8E=
+			+cf6s2y5DYN43rK3mWiTzpxI/TY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sb50fncvURxTcuvBFONI8LtID1uZIYvqN0wNEXFc+F4=
+			BTd1fx6n66oR6IRCixBxjyfSvbISZHew1XDZ3ZdqcYs=
 			</data>
 		</dict>
 		<key>www/js/controllers/route-list.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R5fxjOc9WU2ssFpqEcbJ52Dz1tg=
+			pxYi90/JVazy/IoZX+4xYuNZORE=
 			</data>
 			<key>hash2</key>
 			<data>
-			1gt239lVk0JLp0Eop7jwIwfQKKaaB7A6khO6X730Hao=
+			glkyGqm/NoDdLKMmcPDe8z31ml2uA7ffFPs7fm0JvYU=
 			</data>
 		</dict>
 		<key>www/js/controllers/route.js</key>
@@ -3184,11 +3180,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ecx2f7Oq8LxPtyT3hWX0lAZIHLA=
+			K7RWykR7rCOuU4/XTwUry0i6UrY=
 			</data>
 			<key>hash2</key>
 			<data>
-			JL7cRmlsMhkB6TVutX3P0zx3LQjuUkLWQNYdM63+3Rk=
+			/g3YDFuy0UnpiGWW1+3MW7Q22NVjdVERGLGJYdXnv9E=
 			</data>
 		</dict>
 		<key>www/js/utils/global.js</key>
@@ -3200,17 +3196,6 @@
 			<key>hash2</key>
 			<data>
 			UNP8ejrsywZ2TNH4CgKExNRBahKSBifHCjqwbT46ttM=
-			</data>
-		</dict>
-		<key>www/lib/background-mode-example.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RaVdesEJKETe/leWqLfK5Aqlvh0=
-			</data>
-			<key>hash2</key>
-			<data>
-			0ZJ3eT4dKpL25rvFPwMZVJPqLb/sK7DpXfdprZXxxBg=
 			</data>
 		</dict>
 		<key>www/lib/fastclick/fastclick.min.js</key>

@@ -176,16 +176,16 @@ var Application = function(){
 					// Application has fully loaded.
 					App.lockOrientation('portrait');
 					setTimeout(function(){
-                        StatusBar.show();
-                        StatusBar.styleDefault();
-                        StatusBar.backgroundColorByHexString("#FFFFFF");
-						$('#splash').fadeOut(300, function () {
+						setTimeout(() => {
+							StatusBar.show();
+							StatusBar.styleDefault();
+							StatusBar.backgroundColorByHexString("#FFFFFF");
 							$(window).orientationchange();
-							$(this).remove();
 							$(document.body).removeClass('loading');
 							$.mobile.defaultPageTransition = 'slide';
-						});
-					}, 3000);
+						}, 300);
+						$('#splash').fadeOut(300, () => $(this).remove());
+					}, 2000);
 					window.user = {};
 					window.authto = '';
 					window.authed = false;

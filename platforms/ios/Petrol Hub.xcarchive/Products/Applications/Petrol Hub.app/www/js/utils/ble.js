@@ -123,8 +123,41 @@ function bleLCRNewOrder(amount, callback) {
 	);
 }
 
+function bleLCRResume(amount, callback) {
+    bleCallbacks.push(callback);
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToByteBuffer('resume_delivery||' + amount), 
+		(data) => { console.log('BLE Write Success', data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
 
+function bleLCRPause(amount, callback) {
+    bleCallbacks.push(callback);
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToByteBuffer('pause_delivery||' + amount), 
+		(data) => { console.log('BLE Write Success', data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
 
+function bleLCRStop(amount, callback) {
+    bleCallbacks.push(callback);
+	ble.write(
+		window.ble_device, 
+		App.bleServUUID, 
+		App.bleCharUUID, 
+		stringToByteBuffer('stop_delivery||' + amount), 
+		(data) => { console.log('BLE Write Success', data); }, 
+		(data) => { console.log('BLE Write Fail', data); }
+	);
+}
 
 function bleNotify(callback, fail) {
 	if ( ! fail) fail = console.log;
