@@ -8,6 +8,7 @@
  */
 
 var OrderController = function () {
+	
 	var
 	
 		/**
@@ -30,6 +31,7 @@ var OrderController = function () {
 			if (window.dialogOrder) {
 				$cache.page = jQuery('#page-order[data-role="dialog"]');
 			}
+			$cache.routeIndex = false;
 			$cache.flow = 'off';
 			$cache.title = $cache.page.find('h1.title');
 			$cache.orderTable = $cache.page.find('.o-table');
@@ -118,6 +120,7 @@ var OrderController = function () {
 				$cache.flow = 'on';
 				bleLCRNewOrder(50, () => {
 					$cache.startFuel.text('Pause Flow');
+					$cache.endFuel.show();
 				});
 				setTimeout(bleLCRResume(() => {
 					
@@ -173,7 +176,8 @@ var OrderController = function () {
 			var 
 				order, total,
 				routeId = ( ! window.dialogOrder) ? window.routeOrder[window.routeIndex] : window.dialogOrder,
-				curRoute = window.routeStops.filter(function(route){
+				curRoute = window.routeStops.filter(function(route, index){
+					if (route.id === routeId) $cache.routeIndex = index;
 					return route.id === routeId;
 				});
 				
@@ -188,19 +192,10 @@ var OrderController = function () {
 				if ($cache.curRoute.type === 'delivery') {
 					order = $cache.curRoute.record.order;
 					total = numberFormat((order.fuel.price_per_gallon * order.amount_deliver).toFixed(2));
-//					setTimeout(function(){
-//						navigator.notification.confirm('Begin automatic delivery?', (status) => {
-//							if (status) {
-//								bleLCRNewOrder(order.amount_deliver, (status) => {
-//									console.log(status)
-//								})
-//							}
-//						})
-//					}, 2000)
 					$cache.orderTableHeaders.find('.col-4 + .col-4').show();
 					$cache.orderTableValues.html(`<div class="row">
 						<div class="col-2">${order.fuel.name}</div>
-						<div class="col-4">${order.amount_deliver} gal</div>
+						<div class="col-4"><span class="amount_delivered">${order.amount_delivered}</span>/${order.amount_deliver} gal</div>
 						<div class="col-4">$${total}</div>
 					</div>`);
 					$cache.addNote.show();

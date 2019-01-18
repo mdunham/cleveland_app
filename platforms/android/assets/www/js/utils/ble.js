@@ -129,7 +129,7 @@ function bleLCRResume(callback) {
 		window.ble_device, 
 		App.bleServUUID, 
 		App.bleCharUUID, 
-		stringToByteBuffer('resume_delivery||' + amount), 
+		stringToByteBuffer('resume_delivery||'), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);
@@ -140,8 +140,8 @@ function bleLCRPause(callback) {
 	ble.write(
 		window.ble_device, 
 		App.bleServUUID, 
-		App.bleCharUUID, 
-		stringToByteBuffer('pause_delivery||' + amount), 
+		App.bleCharUUID,
+		stringToByteBuffer('pause_delivery||'), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);
@@ -153,7 +153,7 @@ function bleLCRStop(callback) {
 		window.ble_device, 
 		App.bleServUUID, 
 		App.bleCharUUID, 
-		stringToByteBuffer('stop_delivery||' + amount), 
+		stringToByteBuffer('stop_delivery||'), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);
