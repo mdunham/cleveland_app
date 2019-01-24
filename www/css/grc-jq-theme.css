@@ -8,6 +8,7 @@
 * http://jquery.org/license
 *
 */
+
 /* Globals */
 @font-face {
     font-family: 'Roboto';
@@ -2220,4 +2221,16 @@ a.t-link {
 	border: none;
 	font-size: 15px!important;
 	margin-top: 0px;
+}
+div#debug {
+    position: fixed;
+    z-index: 100000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    min-height: 50px;
+    background: rgba(255,255,255,0.4);
+    pointer-events: none;
+    color: #000;
 }

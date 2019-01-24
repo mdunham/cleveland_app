@@ -69,10 +69,21 @@ function findDaemon(callback) {
 function connectTo(device_id, success, fail) {
 	window.ble_device = device_id;
 	ble.connect(device_id, (info) => { console.log('success ble connect ---->', info); success(info); bleNotify(bleResponse); }, fail);
+	ble.once('rssiUpdate', bleRSSI);
+}
+
+function bleRSSI(rssi) {
+	if ($('#debug').length) {
+		$('#debug').text('RSSI: ' + rssi);
+	}
 }
 
 function disconnect(device_id, success, fail) {
 	ble.disconnect(device_id, success, fail);
+}
+
+function bleRSSI(callback) {
+	ble.updateRssi();
 }
 
 function bleLCRStatus(callback) {
@@ -129,7 +140,7 @@ function bleLCRResume(callback) {
 		window.ble_device, 
 		App.bleServUUID, 
 		App.bleCharUUID, 
-		stringToByteBuffer('resume_delivery||' + amount), 
+		stringToByteBuffer('resume_delivery||'), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);
@@ -140,8 +151,8 @@ function bleLCRPause(callback) {
 	ble.write(
 		window.ble_device, 
 		App.bleServUUID, 
-		App.bleCharUUID, 
-		stringToByteBuffer('pause_delivery||' + amount), 
+		App.bleCharUUID,
+		stringToByteBuffer('pause_delivery||'), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);
@@ -153,7 +164,7 @@ function bleLCRStop(callback) {
 		window.ble_device, 
 		App.bleServUUID, 
 		App.bleCharUUID, 
-		stringToByteBuffer('stop_delivery||' + amount), 
+		stringToByteBuffer('stop_delivery||'), 
 		(data) => { console.log('BLE Write Success', data); }, 
 		(data) => { console.log('BLE Write Fail', data); }
 	);

@@ -114,6 +114,9 @@
 					if (event.type === 'deviceready') {
 						deviceReadyDeferred.resolve();
 						setupPush();
+						if (window.location.href.indexOf('127.0.0.1') !== -1) {
+							$('<div id="debug"></div>').prependTo('body');
+						}
 						setupBackgroundMode();
 						$(document).on('pagecontainershow', EventHandler);
 						$(document).on('beforeshow', EventHandler);
