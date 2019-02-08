@@ -130,7 +130,7 @@ function bleLCRNewOrder(amount, callback) {
 		App.bleCharUUID, 
 		stringToByteBuffer('new_delivery||' + amount), 
 		(data) => { console.log('BLE Write Success', data); }, 
-		(data) => { console.log('BLE Write Fail', data); }
+		(data) => { console.log('BLE Write Fail', data); alert('Unable to communicate with LCR'); }
 	);
 }
 

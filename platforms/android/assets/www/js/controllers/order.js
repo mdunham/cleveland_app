@@ -68,12 +68,13 @@ var OrderController = function () {
 					$('li[data-id="' + routeId + '"]').addClass('complete');
 				}
 			}
-			window.routeIndex++;
-			if (window.routeIndex >= window.routeStops.length) {
-				navigator.notification.alert('There are no more deliveries.');
-				$.mobile.navigate('#page-route-list');
-				return;
-			}
+			
+			Api.post(App.Settings.apiUrl + '/routes/paid/' + $cache.curRoute.id + '.json', {
+				user_id: window.currentUser.id,
+				truck_id: window.currentTruck.id
+			}, function(res){
+				console.log(res);
+			});
 			
 			var date = new Date().toLocaleString(), html = printStyles + $cache.page.find('.ui-content').html() + `<div class="dates">Date of Delivery: ${date}<br>Delivered By: ${window.currentUser.full_name}<br><br><hr>To get more information about your order or to request another delivery call Cleveland Petroleum <strong>1-800-345-5533</strong></div>`;
 			
@@ -81,6 +82,13 @@ var OrderController = function () {
 				App.print(html, 'receipt-' + $cache.curRoute.record.order.id + '-' + $cache.curRoute.record.order.customer.name.replace(',', '').replace(' ', ''));
 			} else {
 				App.print(html, 'receipt-' + $cache.curRoute.tank.id + '-' + $cache.curRoute.tank.name);
+			}
+			
+			window.routeIndex++;
+			if (window.routeIndex >= window.routeStops.length) {
+				navigator.notification.alert('There are no more deliveries.');
+				$.mobile.navigate('#page-route-list');
+				return;
 			}
 			
 			$.mobile.navigate('#page-route');
@@ -117,24 +125,20 @@ var OrderController = function () {
 		 */
 		startFuel = function() {
 			if ($cache.flow === 'off') {
-				$cache.flow = 'on';
 				bleLCRNewOrder(50, () => {
+					$cache.flow = 'on';
 					$cache.startFuel.text('Pause Flow');
 					$cache.endFuel.show();
 				});
-				setTimeout(bleLCRResume(() => {
-					
-				}), 300);
-				$cache.endFuel.show();
 			} else if ($cache.flow === 'on') {
-				$cache.flow = 'paused';
 				bleLCRPause(() => {
 					$cache.startFuel.text('Resume Flow');
+					$cache.flow = 'paused';
 				});
 			} else if ($cache.flow === 'paused') {
-				$cache.flow = 'on';
 				bleLCRResume(() => {
 					$cache.startFuel.text('Resume Flow');
+					$cache.flow = 'on';
 				});
 			}
 		},
